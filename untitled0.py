@@ -17,18 +17,16 @@ df = pd.read_csv('export_team.csv')
 df1=df.copy()
 print(df.info())
 
-df['Name EN'] = df['Name EN'].replace(np.nan, "MEP")
-print(df.isnull().sum())
 
 df.drop('Created', axis = 1, inplace=True)
 df.drop('Updated', axis = 1, inplace=True)
 df.drop('ID', axis = 1, inplace=True)
-df.drop('Name FR', axis = 1, inplace=True)
-df.drop('Name EN', axis = 1, inplace=True)
+
+
 df.drop('Action', axis = 1, inplace=True)
 df.drop('Intro FR', axis = 1, inplace=True)
 df.drop('Intro EN', axis = 1, inplace=True)
-df.drop('Families', axis = 1, inplace=True)
+
 df.drop('Stats Hashtags', axis = 1, inplace=True)
 
 print(df.columns.to_list())
@@ -41,11 +39,54 @@ print(df.columns.to_list())
 # plt.subplot(211)
 # #df["Stats Question"].value_counts(normalize=True).plot(kind='pie')
 
+# G = nx.from_pandas_edgelist(df, source="Parents", target="Stats Person")
+# nx.draw(G, with_labels = True)
+# plt.figure(figsize = (200,200))
+
+#LIEN ENTRE TAG ET SES PARENTS FAMILLES
+#RECUPERER LE NOM
+#TRI SUR DF PAR FAMILLE
+#CLUSTER DE FAMILLE(5) VERS CLUSTER DE PARENTS
+#PAS DE LIEN SI PAS DE LA MEME FAMILLE
+
+#https://codesandbox.io  https://graphcommons.com https://graphcommons.github.io/api-v1/#get-graphs-id-paths
 
 
-G = nx.from_pandas_edgelist(df, source="Parents", target="Stats Person")
-nx.draw(G, with_labels = True)
-plt.figure(figsize = (200,200))
+from sklearn.cluster import KMeans
+from sklearn.datasets import make_blobs
+from sklearn.preprocessing import LabelEncoder
+from sklearn import preprocessing
+
+labelEncod = LabelEncoder()
+encode_families = labelEncod.fit_transform(df['Families'])
+df['Code Fam']=encode_families.tolist()
+
+encode_name = labelEncod.fit_transform(df['Name FR'])
+df['Code Name']=encode_name.tolist()
+
+print(df.columns.to_list())
+df2=df.copy()
+
+
+df, true_labels = make_blobs(n_samples=500, centers=10, random_state=6)
+points = pd.DataFrame(df, columns=["Families", "Name FR"])
+points.plot.scatter("Families", "Name FR")
+
+kmeans = KMeans(n_clusters=10).fit(points)
+cluster_centers = pd.DataFrame(kmeans.cluster_centers_, columns=["Families", "Name Fr"])
+cluster_centers
+points.plot.scatter("Families", "Name FR", c=kmeans.labels_,figsize=(9,8), colormap="Dark2", title="Clustering par famille", xlabel='Famille',
+                ylabel='Name')
+
+
+
+
+
+
+
+
+
+
 
 
 
