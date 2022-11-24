@@ -13,6 +13,7 @@ import seaborn as sns
 import numpy as np
 import networkx as nx 
 
+
 df = pd.read_csv('export_team.csv')
 df1=df.copy()
 print(df.info())
@@ -39,17 +40,17 @@ print(df.columns.to_list())
 # plt.subplot(211)
 # #df["Stats Question"].value_counts(normalize=True).plot(kind='pie')
 
-# G = nx.from_pandas_edgelist(df, source="Parents", target="Stats Person")
-# nx.draw(G, with_labels = True)
-# plt.figure(figsize = (200,200))
-
 #LIEN ENTRE TAG ET SES PARENTS FAMILLES
 #RECUPERER LE NOM
 #TRI SUR DF PAR FAMILLE
 #CLUSTER DE FAMILLE(5) VERS CLUSTER DE PARENTS
 #PAS DE LIEN SI PAS DE LA MEME FAMILLE
 
-#https://codesandbox.io  https://graphcommons.com https://graphcommons.github.io/api-v1/#get-graphs-id-paths
+# #https://codesandbox.io  https://graphcommons.com https://graphcommons.github.io/api-v1/#get-graphs-id-paths
+# G = nx.from_pandas_edgelist(df, source="Parents", target="Tag")
+# nx.draw(G, with_labels = True)
+# plt.figure(figsize = (400,400))
+
 
 
 from sklearn.cluster import KMeans
@@ -60,13 +61,13 @@ from sklearn import preprocessing
 labelEncod = LabelEncoder()
 encode_families = labelEncod.fit_transform(df['Families'])
 df['Code Fam']=encode_families.tolist()
-
 encode_name = labelEncod.fit_transform(df['Name FR'])
 df['Code Name']=encode_name.tolist()
 
+df["Code Fam"].value_counts(normalize=True).plot(kind='pie')
+
 print(df.columns.to_list())
 df2=df.copy()
-
 
 df, true_labels = make_blobs(n_samples=500, centers=10, random_state=6)
 points = pd.DataFrame(df, columns=["Families", "Name FR"])
@@ -74,11 +75,10 @@ points.plot.scatter("Families", "Name FR")
 
 kmeans = KMeans(n_clusters=10).fit(points)
 cluster_centers = pd.DataFrame(kmeans.cluster_centers_, columns=["Families", "Name Fr"])
-cluster_centers
-points.plot.scatter("Families", "Name FR", c=kmeans.labels_,figsize=(9,8), colormap="Dark2", title="Clustering par famille", xlabel='Famille',
+print(cluster_centers)
+points.plot.scatter("Families", "Name FR", c=kmeans.labels_,figsize=(15,15), colormap="Dark2", title="Clustering par famille", xlabel='Famille',
                 ylabel='Name')
-
-
+  
 
 
 
