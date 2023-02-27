@@ -1,0 +1,34 @@
+const fs = require('fs')
+var Document = fs.readFileSync('df_team.csv').toString().split('\r\n')
+
+var SeparatorColumn
+var SeparatorValues
+
+var Columns = Document[0]
+var Json = []
+
+
+SeparatorColumn = ','
+SeparatorValues = '#'
+
+ Columns = Columns.split(SeparatorColumn)
+
+ for (var i = 0; i < Document.length; i++) {
+    var Data = {}
+    var Element = Document[i].toString().replace(/\"/g,'').split(SeparatorColumn)
+    for (var j = 0; j < Element.length; j++) {
+       var Length = (Element[j].split(SeparatorValues)).length
+       if (Length > 1) {
+         Data[Columns[j]] = Element[j].split(SeparatorValues)
+       } else {
+         Data[Columns[j]] = Element[j]
+       }
+    }
+    Json.push(Data)
+  }
+
+Data = JSON.stringify(Json)
+
+fs.writeFileSync('data1.json', Data, function (err) {
+  if (err) throw err
+})
