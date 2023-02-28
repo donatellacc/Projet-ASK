@@ -1,5 +1,5 @@
 const fs = require('fs')
-var Document = fs.readFileSync('df_team.csv').toString().split('\r\n')
+var Document = fs.readFileSync('export_team.csv').toString().split('\r\n')
 
 var SeparatorColumn
 var SeparatorValues
@@ -32,3 +32,30 @@ Data = JSON.stringify(Json)
 fs.writeFileSync('data1.json', Data, function (err) {
   if (err) throw err
 })
+
+console.log(Json[0])
+console.log(Json[1])
+const result = []; //ceci est un Array
+Json.map((element_dans_objet) => {
+    // ELement c'est ca     // {     //        ID: "Id_du_tag",    //        NameFR:"NomFR_du_tag",    //        NameEN:"NomFR_du_tag",    //        Familles: []    //        parents: [    //            "#Parent1",    //            "#Parent2",    //            ...        ]    //    },     
+    result.push({
+        id: element_dans_objet["ID"],
+        name: element_dans_objet["Name FR"],
+        parent: element_dans_objet['Parents']    })
+    // fin du tour de boucle 
+  })
+
+result.splice(0,1)
+console.log(result[0])
+
+
+var links = [];
+
+result.forEach(function(d){
+  if(d.parent){
+    links.push({source: d.name,
+                target: d.parent});
+    }});
+
+console.log(links[45])
+
