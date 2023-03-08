@@ -1,0 +1,5118 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<svg width="500" height="400"></svg>
+
+<h1 align="center">Deuxième Dataviz avec D3.js</h1>
+
+
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<script>
+var baseNodes =[
+  {
+    "id": "ID",
+    "label": "Name FR"
+  },
+  {
+    "id": "5d77c9c2c138b10015197407",
+    "label": "Application web progressive"
+  },
+  {
+    "id": "5e7904bfa2596f0015d42fd4",
+    "label": "Board member"
+  },
+  {
+    "id": "5e790165a2596f0015d42fd2",
+    "label": "Rôles"
+  },
+  {
+    "id": "5e7a0568a2596f0015d43050",
+    "label": "Amazon"
+  },
+  {
+    "id": "5e7a0565a2596f0015d4304f",
+    "label": "Sogeti"
+  },
+  {
+    "id": "5e7904bfa2596f0015d42fd5",
+    "label": "Full-time"
+  },
+  {
+    "id": "5e7904bfa2596f0015d42fd7",
+    "label": "Cofondateur"
+  },
+  {
+    "id": "5e7a0561a2596f0015d4304e",
+    "label": "Match Com"
+  },
+  {
+    "id": "5e7904bfa2596f0015d42fd6",
+    "label": "Stagiaire"
+  },
+  {
+    "id": "5e79059ca2596f0015d42fd9",
+    "label": "Groupe ADP"
+  },
+  {
+    "id": "5e7a051fa2596f0015d4304c",
+    "label": "Full dev"
+  },
+  {
+    "id": "5f1e95d9cb960400156dad8b",
+    "label": "Gamification"
+  },
+  {
+    "id": "5f1e9604cb960400156dad8c",
+    "label": "Ubisoft"
+  },
+  {
+    "id": "5f1e960dcb960400156dad8d",
+    "label": "Asobo Studio"
+  },
+  {
+    "id": "60af8b881f381600322628ac",
+    "label": "Actionnaire"
+  },
+  {
+    "id": "60af8d701f381600322628ae",
+    "label": "Prestataire"
+  },
+  {
+    "id": "60af8e5a1f381600322628b0",
+    "label": "Apporteur d'affaires"
+  },
+  {
+    "id": "60b102fdc91669002e154f68",
+    "label": "Investisseur"
+  },
+  {
+    "id": "60b7532bb8e42a002e5320b7",
+    "label": "Cannaux de ventes"
+  },
+  {
+    "id": "60b7536ab8e42a002e5320b8",
+    "label": "Aveva"
+  },
+  {
+    "id": "60b7597cb8e42a002e5320df",
+    "label": "Avocat"
+  },
+  {
+    "id": "60b759adb8e42a002e5320e8",
+    "label": "CEO"
+  },
+  {
+    "id": "6117b956356cfc002e6ff187",
+    "label": "Brand & Marketing"
+  },
+  {
+    "id": "6117c0fe356cfc002e6ff19c",
+    "label": "Équipe"
+  },
+  {
+    "id": "611e2a0f356cfc002e6ff615",
+    "label": "Rotarex"
+  },
+  {
+    "id": "611e2a25356cfc002e6ff617",
+    "label": "Vestas"
+  },
+  {
+    "id": "611e2a2f356cfc002e6ff619",
+    "label": "Air Products"
+  },
+  {
+    "id": "611e2a33356cfc002e6ff61b",
+    "label": "Arquus"
+  },
+  {
+    "id": "611e2a3a356cfc002e6ff61d",
+    "label": "Soframe"
+  },
+  {
+    "id": "6135e6fe502488002e20d162",
+    "label": "Tech"
+  },
+  {
+    "id": "613607d7502488002e20db25",
+    "label": "Ask for the moon"
+  },
+  {
+    "id": "613a271d1bd6bd002ea4c3e0",
+    "label": "Microsoft Azure"
+  },
+  {
+    "id": "613a27321bd6bd002ea4c409",
+    "label": "Leroy Merlin"
+  },
+  {
+    "id": "613a27381bd6bd002ea4c432",
+    "label": "Adéo"
+  },
+  {
+    "id": "613f57f3989047003203fe08",
+    "label": "Alumni"
+  },
+  {
+    "id": "6148b508323b31002e84e37a",
+    "label": "Filtrage collaboratif"
+  },
+  {
+    "id": "6148b53f323b31002e84e46c",
+    "label": "Data Set"
+  },
+  {
+    "id": "6151ddc2d95e7b002e1bd993",
+    "label": "Psa Peugeot Citroen"
+  },
+  {
+    "id": "6151ddc7d95e7b002e1bd9bb",
+    "label": "Stellantis"
+  },
+  {
+    "id": "6151ddecd95e7b002e1bd9e9",
+    "label": "CGI"
+  },
+  {
+    "id": "6151de14d95e7b002e1bda25",
+    "label": "Figma"
+  },
+  {
+    "id": "615a33c83b0844002fe3d67f",
+    "label": "DAF"
+  },
+  {
+    "id": "615a33d03b0844002fe3d6a4",
+    "label": "Mentor"
+  },
+  {
+    "id": "615a34a53b0844002fe3d8c7",
+    "label": "IBM"
+  },
+  {
+    "id": "615a34ba3b0844002fe3d918",
+    "label": "Equinix"
+  },
+  {
+    "id": "615a34db3b0844002fe3d976",
+    "label": "Digital Reality"
+  },
+  {
+    "id": "615a34e83b0844002fe3d99e",
+    "label": "Vertiv"
+  },
+  {
+    "id": "615a34f63b0844002fe3d9c6",
+    "label": "Rittal"
+  },
+  {
+    "id": "615a35043b0844002fe3d9f7",
+    "label": "Daher"
+  },
+  {
+    "id": "615ef0a43b0844002fe507e2",
+    "label": "Visual Studio Code"
+  },
+  {
+    "id": "615ef0e23b0844002fe507f0",
+    "label": "Windows"
+  },
+  {
+    "id": "61698cbf604a9e002ed6e2e1",
+    "label": "Comptabilité"
+  },
+  {
+    "id": "6171807c41ee3e002e8e98fe",
+    "label": "Facturation"
+  },
+  {
+    "id": "61c2fe31361a3f00333c23cc",
+    "label": "Notification"
+  },
+  {
+    "id": "61c30046361a3f00333c2a40",
+    "label": "Ontologie"
+  },
+  {
+    "id": "61f7db0de129df002f2acee8",
+    "label": "Agenda"
+  },
+  {
+    "id": "61f7ffbce129df002f2b10bc",
+    "label": "CTO"
+  },
+  {
+    "id": "61f90eb4e129df002f2d1018",
+    "label": "Marketing Manager"
+  },
+  {
+    "id": "61f94b08e129df002f2dc6f4",
+    "label": "Outils"
+  },
+  {
+    "id": "61fba543e129df002f343222",
+    "label": "Notion"
+  },
+  {
+    "id": "6203f11de129df002f4a7a9d",
+    "label": "Déploiement"
+  },
+  {
+    "id": "6204df6de129df002f4d0868",
+    "label": "Supply chain"
+  },
+  {
+    "id": "6204dfc5e129df002f4d0a26",
+    "label": "Opérations"
+  },
+  {
+    "id": "620516d5e129df002f4dbda4",
+    "label": "Dashboard"
+  },
+  {
+    "id": "620516e3e129df002f4dbea5",
+    "label": "Framatome"
+  },
+  {
+    "id": "6206c0af29f134002fcbe55b",
+    "label": "IA"
+  },
+  {
+    "id": "6206dbe1be09f310a84915ea",
+    "label": "Administratif"
+  },
+  {
+    "id": "6206dc15be09f310a8493560",
+    "label": "Piano"
+  },
+  {
+    "id": "6206dc32be09f310a849472a",
+    "label": "Arabe"
+  },
+  {
+    "id": "6206dcacbe09f310a849912c",
+    "label": "Autonomie"
+  },
+  {
+    "id": "6206dcd9be09f310a849abf0",
+    "label": "Dessiner"
+  },
+  {
+    "id": "6206dd19be09f310a849d199",
+    "label": "Intelligence Collective"
+  },
+  {
+    "id": "6206dd44be09f310a849e9f8",
+    "label": "Rédaction"
+  },
+  {
+    "id": "6206de2abe09f310a84a59a3",
+    "label": "Tennis"
+  },
+  {
+    "id": "6206de4ebe09f310a84a6ecb",
+    "label": "Bière"
+  },
+  {
+    "id": "6206de81be09f310a84a8b65",
+    "label": "Écoute"
+  },
+  {
+    "id": "6206debfbe09f310a84aadf2",
+    "label": "Allemand"
+  },
+  {
+    "id": "6206decebe09f310a84ab6d2",
+    "label": "Football"
+  },
+  {
+    "id": "6206dedfbe09f310a84ac0e9",
+    "label": "Cuisine"
+  },
+  {
+    "id": "6206defabe09f310a84acf4e",
+    "label": "Voyages"
+  },
+  {
+    "id": "6206df1bbe09f310a84ae06a",
+    "label": "Espagnol"
+  },
+  {
+    "id": "6206df3dbe09f310a84af393",
+    "label": "Anglais"
+  },
+  {
+    "id": "6206dfa3be09f310a84b2fbd",
+    "label": "Parler en public"
+  },
+  {
+    "id": "6206dfc5be09f310a84b42c7",
+    "label": "Photoshop"
+  },
+  {
+    "id": "6206dfd8be09f310a84b4deb",
+    "label": "Prospection commerciale"
+  },
+  {
+    "id": "6206dffebe09f310a84b6378",
+    "label": "Design"
+  },
+  {
+    "id": "6206e02dbe09f310a84b7cbd",
+    "label": "Excel"
+  },
+  {
+    "id": "6206e0e4be09f310a84bdd23",
+    "label": "Gestion d'équipe"
+  },
+  {
+    "id": "6206e1babe09f310a84c3d50",
+    "label": "Business Development"
+  },
+  {
+    "id": "6206e1d8be09f310a84c497e",
+    "label": "Curiosité"
+  },
+  {
+    "id": "6206e267be09f310a84c8e14",
+    "label": "Communication"
+  },
+  {
+    "id": "6206e364be09f310a84ced07",
+    "label": "Cinéma"
+  },
+  {
+    "id": "6206e380be09f310a84cfa8c",
+    "label": "Événementiel"
+  },
+  {
+    "id": "6206e3bebe09f310a84d1873",
+    "label": "Montage Vidéo"
+  },
+  {
+    "id": "6206e452be09f310a84d5a37",
+    "label": "Budgets"
+  },
+  {
+    "id": "6206e478be09f310a84d6d85",
+    "label": "Sport"
+  },
+  {
+    "id": "6206e490be09f310a84d7948",
+    "label": "Organisation"
+  },
+  {
+    "id": "6206e4f8be09f310a84da6ad",
+    "label": "Portugais"
+  },
+  {
+    "id": "6206e55dbe09f310a84dd665",
+    "label": "Jeux Vidéo"
+  },
+  {
+    "id": "6206e592be09f310a84df0c8",
+    "label": "HTML CSS"
+  },
+  {
+    "id": "6206e5a0be09f310a84df8da",
+    "label": "Badminton"
+  },
+  {
+    "id": "6206e5d4be09f310a84e1409",
+    "label": "Ingéniosité"
+  },
+  {
+    "id": "6206e607be09f310a84e28b3",
+    "label": "Volleyball"
+  },
+  {
+    "id": "6206e60cbe09f310a84e2b29",
+    "label": "Mentorat"
+  },
+  {
+    "id": "6206e625be09f310a84e3797",
+    "label": "Adaptabilité"
+  },
+  {
+    "id": "6206e6e8be09f310a84e8f99",
+    "label": "Jeux De Stratégie"
+  },
+  {
+    "id": "6206e70bbe09f310a84ea0d5",
+    "label": "Javascript"
+  },
+  {
+    "id": "6206e763be09f310a84ece2c",
+    "label": "Relations Presse"
+  },
+  {
+    "id": "6206e866be09f310a84f3453",
+    "label": "Sociologie"
+  },
+  {
+    "id": "6206e8a9be09f310a84f5363",
+    "label": "Web Design"
+  },
+  {
+    "id": "6206e8f5be09f310a84f73ff",
+    "label": "Français"
+  },
+  {
+    "id": "6206e93fbe09f310a84f98f3",
+    "label": "PowerPoint"
+  },
+  {
+    "id": "6206e974be09f310a84fb342",
+    "label": "Google Docs"
+  },
+  {
+    "id": "6206ea4cbe09f310a8502794",
+    "label": "Gestion de projet"
+  },
+  {
+    "id": "6206eabebe09f310a8506488",
+    "label": "Analyse De Data"
+  },
+  {
+    "id": "6206ead1be09f310a8506e55",
+    "label": "Méthodes Agiles"
+  },
+  {
+    "id": "6206eb0abe09f310a8508c18",
+    "label": "Web Marketing"
+  },
+  {
+    "id": "6206eb16be09f310a8509202",
+    "label": "Content Marketing"
+  },
+  {
+    "id": "6206eb4cbe09f310a850ad42",
+    "label": "Email Marketing"
+  },
+  {
+    "id": "6206eb74be09f310a850c071",
+    "label": "Rugby"
+  },
+  {
+    "id": "6206eb7bbe09f310a850c3cf",
+    "label": "Stratégie"
+  },
+  {
+    "id": "6206eb83be09f310a850c73f",
+    "label": "Python"
+  },
+  {
+    "id": "6206eb9dbe09f310a850d56d",
+    "label": "Design Produit"
+  },
+  {
+    "id": "6206eba5be09f310a850d97e",
+    "label": "Java"
+  },
+  {
+    "id": "6206ebbcbe09f310a850e534",
+    "label": "Compétences"
+  },
+  {
+    "id": "6206eeb7be09f310a8531cf1",
+    "label": "Cinéma Engagé"
+  },
+  {
+    "id": "6206eef3be09f310a85338f7",
+    "label": "Course À Pied"
+  },
+  {
+    "id": "6206f005be09f310a85399d0",
+    "label": "Marketing de réseau"
+  },
+  {
+    "id": "6206f0fdbe09f310a8541921",
+    "label": "Entreprise Libérée"
+  },
+  {
+    "id": "6206f104be09f310a8541c68",
+    "label": "Musique"
+  },
+  {
+    "id": "6206f10ebe09f310a854210d",
+    "label": "Astronomie"
+  },
+  {
+    "id": "6206f155be09f310a8544220",
+    "label": "Freelance"
+  },
+  {
+    "id": "6206f15bbe09f310a85444d4",
+    "label": "Gestion des contrats"
+  },
+  {
+    "id": "6206f1bcbe09f310a8547546",
+    "label": "Organisation Agile"
+  },
+  {
+    "id": "6206f239be09f310a854b2db",
+    "label": "Psychologie"
+  },
+  {
+    "id": "6206f248be09f310a854b857",
+    "label": "OAuth"
+  },
+  {
+    "id": "6206f253be09f310a854bd07",
+    "label": "Réinventer Les Organisations"
+  },
+  {
+    "id": "6206f26cbe09f310a854c7f8",
+    "label": "Data Centres"
+  },
+  {
+    "id": "6206f274be09f310a854cbf5",
+    "label": "NodeJs"
+  },
+  {
+    "id": "6206f30cbe09f310a8551412",
+    "label": "Esprit d'équipe"
+  },
+  {
+    "id": "6206f320be09f310a8551dbd",
+    "label": "Transformation Numérique"
+  },
+  {
+    "id": "6206f339be09f310a85528e6",
+    "label": "Stratégies commerciales"
+  },
+  {
+    "id": "6206f34abe09f310a855322a",
+    "label": "ReactJs"
+  },
+  {
+    "id": "6206f360be09f310a8553c8d",
+    "label": "Management du Changement"
+  },
+  {
+    "id": "6206f379be09f310a855480b",
+    "label": "Marketing Digital"
+  },
+  {
+    "id": "6206f383be09f310a8554cd4",
+    "label": "Design Thinking"
+  },
+  {
+    "id": "6206f3ccbe09f310a8557155",
+    "label": "Logistique"
+  },
+  {
+    "id": "6206f414be09f310a8559cd3",
+    "label": "Support Technique"
+  },
+  {
+    "id": "6206f508be09f310a85640b4",
+    "label": "Loisirs"
+  },
+  {
+    "id": "62070731be09f310a85caa56",
+    "label": "Logiciels"
+  },
+  {
+    "id": "620714cabe09f310a86095be",
+    "label": "Pays"
+  },
+  {
+    "id": "6207150fbe09f310a860ce1c",
+    "label": "Langages Informatique"
+  },
+  {
+    "id": "620715d7be09f310a861414e",
+    "label": "IT"
+  },
+  {
+    "id": "62071a7ebe09f310a862b6bb",
+    "label": "Achats"
+  },
+  {
+    "id": "62071b90be09f310a8631587",
+    "label": "Business Intelligence"
+  },
+  {
+    "id": "62073985be09f310a8675bf9",
+    "label": "Vente"
+  },
+  {
+    "id": "62073d26be09f310a867d647",
+    "label": "Top Management"
+  },
+  {
+    "id": "62074af8be09f310a869e207",
+    "label": "SQL"
+  },
+  {
+    "id": "62074d5abe09f310a86a8de3",
+    "label": "Marque employeur"
+  },
+  {
+    "id": "62074e16be09f310a86ac182",
+    "label": "Développement logiciels"
+  },
+  {
+    "id": "62074eadbe09f310a86aec8c",
+    "label": "Publicité"
+  },
+  {
+    "id": "6207506dbe09f310a86b605d",
+    "label": "Gourmand·e"
+  },
+  {
+    "id": "62075083be09f310a86b675f",
+    "label": "Observation critique"
+  },
+  {
+    "id": "620750f2be09f310a86b82a0",
+    "label": "Etudes de marché"
+  },
+  {
+    "id": "620751fdbe09f310a86bbac0",
+    "label": "Automation Marketing"
+  },
+  {
+    "id": "620752fabe09f310a86c0fd5",
+    "label": "Caché"
+  },
+  {
+    "id": "62076101be09f310a86e284e",
+    "label": "Direction RH"
+  },
+  {
+    "id": "620771a1be09f310a8733486",
+    "label": "Transport"
+  },
+  {
+    "id": "620771aabe09f310a8733817",
+    "label": "Design de Service"
+  },
+  {
+    "id": "620771aebe09f310a87338e0",
+    "label": "Avant-Vente"
+  },
+  {
+    "id": "620771d5be09f310a873425e",
+    "label": "Run (IT)"
+  },
+  {
+    "id": "620771d6be09f310a873429a",
+    "label": "Livraison (IT)"
+  },
+  {
+    "id": "620771debe09f310a87344ec",
+    "label": "Consommation grand public"
+  },
+  {
+    "id": "620771e9be09f310a8734983",
+    "label": "Conception des process"
+  },
+  {
+    "id": "6207720cbe09f310a87350f3",
+    "label": "Build (IT)"
+  },
+  {
+    "id": "62077210be09f310a87351c1",
+    "label": "Devops"
+  },
+  {
+    "id": "62077236be09f310a8735c00",
+    "label": "Divertissement and Médias"
+  },
+  {
+    "id": "62077254be09f310a873657b",
+    "label": "Transport ferroviaire"
+  },
+  {
+    "id": "62077256be09f310a8736658",
+    "label": "Orange S.A."
+  },
+  {
+    "id": "62077259be09f310a8736702",
+    "label": "Société Générale"
+  },
+  {
+    "id": "62077265be09f310a8736abb",
+    "label": "La Poste"
+  },
+  {
+    "id": "62077266be09f310a8736b42",
+    "label": "Électricité de France"
+  },
+  {
+    "id": "62077288be09f310a87373bd",
+    "label": "Renault"
+  },
+  {
+    "id": "6207728cbe09f310a87374af",
+    "label": "Groupe BPCE"
+  },
+  {
+    "id": "6207729bbe09f310a8737908",
+    "label": "Auchan"
+  },
+  {
+    "id": "620772a5be09f310a8737bbc",
+    "label": "Danone"
+  },
+  {
+    "id": "620772a6be09f310a8737beb",
+    "label": "AXA"
+  },
+  {
+    "id": "620772a9be09f310a8737cf6",
+    "label": "Crédit Agricole"
+  },
+  {
+    "id": "620772c2be09f310a87383e6",
+    "label": "Peugeot"
+  },
+  {
+    "id": "620772c2be09f310a8738415",
+    "label": "Veolia"
+  },
+  {
+    "id": "620772c5be09f310a87384b6",
+    "label": "Christian Dior"
+  },
+  {
+    "id": "620772c6be09f310a87384e5",
+    "label": "Schneider Electric"
+  },
+  {
+    "id": "620772d7be09f310a87389ab",
+    "label": "BNP Paribas"
+  },
+  {
+    "id": "620772dbbe09f310a8738ae6",
+    "label": "Engie"
+  },
+  {
+    "id": "620772dfbe09f310a8738be7",
+    "label": "Air Liquide"
+  },
+  {
+    "id": "620772e1be09f310a8738c87",
+    "label": "Global Switch"
+  },
+  {
+    "id": "620772e4be09f310a8738d64",
+    "label": "Plongée"
+  },
+  {
+    "id": "620772fbbe09f310a873912c",
+    "label": "Marque"
+  },
+  {
+    "id": "6207741fbe09f310a873b182",
+    "label": "Coach"
+  },
+  {
+    "id": "620a53160e56b7002f78444a",
+    "label": "Google Sheet"
+  },
+  {
+    "id": "620b82ec0e56b7002f7ec85e",
+    "label": "Mode"
+  },
+  {
+    "id": "620bd7e10e56b7002f80e919",
+    "label": "Institutions"
+  },
+  {
+    "id": "620d19636bc195002fad39d2",
+    "label": "Utilisation"
+  },
+  {
+    "id": "620fc10ba85b54002f99f968",
+    "label": "Vinci"
+  },
+  {
+    "id": "620fc118a85b54002f99fa1a",
+    "label": "Alstom"
+  },
+  {
+    "id": "620fc124a85b54002f99facc",
+    "label": "Keolis"
+  },
+  {
+    "id": "620fc12ea85b54002f99fc1a",
+    "label": "CEC"
+  },
+  {
+    "id": "620fc13ba85b54002f99fccf",
+    "label": "RATP"
+  },
+  {
+    "id": "620fc153a85b54002f99fdac",
+    "label": "Total S. A."
+  },
+  {
+    "id": "620fc157a85b54002f99fe5a",
+    "label": "SNCF"
+  },
+  {
+    "id": "620fc170a85b54002f9a004c",
+    "label": "LaPoste"
+  },
+  {
+    "id": "620fc178a85b54002f9a00fb",
+    "label": "Michelin"
+  },
+  {
+    "id": "620fc180a85b54002f9a01aa",
+    "label": "Carrefour"
+  },
+  {
+    "id": "620fc199a85b54002f9a03cd",
+    "label": "Sanofi"
+  },
+  {
+    "id": "620fc1a4a85b54002f9a0491",
+    "label": "L'Oréal"
+  },
+  {
+    "id": "620fc1b9a85b54002f9a0576",
+    "label": "Credit Agricole"
+  },
+  {
+    "id": "620fc1c3a85b54002f9a0634",
+    "label": "Air France"
+  },
+  {
+    "id": "620fc1e2a85b54002f9a07aa",
+    "label": "Saint Gobain"
+  },
+  {
+    "id": "620fc1f7a85b54002f9a0a03",
+    "label": "Bouygues"
+  },
+  {
+    "id": "620fc21ba85b54002f9a0cd8",
+    "label": "Ericsson"
+  },
+  {
+    "id": "620fc252a85b54002f9a0f9d",
+    "label": "Eiffage"
+  },
+  {
+    "id": "620fc25da85b54002f9a104b",
+    "label": "Benetton"
+  },
+  {
+    "id": "621357cfa85b54002fac037e",
+    "label": "Hubspot"
+  },
+  {
+    "id": "621f459090411b002f28ad99",
+    "label": "Amélioration continue"
+  },
+  {
+    "id": "6230ad544f19cf002e702e8e",
+    "label": "I-Expo "
+  },
+  {
+    "id": "623ae4c081e89d002ed1ccab",
+    "label": "Github"
+  },
+  {
+    "id": "623ae4d181e89d002ed1cd03",
+    "label": "Pull Request"
+  },
+  {
+    "id": "623ae4d581e89d002ed1cd42",
+    "label": "Revue de code"
+  },
+  {
+    "id": "6244771668d5a40032a9aa81",
+    "label": "Intégration mail"
+  },
+  {
+    "id": "624c5070ed6522002ea8b4fd",
+    "label": "Droits d'accès"
+  },
+  {
+    "id": "624c9e7eed6522002ea8d641",
+    "label": "Airbus"
+  },
+  {
+    "id": "624c9e83ed6522002ea8d6a5",
+    "label": "Thales"
+  },
+  {
+    "id": "624c9e89ed6522002ea8d709",
+    "label": "Safran"
+  },
+  {
+    "id": "624c9e99ed6522002ea8d76d",
+    "label": "Nexter"
+  },
+  {
+    "id": "624c9eb1ed6522002ea8d834",
+    "label": "Ministère des armées "
+  },
+  {
+    "id": "624c9ebded6522002ea8d8a9",
+    "label": "Ministère de l’intérieur "
+  },
+  {
+    "id": "624c9ec8ed6522002ea8d914",
+    "label": "Navalgroup"
+  },
+  {
+    "id": "624c9edced6522002ea8d99f",
+    "label": "Quarkslab"
+  },
+  {
+    "id": "624c9ef4ed6522002ea8da41",
+    "label": "Airbus helicopters"
+  },
+  {
+    "id": "624c9efeed6522002ea8dacb",
+    "label": "Airbus Defence"
+  },
+  {
+    "id": "624c9f19ed6522002ea8db40",
+    "label": "Thales Avionics "
+  },
+  {
+    "id": "624c9f3ded6522002ea8dbfc",
+    "label": "LIEBHERR "
+  },
+  {
+    "id": "624c9f78ed6522002ea8dce0",
+    "label": "Renaud trucks defense"
+  },
+  {
+    "id": "624c9f9fed6522002ea8dd5b",
+    "label": "LVMH"
+  },
+  {
+    "id": "624c9fdeed6522002ea8de36",
+    "label": "Accenture"
+  },
+  {
+    "id": "624c9ff2ed6522002ea8deb0",
+    "label": "Cap gemini"
+  },
+  {
+    "id": "624c9ffeed6522002ea8df16",
+    "label": "Dassault"
+  },
+  {
+    "id": "624ca021ed6522002ea8e06e",
+    "label": "Essilor"
+  },
+  {
+    "id": "624ca071ed6522002ea8e16c",
+    "label": "STmicroelectronics"
+  },
+  {
+    "id": "624d3c1fba6056002e0f9ae8",
+    "label": "SOGECLAIR "
+  },
+  {
+    "id": "624d3c25ba6056002e0f9b66",
+    "label": "Ariane Group"
+  },
+  {
+    "id": "624d3c32ba6056002e0f9bea",
+    "label": "PROMETHEE"
+  },
+  {
+    "id": "624d3c3fba6056002e0f9c9b",
+    "label": "Thales Alenia Space "
+  },
+  {
+    "id": "624d3c66ba6056002e0f9d8c",
+    "label": "MBDA"
+  },
+  {
+    "id": "624d3c78ba6056002e0f9e55",
+    "label": "TARMAC AEROSAVE "
+  },
+  {
+    "id": "624d3c7cba6056002e0f9ed4",
+    "label": "Ouvry"
+  },
+  {
+    "id": "624d3c9cba6056002e0f9fdf",
+    "label": "AEROSPACE VALLEY"
+  },
+  {
+    "id": "624d3cabba6056002e0fa067",
+    "label": "OUVRY"
+  },
+  {
+    "id": "624d3cb9ba6056002e0fa116",
+    "label": "VERNEY CARON"
+  },
+  {
+    "id": "624d3ccdba6056002e0fa19f",
+    "label": "AIRSEAS"
+  },
+  {
+    "id": "624d3cd6ba6056002e0fa22c",
+    "label": "APSYS"
+  },
+  {
+    "id": "624d3cdeba6056002e0fa2c1",
+    "label": "ARQUUS"
+  },
+  {
+    "id": "624d3cebba6056002e0fa33e",
+    "label": "CEA"
+  },
+  {
+    "id": "624d3cf9ba6056002e0fa3c7",
+    "label": "Cluster E CLIDE"
+  },
+  {
+    "id": "624d3d00ba6056002e0fa440",
+    "label": "DAHER"
+  },
+  {
+    "id": "624d3d18ba6056002e0fa4dc",
+    "label": "GICAT"
+  },
+  {
+    "id": "624d3d26ba6056002e0fa581",
+    "label": "HELISIM"
+  },
+  {
+    "id": "624d3d4eba6056002e0fa6fc",
+    "label": "CEGELEC DEFENSE"
+  },
+  {
+    "id": "624d3db4ba6056002e0fa7d9",
+    "label": "PIERRE FABRE"
+  },
+  {
+    "id": "624d3dc1ba6056002e0fa84f",
+    "label": "BOEING"
+  },
+  {
+    "id": "624d3dcbba6056002e0fa8e2",
+    "label": "ROLLS ROYCE"
+  },
+  {
+    "id": "624d3ddaba6056002e0fa94f",
+    "label": "SPHEREA"
+  },
+  {
+    "id": "624d3df7ba6056002e0faa39",
+    "label": "COLLINS AEROSPACE"
+  },
+  {
+    "id": "624d3e03ba6056002e0faab8",
+    "label": "AKKA"
+  },
+  {
+    "id": "624d3e0bba6056002e0fab48",
+    "label": "Rotcshild "
+  },
+  {
+    "id": "624d3e1fba6056002e0fac0d",
+    "label": "Bouygues Construction"
+  },
+  {
+    "id": "624d3e2cba6056002e0fac8a",
+    "label": "CNES"
+  },
+  {
+    "id": "624dbb80ba6056002e10b18d",
+    "label": "NLP"
+  },
+  {
+    "id": "624dc7e9ba6056002e10bf6d",
+    "label": "Pitch Commercial"
+  },
+  {
+    "id": "6250042c9ed52f002eb515c7",
+    "label": "Dovetail"
+  },
+  {
+    "id": "62557831dc3179002e56e7b8",
+    "label": "Sûreté nucléaire"
+  },
+  {
+    "id": "6255783cdc3179002e56e7eb",
+    "label": "Confidentialité"
+  },
+  {
+    "id": "62557c1adc3179002e56ee5c",
+    "label": "Active directory"
+  },
+  {
+    "id": "62557c1fdc3179002e56ee99",
+    "label": "SIRH"
+  },
+  {
+    "id": "62557c26dc3179002e56eecf",
+    "label": "DSI"
+  },
+  {
+    "id": "6255cac6dc3179002e575157",
+    "label": "Répondre aux objections"
+  },
+  {
+    "id": "6257ea94dc3179002e5896e5",
+    "label": "Charte graphique"
+  },
+  {
+    "id": "62592902dc3179002e59640c",
+    "label": "SMR"
+  },
+  {
+    "id": "625e7b2fadb857002e818193",
+    "label": "Sécurité"
+  },
+  {
+    "id": "625e8c7fadb857002e8196f0",
+    "label": "Cybersécurité"
+  },
+  {
+    "id": "625ed97cadb857002e81fc84",
+    "label": "Knowledge Lifecycle"
+  },
+  {
+    "id": "62611a6d9ec2d6002e077c8f",
+    "label": "LogRocket"
+  },
+  {
+    "id": "626120e19ec2d6002e078e7b",
+    "label": "Model"
+  },
+  {
+    "id": "6261aeef9ec2d6002e09b365",
+    "label": "Upsell"
+  },
+  {
+    "id": "6261b0d59ec2d6002e09bca8",
+    "label": "Customer success"
+  },
+  {
+    "id": "62624b7e9ec2d6002e0c17e6",
+    "label": "Site vitrine"
+  },
+  {
+    "id": "626ff7c1a9d87c002e604379",
+    "label": "Filtre"
+  },
+  {
+    "id": "626ff804a9d87c002e60476c",
+    "label": "Superadmin"
+  },
+  {
+    "id": "627137f0a9d87c002e654f25",
+    "label": "Navigateur"
+  },
+  {
+    "id": "62713808a9d87c002e65508b",
+    "label": "Chrome"
+  },
+  {
+    "id": "6271380ca9d87c002e6550ce",
+    "label": "Firefox"
+  },
+  {
+    "id": "62713918a9d87c002e655cd9",
+    "label": "Safari"
+  },
+  {
+    "id": "62714b9ba9d87c002e6ab995",
+    "label": "Fonctionnalité"
+  },
+  {
+    "id": "627248f3a9d87c002ebb87da",
+    "label": "Question vidéo"
+  },
+  {
+    "id": "62729ccc61dc4e002fdaaaf8",
+    "label": "Zoulou"
+  },
+  {
+    "id": "62729cde61dc4e002fdaab64",
+    "label": "Langues"
+  },
+  {
+    "id": "6278ea12eb2287002f0a0e01",
+    "label": "Roadmap"
+  },
+  {
+    "id": "6278ebaeeb2287002f0a1808",
+    "label": "Experts"
+  },
+  {
+    "id": "6278ed48eb2287002f0a2003",
+    "label": "Formation"
+  },
+  {
+    "id": "62790f49eb2287002f0ad44c",
+    "label": "Catalyseurs"
+  },
+  {
+    "id": "627bcd08eb2287002f141ed8",
+    "label": "Extra"
+  },
+  {
+    "id": "627bd0a5eb2287002f142cb4",
+    "label": "Entreprises"
+  },
+  {
+    "id": "627cfefb73dfbc0033feeff3",
+    "label": "Global Industrie"
+  },
+  {
+    "id": "627d1dcd73dfbc00330037b9",
+    "label": "Knowledge Management"
+  },
+  {
+    "id": "627d1de573dfbc0033003874",
+    "label": "Secteur de l'Energie"
+  },
+  {
+    "id": "627d1ded73dfbc00330038fc",
+    "label": "Geosciences"
+  },
+  {
+    "id": "627d1dfc73dfbc00330039bc",
+    "label": "Content Management"
+  },
+  {
+    "id": "627d1e6673dfbc0033003dc4",
+    "label": "TotalEnergies"
+  },
+  {
+    "id": "627d1e9f73dfbc0033004417",
+    "label": "Societe du grand paris"
+  },
+  {
+    "id": "627d1eab73dfbc00330044b9",
+    "label": "Storengy"
+  },
+  {
+    "id": "627d1ec173dfbc0033004559",
+    "label": "Terega"
+  },
+  {
+    "id": "627d1ede73dfbc0033004712",
+    "label": "SLN Eramet"
+  },
+  {
+    "id": "627d1ef473dfbc00330047ac",
+    "label": "Imerys"
+  },
+  {
+    "id": "627d1f0c73dfbc0033004861",
+    "label": "Orano"
+  },
+  {
+    "id": "627d1f1773dfbc003300492d",
+    "label": "Vermilion"
+  },
+  {
+    "id": "627d1f4d73dfbc0033004c19",
+    "label": "Surf"
+  },
+  {
+    "id": "627d1fe473dfbc0033004feb",
+    "label": "Géologie"
+  },
+  {
+    "id": "6282b0cc73dfbc0033134487",
+    "label": "CRM"
+  },
+  {
+    "id": "628ba40d73dfbc00332fd47a",
+    "label": "EDF"
+  },
+  {
+    "id": "628ce86973dfbc0033336d3d",
+    "label": "Intégration Teams"
+  },
+  {
+    "id": "628ce86e73dfbc0033336d85",
+    "label": "Teams"
+  },
+  {
+    "id": "628e27ae73dfbc0033380bde",
+    "label": "Validation"
+  },
+  {
+    "id": "628e2cfa73dfbc0033383560",
+    "label": "Slack"
+  },
+  {
+    "id": "628e2d0873dfbc0033383624",
+    "label": "Intégration Slack"
+  },
+  {
+    "id": "629dd56790856c00370c693b",
+    "label": "Russe"
+  },
+  {
+    "id": "629f465290856c003712651e",
+    "label": "UX design"
+  },
+  {
+    "id": "629f46c490856c00371267f8",
+    "label": "ACOVA"
+  },
+  {
+    "id": "62a0bed390856c003718aada",
+    "label": "Communication interne"
+  },
+  {
+    "id": "62a7065ba10f7b003761c495",
+    "label": "Jauge de pertinence"
+  },
+  {
+    "id": "62a743efa10f7b003762ab10",
+    "label": "Question posée par mail"
+  },
+  {
+    "id": "62a76626a10f7b0037639ba9",
+    "label": "Image"
+  },
+  {
+    "id": "62a8b37edc411100379f0e01",
+    "label": "Microsoft Store"
+  },
+  {
+    "id": "62a8b39fdc411100379f0fac",
+    "label": "Microsoft Partner Center"
+  },
+  {
+    "id": "62aae9dbc02c8f0037aafadf",
+    "label": "Jeux de role"
+  },
+  {
+    "id": "62b1c8cba75b3d0037a9015f",
+    "label": "Zapier"
+  },
+  {
+    "id": "62b2d86ca75b3d0037ac5284",
+    "label": "Welcome to the Jungle"
+  },
+  {
+    "id": "62b9c961ad511d0037ad6598",
+    "label": "Golf"
+  },
+  {
+    "id": "62bc4797ab0ea800374f7ed0",
+    "label": "Conception Pédagogique"
+  },
+  {
+    "id": "62bc47b7ab0ea800374f8027",
+    "label": "TikTok"
+  },
+  {
+    "id": "62bc4842ab0ea800374f9318",
+    "label": "Théorie des organisations"
+  },
+  {
+    "id": "62c2d48dab0ea8003755cd73",
+    "label": "Ingénieur projet"
+  },
+  {
+    "id": "62c2d563ab0ea8003755d6a2",
+    "label": "Planche à voile"
+  },
+  {
+    "id": "62c2d566ab0ea8003755d71a",
+    "label": "Santé"
+  },
+  {
+    "id": "62c2d577ab0ea8003755d75c",
+    "label": "Guitare"
+  },
+  {
+    "id": "62c2d5efab0ea8003755db48",
+    "label": "Ski"
+  },
+  {
+    "id": "62c2d7b2ab0ea8003755ea81",
+    "label": "Horaires"
+  },
+  {
+    "id": "62c2d7c7ab0ea8003755eb1c",
+    "label": "Relation client"
+  },
+  {
+    "id": "62c46ba0ab0ea80037577a83",
+    "label": "MQL"
+  },
+  {
+    "id": "62cfc17f669fad003714b449",
+    "label": "Prototypes Figma"
+  },
+  {
+    "id": "62cfc1e0669fad003714b5a2",
+    "label": "Interfaces"
+  },
+  {
+    "id": "62cfc20b669fad003714b6cb",
+    "label": "Évolutions UX Design"
+  },
+  {
+    "id": "62d6dd52669fad003735228f",
+    "label": "Stonly"
+  },
+  {
+    "id": "62d6ddf3669fad003735988f",
+    "label": "SendinBlue"
+  },
+  {
+    "id": "62d7bd4f669fad0037395c0c",
+    "label": "POC/V"
+  },
+  {
+    "id": "62d7cc57669fad003739f9c7",
+    "label": "Ecrire"
+  },
+  {
+    "id": "62dabbb3d586eb00375a3788",
+    "label": "Compliance"
+  },
+  {
+    "id": "62e05491d586eb003771c619",
+    "label": "Entreprise apprenante"
+  },
+  {
+    "id": "62e10385d586eb003774d09b",
+    "label": "Qualité"
+  },
+  {
+    "id": "62e1120cd586eb0037750f2b",
+    "label": "Lancement"
+  },
+  {
+    "id": "62e160392b1b05003797b0f5",
+    "label": "RIB"
+  },
+  {
+    "id": "62e79dd80182200037b6b53c",
+    "label": "Algorithmes"
+  },
+  {
+    "id": "62ea48470182200037c2fbf1",
+    "label": "Cegelec CEM"
+  },
+  {
+    "id": "62f113320de9ad0037534ede",
+    "label": "Ordinateur"
+  },
+  {
+    "id": "62f126060de9ad00375363ba",
+    "label": "Charte éditoriale"
+  },
+  {
+    "id": "62f20f170de9ad0037576b20",
+    "label": "Astrologie"
+  },
+  {
+    "id": "62f3d3f0e04b41004a6694de",
+    "label": "Navigation"
+  },
+  {
+    "id": "62f5f6c2366965004a1b0a68",
+    "label": "Mail"
+  },
+  {
+    "id": "62fd1bcfef1b24004e435c67",
+    "label": "Levée de fonds"
+  },
+  {
+    "id": "62fd1cadef1b24004e436041",
+    "label": "Appel à manifestation d'intérêt"
+  },
+  {
+    "id": "62fd1cb8ef1b24004e4360bc",
+    "label": "Concours Start-up"
+  },
+  {
+    "id": "6306289c1a2b1f004ae7d52f",
+    "label": "Couleurs"
+  },
+  {
+    "id": "63072fbf907055004a3d3193",
+    "label": "Recherche Utilisateur"
+  },
+  {
+    "id": "6318bc5dc48f490048271e3e",
+    "label": "CSV"
+  },
+  {
+    "id": "631a0a715cd13b004ac4c446",
+    "label": "FAQ Clients"
+  },
+  {
+    "id": "631a16685cd13b004ac51583",
+    "label": "Reversibilité"
+  },
+  {
+    "id": "631a16775cd13b004ac5164d",
+    "label": "Export"
+  },
+  {
+    "id": "631a178e5cd13b004ac52e26",
+    "label": "Intégration"
+  },
+  {
+    "id": "631a18ab5cd13b004ac54746",
+    "label": "Onboarding"
+  },
+  {
+    "id": "631ee75e4430900042cb6796",
+    "label": "Networking"
+  },
+  {
+    "id": "631eeff54430900042cb9376",
+    "label": "Statistiques"
+  },
+  {
+    "id": "6321ae570fcc98004a59ab36",
+    "label": "Discours de Clément"
+  },
+  {
+    "id": "6321ef390fcc98004a5be703",
+    "label": "MobX"
+  },
+  {
+    "id": "632326a019b8f900482e7543",
+    "label": "REX"
+  },
+  {
+    "id": "632326bd19b8f900482e75b2",
+    "label": "Beaudrey"
+  },
+  {
+    "id": "63232d6a19b8f900482fe6f4",
+    "label": "Déplacements"
+  },
+  {
+    "id": "63297f19a3511900467d6715",
+    "label": "Google Slide"
+  },
+  {
+    "id": "632c6de28db1a1004440af12",
+    "label": "Offre de prix"
+  },
+  {
+    "id": "632c6dee8db1a1004440b03f",
+    "label": "Cas d'usage"
+  },
+  {
+    "id": "632c6e008db1a1004440b168",
+    "label": "Industrialisation"
+  },
+  {
+    "id": "632c6e3e8db1a1004440b4be",
+    "label": "Suivi commercial"
+  },
+  {
+    "id": "632c6e5f8db1a1004440b824",
+    "label": "Management de compte"
+  },
+  {
+    "id": "632c6e658db1a1004440b977",
+    "label": "Acquisition"
+  },
+  {
+    "id": "632c6e6b8db1a1004440bad6",
+    "label": "Prospect"
+  },
+  {
+    "id": "632c6e798db1a1004440bc79",
+    "label": "Opportunity"
+  },
+  {
+    "id": "632c6e838db1a1004440bdd8",
+    "label": "Closing"
+  },
+  {
+    "id": "632c6e8d8db1a1004440bf36",
+    "label": "Client"
+  },
+  {
+    "id": "632c6e938db1a1004440c061",
+    "label": "Démo"
+  },
+  {
+    "id": "632c6eae8db1a1004440c2eb",
+    "label": "LinkedIn"
+  },
+  {
+    "id": "632c6eb78db1a1004440c454",
+    "label": "Sales Navigator"
+  },
+  {
+    "id": "632c6ee98db1a1004440c607",
+    "label": "Rendez-vous"
+  },
+  {
+    "id": "632c6f378db1a1004440cd9e",
+    "label": "Négociation"
+  },
+  {
+    "id": "6331b89925bd46004a678393",
+    "label": "mongoDB"
+  },
+  {
+    "id": "6331d01625bd46004a67f5b5",
+    "label": "Tunnel de vente"
+  },
+  {
+    "id": "6332b945f7d3b7004a9edcc9",
+    "label": "RaiseLab"
+  },
+  {
+    "id": "6335519637d3ad0046359496",
+    "label": "Pricing"
+  },
+  {
+    "id": "633551a737d3ad0046359577",
+    "label": "CGV"
+  },
+  {
+    "id": "633570f537d3ad004635eb6a",
+    "label": "Carrefours Excellences"
+  },
+  {
+    "id": "633adfab1e4eab0044eab653",
+    "label": "Gestion de crise"
+  },
+  {
+    "id": "633adfc71e4eab0044eab78b",
+    "label": "Chroniques"
+  },
+  {
+    "id": "633adfdb1e4eab0044eab83c",
+    "label": "Speaker"
+  },
+  {
+    "id": "633adfe51e4eab0044eab89a",
+    "label": "Administratrice"
+  },
+  {
+    "id": "633adffe1e4eab0044eab972",
+    "label": "Auteur"
+  },
+  {
+    "id": "633ae08b1e4eab0044eabe2d",
+    "label": "Peinture"
+  },
+  {
+    "id": "633ae4c21e4eab0044eac402",
+    "label": "Points critiques"
+  },
+  {
+    "id": "633ae54f1e4eab0044eaffd5",
+    "label": "Trésorerie"
+  },
+  {
+    "id": "633ae7b31e4eab0044eb98e8",
+    "label": "OKR"
+  },
+  {
+    "id": "633ae9311e4eab0044eba8e7",
+    "label": "Utilisateurs"
+  },
+  {
+    "id": "633aebd71e4eab0044ebc957",
+    "label": "Scale"
+  },
+  {
+    "id": "633aec631e4eab0044ebce42",
+    "label": "ROI"
+  },
+  {
+    "id": "633aecc81e4eab0044ebd2a3",
+    "label": "Guides"
+  },
+  {
+    "id": "633aed531e4eab0044ebd959",
+    "label": "Reconnaissance"
+  },
+  {
+    "id": "633aedd61e4eab0044ebdc90",
+    "label": "Question"
+  },
+  {
+    "id": "633b08b81e4eab0044ec1403",
+    "label": "Ressources Humaines"
+  },
+  {
+    "id": "633c5d531e4eab0044f463d3",
+    "label": "Processus d'harmonisation"
+  },
+  {
+    "id": "633c5ded1e4eab0044f46b91",
+    "label": "Vision"
+  },
+  {
+    "id": "633c7bff1e4eab0044f5a56a",
+    "label": "Centre de ressources"
+  },
+  {
+    "id": "633d30261e4eab0044f92cf2",
+    "label": "Git des bonnes pratiques"
+  },
+  {
+    "id": "633d36921e4eab0044fa1111",
+    "label": "Concurrence "
+  },
+  {
+    "id": "633ea2261e4eab0044026a82",
+    "label": "Protection des données"
+  },
+  {
+    "id": "633ee2f81e4eab0044045d35",
+    "label": "SQL"
+  },
+  {
+    "id": "633ee39b1e4eab0044046576",
+    "label": "Unaware"
+  },
+  {
+    "id": "633ee3b11e4eab0044046616",
+    "label": "Problem Aware"
+  },
+  {
+    "id": "633ee3c91e4eab00440466c7",
+    "label": "Solution Aware"
+  },
+  {
+    "id": "633ee3e01e4eab0044046749",
+    "label": "Product Aware"
+  },
+  {
+    "id": "633ee89e1e4eab0044047ce3",
+    "label": "Mapping de compte"
+  },
+  {
+    "id": "633ef2ef1e4eab004404a247",
+    "label": "Champion"
+  },
+  {
+    "id": "633ef2ef1e4eab004404a250",
+    "label": "Pilote"
+  },
+  {
+    "id": "633ef2ef1e4eab004404a261",
+    "label": "Sponsor"
+  },
+  {
+    "id": "633ef2ef1e4eab004404a273",
+    "label": "Support"
+  },
+  {
+    "id": "633ef2ef1e4eab004404a286",
+    "label": "Influenceur"
+  },
+  {
+    "id": "633ef2ef1e4eab004404a297",
+    "label": "Sceptique"
+  },
+  {
+    "id": "633efcbc1e4eab004404d362",
+    "label": "Plateforme"
+  },
+  {
+    "id": "633efd591e4eab004404d431",
+    "label": "Plateforme technique"
+  },
+  {
+    "id": "633efd741e4eab004404d47a",
+    "label": "Plateforme politique"
+  },
+  {
+    "id": "633efdb31e4eab004404d59a",
+    "label": "Plateforme méthodologique"
+  },
+  {
+    "id": "633efde11e4eab004404d5da",
+    "label": "Plateforme communautaire"
+  },
+  {
+    "id": "633f09571e4eab004405bee6",
+    "label": "Livrables"
+  },
+  {
+    "id": "633f09581e4eab004405beef",
+    "label": "Livrables Ops"
+  },
+  {
+    "id": "633f09581e4eab004405bf01",
+    "label": "Livrables Marketing"
+  },
+  {
+    "id": "633f09581e4eab004405bf36",
+    "label": "App admin"
+  },
+  {
+    "id": "633f09581e4eab004405bf6d",
+    "label": "Histoires utilisateurs"
+  },
+  {
+    "id": "633f09581e4eab004405bf7f",
+    "label": "Cas métiers"
+  },
+  {
+    "id": "633f09581e4eab004405bf91",
+    "label": "One-pager"
+  },
+  {
+    "id": "633f09581e4eab004405bfa3",
+    "label": "Microprocess"
+  },
+  {
+    "id": "633f09581e4eab004405bfb5",
+    "label": "Tags"
+  },
+  {
+    "id": "633f09581e4eab004405bfd8",
+    "label": "Liens de Parenté"
+  },
+  {
+    "id": "633f09581e4eab004405bfeb",
+    "label": "Parent"
+  },
+  {
+    "id": "633f09581e4eab004405bffd",
+    "label": "Enfant"
+  },
+  {
+    "id": "633f09581e4eab004405c00f",
+    "label": "Dimensions Ontologiques"
+  },
+  {
+    "id": "633f09581e4eab004405c021",
+    "label": "Familles"
+  },
+  {
+    "id": "633f09581e4eab004405c032",
+    "label": "Famille Royale"
+  },
+  {
+    "id": "633f09581e4eab004405c057",
+    "label": "Activité Métier"
+  },
+  {
+    "id": "633f09581e4eab004405c069",
+    "label": "Étapes d'onboarding"
+  },
+  {
+    "id": "633f09591e4eab004405c0c4",
+    "label": "Ask for the user"
+  },
+  {
+    "id": "633f09591e4eab004405c0d4",
+    "label": "Ask for the mood"
+  },
+  {
+    "id": "633f09591e4eab004405c0e7",
+    "label": "Chemin d'engagement"
+  },
+  {
+    "id": "633f09591e4eab004405c0f9",
+    "label": "Persona Vente"
+  },
+  {
+    "id": "633f09591e4eab004405c10b",
+    "label": "Persona Marketing"
+  },
+  {
+    "id": "633f09591e4eab004405c11d",
+    "label": "Persona Utilisateur"
+  },
+  {
+    "id": "633f09591e4eab004405c12f",
+    "label": "Fiche persona"
+  },
+  {
+    "id": "633f09591e4eab004405c141",
+    "label": "Service blueprint"
+  },
+  {
+    "id": "633f09591e4eab004405c153",
+    "label": "Chemin d'engagement utilisateur"
+  },
+  {
+    "id": "633f09591e4eab004405c165",
+    "label": "Chemin d'engagement catalyseur"
+  },
+  {
+    "id": "633f09591e4eab004405c177",
+    "label": "Sales Funnel"
+  },
+  {
+    "id": "633f09591e4eab004405c189",
+    "label": "Awareness Funnel"
+  },
+  {
+    "id": "633f09591e4eab004405c19a",
+    "label": "Leadership"
+  },
+  {
+    "id": "633f09591e4eab004405c1ad",
+    "label": "Engagement"
+  },
+  {
+    "id": "633f09591e4eab004405c1bf",
+    "label": "Embarquement"
+  },
+  {
+    "id": "633f09591e4eab004405c1d0",
+    "label": "Découverte"
+  },
+  {
+    "id": "633f09591e4eab004405c227",
+    "label": "Power user"
+  },
+  {
+    "id": "633f09591e4eab004405c23d",
+    "label": "Tag Owner"
+  },
+  {
+    "id": "633f095a1e4eab004405c249",
+    "label": "Product Lead Growth"
+  },
+  {
+    "id": "6340361798f11f004a8905b5",
+    "label": "Salons"
+  },
+  {
+    "id": "63455e8f23c1490046e36453",
+    "label": "Rituels et processus"
+  },
+  {
+    "id": "634562a323c1490046e38260",
+    "label": "Design responsif"
+  },
+  {
+    "id": "6345634723c1490046e386ff",
+    "label": "Import / Export"
+  },
+  {
+    "id": "6345713a23c1490046e41252",
+    "label": "Pitch party"
+  },
+  {
+    "id": "6345912d23c1490046e5a916",
+    "label": "Accord de confidentialité"
+  },
+  {
+    "id": "63469a6c23c1490046ec96ec",
+    "label": "Japonnais"
+  },
+  {
+    "id": "6346b4db23c1490046ecc195",
+    "label": "Certificat"
+  },
+  {
+    "id": "6346b4df23c1490046ecc1d3",
+    "label": "SSL"
+  },
+  {
+    "id": "6346b76c23c1490046ece04d",
+    "label": "SalesQL"
+  },
+  {
+    "id": "6346b77c23c1490046ece216",
+    "label": "Suite office"
+  },
+  {
+    "id": "6346b7a423c1490046ece6cc",
+    "label": "Algorithme de tri"
+  },
+  {
+    "id": "6346b7af23c1490046ece7cd",
+    "label": "Word"
+  },
+  {
+    "id": "6346b7ec23c1490046ece9fa",
+    "label": "Autocomplete"
+  },
+  {
+    "id": "6346b80323c1490046eceb2d",
+    "label": "Data Viz"
+  },
+  {
+    "id": "6346b81e23c1490046ececae",
+    "label": "Django"
+  },
+  {
+    "id": "6346b86423c1490046ecef0e",
+    "label": "Segmentation d'images"
+  },
+  {
+    "id": "6346b87923c1490046ecf795",
+    "label": "Ecriture d'article scientifique"
+  },
+  {
+    "id": "6346b88523c1490046ecf9df",
+    "label": "Airbus Atlantic"
+  },
+  {
+    "id": "6346b89723c1490046ecffb7",
+    "label": "GSK"
+  },
+  {
+    "id": "6346b8a223c1490046ed04a3",
+    "label": "Adobe Lightroom"
+  },
+  {
+    "id": "6346b8a623c1490046ed05a8",
+    "label": "Adobe XD"
+  },
+  {
+    "id": "6346b8af23c1490046ed06bd",
+    "label": "Vinci Energies"
+  },
+  {
+    "id": "6346b8b123c1490046ed0750",
+    "label": "PostgreSQL"
+  },
+  {
+    "id": "6346b8be23c1490046ed0c85",
+    "label": "Neo4j"
+  },
+  {
+    "id": "6346b8cf23c1490046ed126b",
+    "label": "QuickDBD"
+  },
+  {
+    "id": "6346b8d523c1490046ed147b",
+    "label": "DjangoRestFramework"
+  },
+  {
+    "id": "6346b8db23c1490046ed1671",
+    "label": "jQuery"
+  },
+  {
+    "id": "6346b8ea23c1490046ed196b",
+    "label": "Bouygues ByTech"
+  },
+  {
+    "id": "6346b8eb23c1490046ed19e0",
+    "label": "Vélo"
+  },
+  {
+    "id": "6346b8f323c1490046ed1ccd",
+    "label": "MAO"
+  },
+  {
+    "id": "6346b91923c1490046ed2577",
+    "label": "Réseau DEF"
+  },
+  {
+    "id": "6346b96323c1490046ed2d08",
+    "label": "Spie Industrie"
+  },
+  {
+    "id": "6346b98923c1490046ed3468",
+    "label": "Eiffage Energie Systèmes"
+  },
+  {
+    "id": "6346b9aa23c1490046ed3c16",
+    "label": "Manpower Group"
+  },
+  {
+    "id": "6346b9b623c1490046ed3e8b",
+    "label": "CDC Habitats"
+  },
+  {
+    "id": "6346b9dc23c1490046ed44c3",
+    "label": "Thales Aviobook"
+  },
+  {
+    "id": "6346b9f923c1490046ed48e8",
+    "label": "SNCF Réseau"
+  },
+  {
+    "id": "6346ba1223c1490046ed4d5e",
+    "label": "SNCF DGEX"
+  },
+  {
+    "id": "6346ba4523c1490046ed518b",
+    "label": "Spie Nucléaire"
+  },
+  {
+    "id": "6346ba5423c1490046ed533d",
+    "label": "TotalEnergies OneTech"
+  },
+  {
+    "id": "6346ba6a23c1490046ed54d7",
+    "label": "SNCF Sferis"
+  },
+  {
+    "id": "6346ba7f23c1490046ed56f8",
+    "label": "AFNOR"
+  },
+  {
+    "id": "6346bab523c1490046ed5bfd",
+    "label": "Automotive Cells Company (ACC)"
+  },
+  {
+    "id": "6346bacf23c1490046ed5d87",
+    "label": "Latécoère"
+  },
+  {
+    "id": "6346bad323c1490046ed5e63",
+    "label": "Boccard"
+  },
+  {
+    "id": "6346baf123c1490046ed60ab",
+    "label": "General Electric Aviation"
+  },
+  {
+    "id": "6346bb4323c1490046ed66f5",
+    "label": "Yoga"
+  },
+  {
+    "id": "6348359b3534dc0043f39343",
+    "label": "Formule Excel"
+  },
+  {
+    "id": "634914c23534dc0043f9ef15",
+    "label": "Alternant"
+  },
+  {
+    "id": "634d13a53534dc0043109d5c",
+    "label": "MEP"
+  },
+  {
+    "id": "634d23e33534dc00431105da",
+    "label": "Management"
+  },
+  {
+    "id": "634d4a333534dc00431263f1",
+    "label": "Katie Leede Inc "
+  },
+  {
+    "id": "634e9ae03534dc00431ba2b8",
+    "label": "Keen"
+  },
+  {
+    "id": "63592f022a397e004a1f3eb4",
+    "label": "Marque blanche"
+  },
+  {}
+]
+
+var baseLinks = [
+  {
+    "target": "Tech ",
+    "source": "5d77c9c2c138b10015197407",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "5e7904bfa2596f0015d42fd4",
+    "strength": 0.7
+  },
+  {
+    "target": "Hidden",
+    "source": "5e790165a2596f0015d42fd2",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "5e7a0568a2596f0015d43050",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "5e7a0565a2596f0015d4304f",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "5e7904bfa2596f0015d42fd5",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "5e7904bfa2596f0015d42fd7",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "5e7a0561a2596f0015d4304e",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "5e7904bfa2596f0015d42fd6",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "5e79059ca2596f0015d42fd9",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "5e7a051fa2596f0015d4304c",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing ",
+    "source": "5f1e95d9cb960400156dad8b",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "5f1e9604cb960400156dad8c",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "5f1e960dcb960400156dad8d",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "60af8b881f381600322628ac",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "60af8d701f381600322628ae",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "60af8e5a1f381600322628b0",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "60b102fdc91669002e154f68",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "60b7532bb8e42a002e5320b7",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "60b7536ab8e42a002e5320b8",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "60b7597cb8e42a002e5320df",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "60b759adb8e42a002e5320e8",
+    "strength": 0.7
+  },
+  {
+    "target": "Hidden",
+    "source": "6117c0fe356cfc002e6ff19c",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "611e2a0f356cfc002e6ff615",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "611e2a25356cfc002e6ff617",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "611e2a2f356cfc002e6ff619",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "611e2a33356cfc002e6ff61b",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "611e2a3a356cfc002e6ff61d",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "613607d7502488002e20db25",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "613a271d1bd6bd002ea4c3e0",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "613a27321bd6bd002ea4c409",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "613a27381bd6bd002ea4c432",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "613f57f3989047003203fe08",
+    "strength": 0.7
+  },
+  {
+    "target": "Ia",
+    "source": "6148b508323b31002e84e37a",
+    "strength": 0.7
+  },
+  {
+    "target": "DataAnalysis",
+    "source": "6148b53f323b31002e84e46c",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "6151ddc2d95e7b002e1bd993",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "6151ddc7d95e7b002e1bd9bb",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "6151ddecd95e7b002e1bd9e9",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "6151de14d95e7b002e1bda25",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "615a33c83b0844002fe3d67f",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "615a33d03b0844002fe3d6a4",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "615a34a53b0844002fe3d8c7",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "615a34ba3b0844002fe3d918",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "615a34db3b0844002fe3d976",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "615a34e83b0844002fe3d99e",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "615a34f63b0844002fe3d9c6",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "615a35043b0844002fe3d9f7",
+    "strength": 0.7
+  },
+  {
+    "target": "SoftwareDevelopment",
+    "source": "615ef0a43b0844002fe507e2",
+    "strength": 0.7
+  },
+  {
+    "target": "IT",
+    "source": "615ef0e23b0844002fe507f0",
+    "strength": 0.7
+  },
+  {
+    "target": "Administrative ",
+    "source": "61698cbf604a9e002ed6e2e1",
+    "strength": 0.7
+  },
+  {
+    "target": "Administrative ",
+    "source": "6171807c41ee3e002e8e98fe",
+    "strength": 0.7
+  },
+  {
+    "target": "Fonctionnalite",
+    "source": "61c2fe31361a3f00333c23cc",
+    "strength": 0.7
+  },
+  {
+    "target": "Deploiement ",
+    "source": "61c30046361a3f00333c2a40",
+    "strength": 0.7
+  },
+  {
+    "target": "Organization",
+    "source": "61f7db0de129df002f2acee8",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "61f7ffbce129df002f2b10bc",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "61f90eb4e129df002f2d1018",
+    "strength": 0.7
+  },
+  {
+    "target": "Hidden",
+    "source": "61f94b08e129df002f2dc6f4",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "61fba543e129df002f343222",
+    "strength": 0.7
+  },
+  {
+    "target": "Operations86854",
+    "source": "6203f11de129df002f4a7a9d",
+    "strength": 0.7
+  },
+  {
+    "target": "Logistic",
+    "source": "6204df6de129df002f4d0868",
+    "strength": 0.7
+  },
+  {
+    "target": "Appadmin ",
+    "source": "620516d5e129df002f4dbda4",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies ",
+    "source": "620516e3e129df002f4dbea5",
+    "strength": 0.7
+  },
+  {
+    "target": "IT ",
+    "source": "6206c0af29f134002fcbe55b",
+    "strength": 0.7
+  },
+  {
+    "target": "Logistic ",
+    "source": "6206dbe1be09f310a84915ea",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "6206dc15be09f310a8493560",
+    "strength": 0.7
+  },
+  {
+    "target": "Langues",
+    "source": "6206dc32be09f310a849472a",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "6206dcacbe09f310a849912c",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "6206dcd9be09f310a849abf0",
+    "strength": 0.7
+  },
+  {
+    "target": "TopManagement",
+    "source": "6206dd19be09f310a849d199",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing ",
+    "source": "6206dd44be09f310a849e9f8",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "6206de2abe09f310a84a59a3",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "6206de4ebe09f310a84a6ecb",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "6206de81be09f310a84a8b65",
+    "strength": 0.7
+  },
+  {
+    "target": "Langues",
+    "source": "6206debfbe09f310a84aadf2",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "6206decebe09f310a84ab6d2",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "6206dedfbe09f310a84ac0e9",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "6206defabe09f310a84acf4e",
+    "strength": 0.7
+  },
+  {
+    "target": "Langues",
+    "source": "6206df1bbe09f310a84ae06a",
+    "strength": 0.7
+  },
+  {
+    "target": "Langues",
+    "source": "6206df3dbe09f310a84af393",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "6206dfa3be09f310a84b2fbd",
+    "strength": 0.7
+  },
+  {
+    "target": "Software",
+    "source": "6206dfc5be09f310a84b42c7",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "6206dfd8be09f310a84b4deb",
+    "strength": 0.7
+  },
+  {
+    "target": "Design ",
+    "source": "6206dffebe09f310a84b6378",
+    "strength": 0.7
+  },
+  {
+    "target": "Excel ",
+    "source": "6206e02dbe09f310a84b7cbd",
+    "strength": 0.7
+  },
+  {
+    "target": "TopManagement",
+    "source": "6206e0e4be09f310a84bdd23",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "6206e1babe09f310a84c3d50",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "6206e1d8be09f310a84c497e",
+    "strength": 0.7
+  },
+  {
+    "target": "Communication ",
+    "source": "6206e267be09f310a84c8e14",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "6206e364be09f310a84ced07",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688 ",
+    "source": "6206e380be09f310a84cfa8c",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "6206e3bebe09f310a84d1873",
+    "strength": 0.7
+  },
+  {
+    "target": "Logistic ",
+    "source": "6206e452be09f310a84d5a37",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "6206e478be09f310a84d6d85",
+    "strength": 0.7
+  },
+  {
+    "target": "Administrative ",
+    "source": "6206e490be09f310a84d7948",
+    "strength": 0.7
+  },
+  {
+    "target": "Langues",
+    "source": "6206e4f8be09f310a84da6ad",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "6206e55dbe09f310a84dd665",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages ",
+    "source": "6206e592be09f310a84df0c8",
+    "strength": 0.7
+  },
+  {
+    "target": "Sport",
+    "source": "6206e5a0be09f310a84df8da",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "6206e5d4be09f310a84e1409",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "6206e607be09f310a84e28b3",
+    "strength": 0.7
+  },
+  {
+    "target": "TopManagement",
+    "source": "6206e60cbe09f310a84e2b29",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "6206e625be09f310a84e3797",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "6206e6e8be09f310a84e8f99",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages ",
+    "source": "6206e70bbe09f310a84ea0d5",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing ",
+    "source": "6206e763be09f310a84ece2c",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "6206e866be09f310a84f3453",
+    "strength": 0.7
+  },
+  {
+    "target": "Design ",
+    "source": "6206e8a9be09f310a84f5363",
+    "strength": 0.7
+  },
+  {
+    "target": "Langues",
+    "source": "6206e8f5be09f310a84f73ff",
+    "strength": 0.7
+  },
+  {
+    "target": "Software ",
+    "source": "6206e93fbe09f310a84f98f3",
+    "strength": 0.7
+  },
+  {
+    "target": "Software",
+    "source": "6206e974be09f310a84fb342",
+    "strength": 0.7
+  },
+  {
+    "target": "BI",
+    "source": "6206eabebe09f310a8506488",
+    "strength": 0.7
+  },
+  {
+    "target": "Management51831",
+    "source": "6206ead1be09f310a8506e55",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "6206eb0abe09f310a8508c18",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "6206eb16be09f310a8509202",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "6206eb4cbe09f310a850ad42",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "6206eb74be09f310a850c071",
+    "strength": 0.7
+  },
+  {
+    "target": "TopManagement ",
+    "source": "6206eb7bbe09f310a850c3cf",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages ",
+    "source": "6206eb83be09f310a850c73f",
+    "strength": 0.7
+  },
+  {
+    "target": "Design ",
+    "source": "6206eb9dbe09f310a850d56d",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages ",
+    "source": "6206eba5be09f310a850d97e",
+    "strength": 0.7
+  },
+  {
+    "target": "Hidden",
+    "source": "6206ebbcbe09f310a850e534",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "6206eeb7be09f310a8531cf1",
+    "strength": 0.7
+  },
+  {
+    "target": "Sport",
+    "source": "6206eef3be09f310a85338f7",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688 ",
+    "source": "6206f005be09f310a85399d0",
+    "strength": 0.7
+  },
+  {
+    "target": "Management51831",
+    "source": "6206f0fdbe09f310a8541921",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "6206f104be09f310a8541c68",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "6206f10ebe09f310a854210d",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "6206f155be09f310a8544220",
+    "strength": 0.7
+  },
+  {
+    "target": "Administrative",
+    "source": "6206f15bbe09f310a85444d4",
+    "strength": 0.7
+  },
+  {
+    "target": "Management51831",
+    "source": "6206f1bcbe09f310a8547546",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "6206f239be09f310a854b2db",
+    "strength": 0.7
+  },
+  {
+    "target": "TechnologicalPlateform",
+    "source": "6206f248be09f310a854b857",
+    "strength": 0.7
+  },
+  {
+    "target": "TopManagement",
+    "source": "6206f253be09f310a854bd07",
+    "strength": 0.7
+  },
+  {
+    "target": "IT",
+    "source": "6206f26cbe09f310a854c7f8",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages ",
+    "source": "6206f274be09f310a854cbf5",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "6206f30cbe09f310a8551412",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "6206f320be09f310a8551dbd",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688 ",
+    "source": "6206f339be09f310a85528e6",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages ",
+    "source": "6206f34abe09f310a855322a",
+    "strength": 0.7
+  },
+  {
+    "target": "TopManagement ",
+    "source": "6206f360be09f310a8553c8d",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "6206f379be09f310a855480b",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "6206f383be09f310a8554cd4",
+    "strength": 0.7
+  },
+  {
+    "target": "Tech",
+    "source": "6206f414be09f310a8559cd3",
+    "strength": 0.7
+  },
+  {
+    "target": "Hidden",
+    "source": "6206f508be09f310a85640b4",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "62070731be09f310a85caa56",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "6207150fbe09f310a860ce1c",
+    "strength": 0.7
+  },
+  {
+    "target": "Tech",
+    "source": "620715d7be09f310a861414e",
+    "strength": 0.7
+  },
+  {
+    "target": "SupplyChain",
+    "source": "62071a7ebe09f310a862b6bb",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills ",
+    "source": "62071b90be09f310a8631587",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "62073d26be09f310a867d647",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages ",
+    "source": "62074af8be09f310a869e207",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "62074d5abe09f310a86a8de3",
+    "strength": 0.7
+  },
+  {
+    "target": "IT",
+    "source": "62074e16be09f310a86ac182",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "62074eadbe09f310a86aec8c",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "6207506dbe09f310a86b605d",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "62075083be09f310a86b675f",
+    "strength": 0.7
+  },
+  {
+    "target": "BI ",
+    "source": "620750f2be09f310a86b82a0",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "620751fdbe09f310a86bbac0",
+    "strength": 0.7
+  },
+  {
+    "target": "Hidden",
+    "source": "620752fabe09f310a86c0fd5",
+    "strength": 0.7
+  },
+  {
+    "target": "RessourcesHumaines",
+    "source": "62076101be09f310a86e284e",
+    "strength": 0.7
+  },
+  {
+    "target": "Organization",
+    "source": "620771a1be09f310a8733486",
+    "strength": 0.7
+  },
+  {
+    "target": "Design ",
+    "source": "620771aabe09f310a8733817",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "620771aebe09f310a87338e0",
+    "strength": 0.7
+  },
+  {
+    "target": "IT ",
+    "source": "620771d5be09f310a873425e",
+    "strength": 0.7
+  },
+  {
+    "target": "IT ",
+    "source": "620771d6be09f310a873429a",
+    "strength": 0.7
+  },
+  {
+    "target": "Operations86854 ",
+    "source": "620771e9be09f310a8734983",
+    "strength": 0.7
+  },
+  {
+    "target": "IT ",
+    "source": "6207720cbe09f310a87350f3",
+    "strength": 0.7
+  },
+  {
+    "target": "IT ",
+    "source": "62077210be09f310a87351c1",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "62077236be09f310a8735c00",
+    "strength": 0.7
+  },
+  {
+    "target": "TransportIndustry ",
+    "source": "62077254be09f310a873657b",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "62077256be09f310a8736658",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "62077259be09f310a8736702",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "62077265be09f310a8736abb",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "62077266be09f310a8736b42",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "62077288be09f310a87373bd",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "6207728cbe09f310a87374af",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "6207729bbe09f310a8737908",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620772a5be09f310a8737bbc",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620772a6be09f310a8737beb",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620772a9be09f310a8737cf6",
+    "strength": 0.7
+  },
+  {
+    "target": "PsaPeugeotCitroen ",
+    "source": "620772c2be09f310a87383e6",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620772c2be09f310a8738415",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620772c5be09f310a87384b6",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620772c6be09f310a87384e5",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620772d7be09f310a87389ab",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620772dbbe09f310a8738ae6",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620772dfbe09f310a8738be7",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620772e1be09f310a8738c87",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "620772e4be09f310a8738d64",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "620772fbbe09f310a873912c",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "6207741fbe09f310a873b182",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "620a53160e56b7002f78444a",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "620b82ec0e56b7002f7ec85e",
+    "strength": 0.7
+  },
+  {
+    "target": "Operations86854",
+    "source": "620d19636bc195002fad39d2",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies ",
+    "source": "620fc10ba85b54002f99f968",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620fc118a85b54002f99fa1a",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620fc124a85b54002f99facc",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620fc12ea85b54002f99fc1a",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620fc13ba85b54002f99fccf",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620fc153a85b54002f99fdac",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620fc157a85b54002f99fe5a",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620fc170a85b54002f9a004c",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620fc178a85b54002f9a00fb",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620fc180a85b54002f9a01aa",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620fc199a85b54002f9a03cd",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620fc1a4a85b54002f9a0491",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620fc1b9a85b54002f9a0576",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620fc1c3a85b54002f9a0634",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620fc1e2a85b54002f9a07aa",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620fc1f7a85b54002f9a0a03",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620fc21ba85b54002f9a0cd8",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620fc252a85b54002f9a0f9d",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "620fc25da85b54002f9a104b",
+    "strength": 0.7
+  },
+  {
+    "target": "WebMarketing ",
+    "source": "621357cfa85b54002fac037e",
+    "strength": 0.7
+  },
+  {
+    "target": "Operations86854",
+    "source": "621f459090411b002f28ad99",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "6230ad544f19cf002e702e8e",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "623ae4c081e89d002ed1ccab",
+    "strength": 0.7
+  },
+  {
+    "target": "SoftwareDevelopment",
+    "source": "623ae4d181e89d002ed1cd03",
+    "strength": 0.7
+  },
+  {
+    "target": "Tech",
+    "source": "623ae4d581e89d002ed1cd42",
+    "strength": 0.7
+  },
+  {
+    "target": "Fonctionnalite ",
+    "source": "6244771668d5a40032a9aa81",
+    "strength": 0.7
+  },
+  {
+    "target": "TechnologicalPlateform ",
+    "source": "624c5070ed6522002ea8b4fd",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624c9e7eed6522002ea8d641",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624c9e83ed6522002ea8d6a5",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624c9e89ed6522002ea8d709",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624c9e99ed6522002ea8d76d",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624c9eb1ed6522002ea8d834",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624c9ebded6522002ea8d8a9",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624c9ec8ed6522002ea8d914",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624c9edced6522002ea8d99f",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies ",
+    "source": "624c9ef4ed6522002ea8da41",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies ",
+    "source": "624c9efeed6522002ea8dacb",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies ",
+    "source": "624c9f19ed6522002ea8db40",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624c9f3ded6522002ea8dbfc",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies ",
+    "source": "624c9f78ed6522002ea8dce0",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624c9f9fed6522002ea8dd5b",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624c9fdeed6522002ea8de36",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624c9ff2ed6522002ea8deb0",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624c9ffeed6522002ea8df16",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624ca021ed6522002ea8e06e",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624ca071ed6522002ea8e16c",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3c1fba6056002e0f9ae8",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3c25ba6056002e0f9b66",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3c32ba6056002e0f9bea",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies ",
+    "source": "624d3c3fba6056002e0f9c9b",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3c66ba6056002e0f9d8c",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3c78ba6056002e0f9e55",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3c7cba6056002e0f9ed4",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3c9cba6056002e0f9fdf",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3cabba6056002e0fa067",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3cb9ba6056002e0fa116",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3ccdba6056002e0fa19f",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3cd6ba6056002e0fa22c",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3cdeba6056002e0fa2c1",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3cebba6056002e0fa33e",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3cf9ba6056002e0fa3c7",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3d00ba6056002e0fa440",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3d18ba6056002e0fa4dc",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3d26ba6056002e0fa581",
+    "strength": 0.7
+  },
+  {
+    "target": "Vinci",
+    "source": "624d3d4eba6056002e0fa6fc",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3db4ba6056002e0fa7d9",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3dc1ba6056002e0fa84f",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3dcbba6056002e0fa8e2",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3ddaba6056002e0fa94f",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3df7ba6056002e0faa39",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3e03ba6056002e0faab8",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3e0bba6056002e0fab48",
+    "strength": 0.7
+  },
+  {
+    "target": "BouyguesByTech ",
+    "source": "624d3e1fba6056002e0fac0d",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "624d3e2cba6056002e0fac8a",
+    "strength": 0.7
+  },
+  {
+    "target": "Ia",
+    "source": "624dbb80ba6056002e10b18d",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688 ",
+    "source": "624dc7e9ba6056002e10bf6d",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "6250042c9ed52f002eb515c7",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "62557831dc3179002e56e7b8",
+    "strength": 0.7
+  },
+  {
+    "target": "Securite ",
+    "source": "6255783cdc3179002e56e7eb",
+    "strength": 0.7
+  },
+  {
+    "target": "Integration",
+    "source": "62557c1adc3179002e56ee5c",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "62557c1fdc3179002e56ee99",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "62557c26dc3179002e56eecf",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "6255cac6dc3179002e575157",
+    "strength": 0.7
+  },
+  {
+    "target": "Communication ",
+    "source": "6257ea94dc3179002e5896e5",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand ",
+    "source": "62592902dc3179002e59640c",
+    "strength": 0.7
+  },
+  {
+    "target": "TechnologicalPlateform",
+    "source": "625e7b2fadb857002e818193",
+    "strength": 0.7
+  },
+  {
+    "target": "Securite",
+    "source": "625e8c7fadb857002e8196f0",
+    "strength": 0.7
+  },
+  {
+    "target": "KnowledgeManagement37459",
+    "source": "625ed97cadb857002e81fc84",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "62611a6d9ec2d6002e077c8f",
+    "strength": 0.7
+  },
+  {
+    "target": "Ia",
+    "source": "626120e19ec2d6002e078e7b",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "6261aeef9ec2d6002e09b365",
+    "strength": 0.7
+  },
+  {
+    "target": "Operations86854",
+    "source": "6261b0d59ec2d6002e09bca8",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand",
+    "source": "62624b7e9ec2d6002e0c17e6",
+    "strength": 0.7
+  },
+  {
+    "target": "Fonctionnalite",
+    "source": "626ff7c1a9d87c002e604379",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "626ff804a9d87c002e60476c",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "627137f0a9d87c002e654f25",
+    "strength": 0.7
+  },
+  {
+    "target": "Navigateur",
+    "source": "62713808a9d87c002e65508b",
+    "strength": 0.7
+  },
+  {
+    "target": "Navigateur",
+    "source": "6271380ca9d87c002e6550ce",
+    "strength": 0.7
+  },
+  {
+    "target": "Navigateur",
+    "source": "62713918a9d87c002e655cd9",
+    "strength": 0.7
+  },
+  {
+    "target": "Platform",
+    "source": "62714b9ba9d87c002e6ab995",
+    "strength": 0.7
+  },
+  {
+    "target": "Fonctionnalite ",
+    "source": "627248f3a9d87c002ebb87da",
+    "strength": 0.7
+  },
+  {
+    "target": "Langues",
+    "source": "62729ccc61dc4e002fdaaaf8",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "62729cde61dc4e002fdaab64",
+    "strength": 0.7
+  },
+  {
+    "target": "Tech ",
+    "source": "6278ea12eb2287002f0a0e01",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "6278ebaeeb2287002f0a1808",
+    "strength": 0.7
+  },
+  {
+    "target": "Management51831 ",
+    "source": "6278ed48eb2287002f0a2003",
+    "strength": 0.7
+  },
+  {
+    "target": "AccountMapping ",
+    "source": "62790f49eb2287002f0ad44c",
+    "strength": 0.7
+  },
+  {
+    "target": "Hidden",
+    "source": "627bcd08eb2287002f141ed8",
+    "strength": 0.7
+  },
+  {
+    "target": "Hidden",
+    "source": "627bd0a5eb2287002f142cb4",
+    "strength": 0.7
+  },
+  {
+    "target": "Tradeshow",
+    "source": "627cfefb73dfbc0033feeff3",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole ",
+    "source": "627d1dcd73dfbc00330037b9",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "627d1de573dfbc0033003874",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "627d1ded73dfbc00330038fc",
+    "strength": 0.7
+  },
+  {
+    "target": "ContentMarketing",
+    "source": "627d1dfc73dfbc00330039bc",
+    "strength": 0.7
+  },
+  {
+    "target": "TotalSa ",
+    "source": "627d1e6673dfbc0033003dc4",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "627d1e9f73dfbc0033004417",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "627d1eab73dfbc00330044b9",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "627d1ec173dfbc0033004559",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "627d1ede73dfbc0033004712",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "627d1ef473dfbc00330047ac",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "627d1f0c73dfbc0033004861",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "627d1f1773dfbc003300492d",
+    "strength": 0.7
+  },
+  {
+    "target": "Sport ",
+    "source": "627d1f4d73dfbc0033004c19",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "627d1fe473dfbc0033004feb",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "6282b0cc73dfbc0033134487",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "628ba40d73dfbc00332fd47a",
+    "strength": 0.7
+  },
+  {
+    "target": "Teams ",
+    "source": "628ce86973dfbc0033336d3d",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils ",
+    "source": "628ce86e73dfbc0033336d85",
+    "strength": 0.7
+  },
+  {
+    "target": "Fonctionnalite ",
+    "source": "628e27ae73dfbc0033380bde",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils ",
+    "source": "628e2cfa73dfbc0033383560",
+    "strength": 0.7
+  },
+  {
+    "target": "Slack ",
+    "source": "628e2d0873dfbc0033383624",
+    "strength": 0.7
+  },
+  {
+    "target": "Langues",
+    "source": "629dd56790856c00370c693b",
+    "strength": 0.7
+  },
+  {
+    "target": "Platform ",
+    "source": "629f465290856c003712651e",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "629f46c490856c00371267f8",
+    "strength": 0.7
+  },
+  {
+    "target": "Communication",
+    "source": "62a0bed390856c003718aada",
+    "strength": 0.7
+  },
+  {
+    "target": "Fonctionnalite ",
+    "source": "62a7065ba10f7b003761c495",
+    "strength": 0.7
+  },
+  {
+    "target": "Hidden",
+    "source": "62a743efa10f7b003762ab10",
+    "strength": 0.7
+  },
+  {
+    "target": "UxDesign ",
+    "source": "62a76626a10f7b0037639ba9",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "62a8b37edc411100379f0e01",
+    "strength": 0.7
+  },
+  {
+    "target": "MicrosoftStore ",
+    "source": "62a8b39fdc411100379f0fac",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "62aae9dbc02c8f0037aafadf",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "62b1c8cba75b3d0037a9015f",
+    "strength": 0.7
+  },
+  {
+    "target": "EmployerBrand",
+    "source": "62b2d86ca75b3d0037ac5284",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "62b9c961ad511d0037ad6598",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "62bc4797ab0ea800374f7ed0",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "62bc47b7ab0ea800374f8027",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "62bc4842ab0ea800374f9318",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "62c2d48dab0ea8003755cd73",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "62c2d563ab0ea8003755d6a2",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "62c2d577ab0ea8003755d75c",
+    "strength": 0.7
+  },
+  {
+    "target": "Sport",
+    "source": "62c2d5efab0ea8003755db48",
+    "strength": 0.7
+  },
+  {
+    "target": "Organization",
+    "source": "62c2d7b2ab0ea8003755ea81",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688 ",
+    "source": "62c2d7c7ab0ea8003755eb1c",
+    "strength": 0.7
+  },
+  {
+    "target": "TunnelDeVente",
+    "source": "62c46ba0ab0ea80037577a83",
+    "strength": 0.7
+  },
+  {
+    "target": "Figma ",
+    "source": "62cfc17f669fad003714b449",
+    "strength": 0.7
+  },
+  {
+    "target": "UxDesign ",
+    "source": "62cfc1e0669fad003714b5a2",
+    "strength": 0.7
+  },
+  {
+    "target": "UxDesign ",
+    "source": "62cfc20b669fad003714b6cb",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "62d6dd52669fad003735228f",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "62d6ddf3669fad003735988f",
+    "strength": 0.7
+  },
+  {
+    "target": "Deploiement ",
+    "source": "62d7bd4f669fad0037395c0c",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies ",
+    "source": "62d7cc57669fad003739f9c7",
+    "strength": 0.7
+  },
+  {
+    "target": "Cybersecurite ",
+    "source": "62dabbb3d586eb00375a3788",
+    "strength": 0.7
+  },
+  {
+    "target": "Management51831",
+    "source": "62e05491d586eb003771c619",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "62e10385d586eb003774d09b",
+    "strength": 0.7
+  },
+  {
+    "target": "Deploiement",
+    "source": "62e1120cd586eb0037750f2b",
+    "strength": 0.7
+  },
+  {
+    "target": "Administrative ",
+    "source": "62e160392b1b05003797b0f5",
+    "strength": 0.7
+  },
+  {
+    "target": "TechnologicalPlateform",
+    "source": "62e79dd80182200037b6b53c",
+    "strength": 0.7
+  },
+  {
+    "target": "Vinci",
+    "source": "62ea48470182200037c2fbf1",
+    "strength": 0.7
+  },
+  {
+    "target": "Dsi",
+    "source": "62f113320de9ad0037534ede",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand ",
+    "source": "62f126060de9ad00375363ba",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "62f20f170de9ad0037576b20",
+    "strength": 0.7
+  },
+  {
+    "target": "Interfaces",
+    "source": "62f3d3f0e04b41004a6694de",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils ",
+    "source": "62f5f6c2366965004a1b0a68",
+    "strength": 0.7
+  },
+  {
+    "target": "Investisseur",
+    "source": "62fd1bcfef1b24004e435c67",
+    "strength": 0.7
+  },
+  {
+    "target": "ConcoursStartUp",
+    "source": "62fd1cadef1b24004e436041",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "62fd1cb8ef1b24004e4360bc",
+    "strength": 0.7
+  },
+  {
+    "target": "CharteGraphique ",
+    "source": "6306289c1a2b1f004ae7d52f",
+    "strength": 0.7
+  },
+  {
+    "target": "Dovetail ",
+    "source": "63072fbf907055004a3d3193",
+    "strength": 0.7
+  },
+  {
+    "target": "DataAnalysis ",
+    "source": "6318bc5dc48f490048271e3e",
+    "strength": 0.7
+  },
+  {
+    "target": "PreSales ",
+    "source": "631a0a715cd13b004ac4c446",
+    "strength": 0.7
+  },
+  {
+    "target": "ProtectionDesDonnees ",
+    "source": "631a16685cd13b004ac51583",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688 ",
+    "source": "631a16775cd13b004ac5164d",
+    "strength": 0.7
+  },
+  {
+    "target": "TechnologicalPlateform",
+    "source": "631a178e5cd13b004ac52e26",
+    "strength": 0.7
+  },
+  {
+    "target": "TechnologicalPlateform ",
+    "source": "631a18ab5cd13b004ac54746",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "631ee75e4430900042cb6796",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "631eeff54430900042cb9376",
+    "strength": 0.7
+  },
+  {
+    "target": "AskForTheMoon ",
+    "source": "6321ae570fcc98004a59ab36",
+    "strength": 0.7
+  },
+  {
+    "target": "ProductDesign ",
+    "source": "6321ef390fcc98004a5be703",
+    "strength": 0.7
+  },
+  {
+    "target": "Operations86854 ",
+    "source": "632326a019b8f900482e7543",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "632326bd19b8f900482e75b2",
+    "strength": 0.7
+  },
+  {
+    "target": "Organization",
+    "source": "63232d6a19b8f900482fe6f4",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "63297f19a3511900467d6715",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688 ",
+    "source": "632c6de28db1a1004440af12",
+    "strength": 0.7
+  },
+  {
+    "target": "Casmetiers",
+    "source": "632c6dee8db1a1004440b03f",
+    "strength": 0.7
+  },
+  {
+    "target": "Operations86854 ",
+    "source": "632c6e008db1a1004440b168",
+    "strength": 0.7
+  },
+  {
+    "target": "AccountManagement",
+    "source": "632c6e3e8db1a1004440b4be",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "632c6e5f8db1a1004440b824",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "632c6e658db1a1004440b977",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688 ",
+    "source": "632c6e6b8db1a1004440bad6",
+    "strength": 0.7
+  },
+  {
+    "target": "TunnelDeVente",
+    "source": "632c6e798db1a1004440bc79",
+    "strength": 0.7
+  },
+  {
+    "target": "TunnelDeVente",
+    "source": "632c6e838db1a1004440bdd8",
+    "strength": 0.7
+  },
+  {
+    "target": "TunnelDeVente",
+    "source": "632c6e8d8db1a1004440bf36",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688 ",
+    "source": "632c6e938db1a1004440c061",
+    "strength": 0.7
+  },
+  {
+    "target": "SalesNavigator",
+    "source": "632c6eae8db1a1004440c2eb",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing ",
+    "source": "632c6eb78db1a1004440c454",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688 ",
+    "source": "632c6ee98db1a1004440c607",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "632c6f378db1a1004440cd9e",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils ",
+    "source": "6331b89925bd46004a678393",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688 ",
+    "source": "6331d01625bd46004a67f5b5",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "6332b945f7d3b7004a9edcc9",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688 ",
+    "source": "6335519637d3ad0046359496",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688 ",
+    "source": "633551a737d3ad0046359577",
+    "strength": 0.7
+  },
+  {
+    "target": "Tradeshow",
+    "source": "633570f537d3ad004635eb6a",
+    "strength": 0.7
+  },
+  {
+    "target": "TopManagement",
+    "source": "633adfab1e4eab0044eab653",
+    "strength": 0.7
+  },
+  {
+    "target": "Writing34535",
+    "source": "633adfc71e4eab0044eab78b",
+    "strength": 0.7
+  },
+  {
+    "target": "EventManagement",
+    "source": "633adfdb1e4eab0044eab83c",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "633adfe51e4eab0044eab89a",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "633adffe1e4eab0044eab972",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "633ae08b1e4eab0044eabe2d",
+    "strength": 0.7
+  },
+  {
+    "target": "RituelsEtProcessus",
+    "source": "633ae4c21e4eab0044eac402",
+    "strength": 0.7
+  },
+  {
+    "target": "Accounting",
+    "source": "633ae54f1e4eab0044eaffd5",
+    "strength": 0.7
+  },
+  {
+    "target": "RituelsEtProcessus",
+    "source": "633ae7b31e4eab0044eb98e8",
+    "strength": 0.7
+  },
+  {
+    "target": "UserResearch ",
+    "source": "633ae9311e4eab0044eba8e7",
+    "strength": 0.7
+  },
+  {
+    "target": "ChangeManagement ",
+    "source": "633aebd71e4eab0044ebc957",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688 ",
+    "source": "633aec631e4eab0044ebce42",
+    "strength": 0.7
+  },
+  {
+    "target": "Operations86854 ",
+    "source": "633aecc81e4eab0044ebd2a3",
+    "strength": 0.7
+  },
+  {
+    "target": "Management ",
+    "source": "633aed531e4eab0044ebd959",
+    "strength": 0.7
+  },
+  {
+    "target": "Fonctionnalite",
+    "source": "633aedd61e4eab0044ebdc90",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "633b08b81e4eab0044ec1403",
+    "strength": 0.7
+  },
+  {
+    "target": "AmeliorationContinue",
+    "source": "633c5d531e4eab0044f463d3",
+    "strength": 0.7
+  },
+  {
+    "target": "AskForTheMoon ",
+    "source": "633c5ded1e4eab0044f46b91",
+    "strength": 0.7
+  },
+  {
+    "target": "SiteVitrine",
+    "source": "633c7bff1e4eab0044f5a56a",
+    "strength": 0.7
+  },
+  {
+    "target": "SoftwareDevelopment",
+    "source": "633d30261e4eab0044f92cf2",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing ",
+    "source": "633d36921e4eab0044fa1111",
+    "strength": 0.7
+  },
+  {
+    "target": "Cybersecurite",
+    "source": "633ea2261e4eab0044026a82",
+    "strength": 0.7
+  },
+  {
+    "target": "TunnelDeVente ",
+    "source": "633ee2f81e4eab0044045d35",
+    "strength": 0.7
+  },
+  {
+    "target": "Mql ",
+    "source": "633ee39b1e4eab0044046576",
+    "strength": 0.7
+  },
+  {
+    "target": "Mql ",
+    "source": "633ee3b11e4eab0044046616",
+    "strength": 0.7
+  },
+  {
+    "target": "Mql ",
+    "source": "633ee3c91e4eab00440466c7",
+    "strength": 0.7
+  },
+  {
+    "target": "Mql ",
+    "source": "633ee3e01e4eab0044046749",
+    "strength": 0.7
+  },
+  {
+    "target": "AccountManagement",
+    "source": "633ee89e1e4eab0044047ce3",
+    "strength": 0.7
+  },
+  {
+    "target": "AccountMapping",
+    "source": "633ef2ef1e4eab004404a247",
+    "strength": 0.7
+  },
+  {
+    "target": "AccountMapping",
+    "source": "633ef2ef1e4eab004404a250",
+    "strength": 0.7
+  },
+  {
+    "target": "AccountMapping",
+    "source": "633ef2ef1e4eab004404a261",
+    "strength": 0.7
+  },
+  {
+    "target": "AccountMapping",
+    "source": "633ef2ef1e4eab004404a273",
+    "strength": 0.7
+  },
+  {
+    "target": "AccountMapping",
+    "source": "633ef2ef1e4eab004404a286",
+    "strength": 0.7
+  },
+  {
+    "target": "AccountMapping",
+    "source": "633ef2ef1e4eab004404a297",
+    "strength": 0.7
+  },
+  {
+    "target": "Platform",
+    "source": "633efcbc1e4eab004404d362",
+    "strength": 0.7
+  },
+  {
+    "target": "Platform",
+    "source": "633efd591e4eab004404d431",
+    "strength": 0.7
+  },
+  {
+    "target": "Platform",
+    "source": "633efd741e4eab004404d47a",
+    "strength": 0.7
+  },
+  {
+    "target": "Platform",
+    "source": "633efdb31e4eab004404d59a",
+    "strength": 0.7
+  },
+  {
+    "target": "Platform",
+    "source": "633efde11e4eab004404d5da",
+    "strength": 0.7
+  },
+  {
+    "target": "MethodologicalPlatform",
+    "source": "633f09571e4eab004405bee6",
+    "strength": 0.7
+  },
+  {
+    "target": "Livrables ",
+    "source": "633f09581e4eab004405beef",
+    "strength": 0.7
+  },
+  {
+    "target": "Livrables ",
+    "source": "633f09581e4eab004405bf01",
+    "strength": 0.7
+  },
+  {
+    "target": "TechnologicalPlateform",
+    "source": "633f09581e4eab004405bf36",
+    "strength": 0.7
+  },
+  {
+    "target": "CentreDeRessources ",
+    "source": "633f09581e4eab004405bf6d",
+    "strength": 0.7
+  },
+  {
+    "target": "MethodologicalPlatform ",
+    "source": "633f09581e4eab004405bf7f",
+    "strength": 0.7
+  },
+  {
+    "target": "LivrablesMarketing ",
+    "source": "633f09581e4eab004405bf91",
+    "strength": 0.7
+  },
+  {
+    "target": "LivrablesOps ",
+    "source": "633f09581e4eab004405bfa3",
+    "strength": 0.7
+  },
+  {
+    "target": "TechnologicalPlateform",
+    "source": "633f09581e4eab004405bfb5",
+    "strength": 0.7
+  },
+  {
+    "target": "Familles",
+    "source": "633f09581e4eab004405bfd8",
+    "strength": 0.7
+  },
+  {
+    "target": "Ontologie ",
+    "source": "633f09581e4eab004405bfeb",
+    "strength": 0.7
+  },
+  {
+    "target": "Ontologie ",
+    "source": "633f09581e4eab004405bffd",
+    "strength": 0.7
+  },
+  {
+    "target": "Ontologie ",
+    "source": "633f09581e4eab004405c00f",
+    "strength": 0.7
+  },
+  {
+    "target": "Ontologie ",
+    "source": "633f09581e4eab004405c021",
+    "strength": 0.7
+  },
+  {
+    "target": "DimensionsOntologiques ",
+    "source": "633f09581e4eab004405c032",
+    "strength": 0.7
+  },
+  {
+    "target": "DimensionsOntologiques ",
+    "source": "633f09581e4eab004405c057",
+    "strength": 0.7
+  },
+  {
+    "target": "Ontologie ",
+    "source": "633f09581e4eab004405c069",
+    "strength": 0.7
+  },
+  {
+    "target": "RituelsEtProcessus ",
+    "source": "633f09591e4eab004405c0c4",
+    "strength": 0.7
+  },
+  {
+    "target": "RituelsEtProcessus ",
+    "source": "633f09591e4eab004405c0d4",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils ",
+    "source": "633f09591e4eab004405c0e7",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688 ",
+    "source": "633f09591e4eab004405c0f9",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing ",
+    "source": "633f09591e4eab004405c10b",
+    "strength": 0.7
+  },
+  {
+    "target": "UserResearch ",
+    "source": "633f09591e4eab004405c11d",
+    "strength": 0.7
+  },
+  {
+    "target": "UxDesign ",
+    "source": "633f09591e4eab004405c12f",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils ",
+    "source": "633f09591e4eab004405c141",
+    "strength": 0.7
+  },
+  {
+    "target": "Cheminengagement",
+    "source": "633f09591e4eab004405c153",
+    "strength": 0.7
+  },
+  {
+    "target": "Cheminengagement",
+    "source": "633f09591e4eab004405c165",
+    "strength": 0.7
+  },
+  {
+    "target": "TunnelDeVente ",
+    "source": "633f09591e4eab004405c177",
+    "strength": 0.7
+  },
+  {
+    "target": "TunnelDeVente ",
+    "source": "633f09591e4eab004405c189",
+    "strength": 0.7
+  },
+  {
+    "target": "Cheminengagementutilisateur ",
+    "source": "633f09591e4eab004405c19a",
+    "strength": 0.7
+  },
+  {
+    "target": "Cheminengagementutilisateur ",
+    "source": "633f09591e4eab004405c1ad",
+    "strength": 0.7
+  },
+  {
+    "target": "Cheminengagementutilisateur ",
+    "source": "633f09591e4eab004405c1bf",
+    "strength": 0.7
+  },
+  {
+    "target": "Cheminengagementutilisateur ",
+    "source": "633f09591e4eab004405c1d0",
+    "strength": 0.7
+  },
+  {
+    "target": "Utilisateurs ",
+    "source": "633f09591e4eab004405c227",
+    "strength": 0.7
+  },
+  {
+    "target": "Fonctionnalite ",
+    "source": "633f09591e4eab004405c23d",
+    "strength": 0.7
+  },
+  {
+    "target": "SalesStrategy ",
+    "source": "633f095a1e4eab004405c249",
+    "strength": 0.7
+  },
+  {
+    "target": "EventManagement",
+    "source": "6340361798f11f004a8905b5",
+    "strength": 0.7
+  },
+  {
+    "target": "AmeliorationContinue",
+    "source": "63455e8f23c1490046e36453",
+    "strength": 0.7
+  },
+  {
+    "target": "UxDesign",
+    "source": "634562a323c1490046e38260",
+    "strength": 0.7
+  },
+  {
+    "target": "Fonctionnalite ",
+    "source": "6345634723c1490046e386ff",
+    "strength": 0.7
+  },
+  {
+    "target": "RituelsEtProcessus",
+    "source": "6345713a23c1490046e41252",
+    "strength": 0.7
+  },
+  {
+    "target": "Confidentialite ",
+    "source": "6345912d23c1490046e5a916",
+    "strength": 0.7
+  },
+  {
+    "target": "Langues",
+    "source": "63469a6c23c1490046ec96ec",
+    "strength": 0.7
+  },
+  {
+    "target": "IT ",
+    "source": "6346b4db23c1490046ecc195",
+    "strength": 0.7
+  },
+  {
+    "target": "Certificat ",
+    "source": "6346b4df23c1490046ecc1d3",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages",
+    "source": "6346b76c23c1490046ece04d",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "6346b77c23c1490046ece216",
+    "strength": 0.7
+  },
+  {
+    "target": "Ia",
+    "source": "6346b7a423c1490046ece6cc",
+    "strength": 0.7
+  },
+  {
+    "target": "SuiteOffice",
+    "source": "6346b7af23c1490046ece7cd",
+    "strength": 0.7
+  },
+  {
+    "target": "Fonctionnalite",
+    "source": "6346b7ec23c1490046ece9fa",
+    "strength": 0.7
+  },
+  {
+    "target": "DataAnalysis ",
+    "source": "6346b80323c1490046eceb2d",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages",
+    "source": "6346b81e23c1490046ececae",
+    "strength": 0.7
+  },
+  {
+    "target": "Ia",
+    "source": "6346b86423c1490046ecef0e",
+    "strength": 0.7
+  },
+  {
+    "target": "Writing34535",
+    "source": "6346b87923c1490046ecf795",
+    "strength": 0.7
+  },
+  {
+    "target": "Airbus61693 ",
+    "source": "6346b88523c1490046ecf9df",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "6346b89723c1490046ecffb7",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "6346b8a223c1490046ed04a3",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "6346b8a623c1490046ed05a8",
+    "strength": 0.7
+  },
+  {
+    "target": "Vinci ",
+    "source": "6346b8af23c1490046ed06bd",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages",
+    "source": "6346b8b123c1490046ed0750",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages",
+    "source": "6346b8be23c1490046ed0c85",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages",
+    "source": "6346b8cf23c1490046ed126b",
+    "strength": 0.7
+  },
+  {
+    "target": "Django ",
+    "source": "6346b8d523c1490046ed147b",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages",
+    "source": "6346b8db23c1490046ed1671",
+    "strength": 0.7
+  },
+  {
+    "target": "Bouygues75321 ",
+    "source": "6346b8ea23c1490046ed196b",
+    "strength": 0.7
+  },
+  {
+    "target": "Sport",
+    "source": "6346b8eb23c1490046ed19e0",
+    "strength": 0.7
+  },
+  {
+    "target": "Music",
+    "source": "6346b8f323c1490046ed1ccd",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "6346b91923c1490046ed2577",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "6346b96323c1490046ed2d08",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "6346b98923c1490046ed3468",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "6346b9aa23c1490046ed3c16",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "6346b9b623c1490046ed3e8b",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies ",
+    "source": "6346b9dc23c1490046ed44c3",
+    "strength": 0.7
+  },
+  {
+    "target": "Sncf93609",
+    "source": "6346b9f923c1490046ed48e8",
+    "strength": 0.7
+  },
+  {
+    "target": "Sncf93609",
+    "source": "6346ba1223c1490046ed4d5e",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "6346ba4523c1490046ed518b",
+    "strength": 0.7
+  },
+  {
+    "target": "TotalEnergies ",
+    "source": "6346ba5423c1490046ed533d",
+    "strength": 0.7
+  },
+  {
+    "target": "Sncf93609",
+    "source": "6346ba6a23c1490046ed54d7",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "6346ba7f23c1490046ed56f8",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "6346bab523c1490046ed5bfd",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "6346bacf23c1490046ed5d87",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "6346bad323c1490046ed5e63",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "6346baf123c1490046ed60ab",
+    "strength": 0.7
+  },
+  {
+    "target": "Sport ",
+    "source": "6346bb4323c1490046ed66f5",
+    "strength": 0.7
+  },
+  {
+    "target": "Excel",
+    "source": "6348359b3534dc0043f39343",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "634914c23534dc0043f9ef15",
+    "strength": 0.7
+  },
+  {
+    "target": "FullStackDeveloper ",
+    "source": "634d13a53534dc0043109d5c",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "634d23e33534dc00431105da",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "634d4a333534dc00431263f1",
+    "strength": 0.7
+  },
+  {
+    "target": "DataAnalysis",
+    "source": "634e9ae03534dc00431ba2b8",
+    "strength": 0.7
+  },
+  {
+    "target": "TechnologicalPlateform ",
+    "source": "63592f022a397e004a1f3eb4",
+    "strength": 0.7
+  }
+]
+
+var nodes = [...baseNodes]
+var links = [...baseLinks]
+
+function getNeighbors(node) {
+  return baseLinks.reduce(function (neighbors, link) {
+      if (link.target.id === node.id) {
+        neighbors.push(link.source.id)
+      } else if (link.source.id === node.id) {
+        neighbors.push(link.target.id)
+      }
+      return neighbors
+    },
+    [node.id]
+  )
+}
+
+function isNeighborLink(node, link) {
+  return link.target.id === node.id || link.source.id === node.id
+}
+
+
+function getNodeColor(node, neighbors) {
+  if (Array.isArray(neighbors) && neighbors.indexOf(node.id) > -1) {
+   return node.level === 1 ? 'purple' : node.level === 2 ? 'blue'
+    : node.level === 3 ? 'pink' : node.level === 4 ? 'yellow' : node.level === 5 ? 'orange' 
+    : node.level === 7 ? 'brown': 'gray' }
+  
+
+  return node.level === 1 ? 'purple' : node.level === 2 ? 'blue'
+    : node.level === 3 ? 'pink' : node.level === 4 ? 'yellow' : node.level === 5 ? 'orange' 
+    : node.level === 7 ? 'brown': 'gray' }
+
+
+function getLinkColor(node, link) {
+  return isNeighborLink(node, link) ? 'grey' : '#E5E5E5'
+}
+
+function getTextColor(node, neighbors) {
+  return Array.isArray(neighbors) && neighbors.indexOf(node.id) > -1 ? 'black' : 'black'
+}
+
+var width = window.innerWidth
+var height = window.innerHeight
+
+var svg = d3.select('svg')
+svg.attr('width', width).attr('height', height)
+
+var linkElements,
+  nodeElements,
+  textElements
+
+// we use svg groups to logically group the elements together
+var linkGroup = svg.append('g').attr('class', 'links')
+var nodeGroup = svg.append('g').attr('class', 'nodes')
+var textGroup = svg.append('g').attr('class', 'texts')
+
+// we use this reference to select/deselect
+// after clicking the same element twice
+var selectedId
+
+// simulation setup with all forces
+var linkForce = d3
+  .forceLink()
+  .id(function (link) { return link.id })
+  .strength(function (link) { return link.strength })
+
+var simulation = d3
+  .forceSimulation()
+  .force('link', linkForce)
+  .force('charge', d3.forceManyBody().strength(-120))
+  .force('center', d3.forceCenter(width / 2, height / 2))
+
+var dragDrop = d3.drag().on('start', function (node) {
+  node.fx = node.x
+  node.fy = node.y
+}).on('drag', function (node) {
+  simulation.alphaTarget(0.7).restart()
+  node.fx = d3.event.x
+  node.fy = d3.event.y
+}).on('end', function (node) {
+  if (!d3.event.active) {
+    simulation.alphaTarget(0)
+  }
+  node.fx = null
+  node.fy = null
+})
+
+// select node is called on every click
+// we either update the data according to the selection
+// or reset the data if the same node is clicked twice
+function selectNode(selectedNode) {
+  if (selectedId === selectedNode.id) {
+    selectedId = undefined
+    resetData()
+    updateSimulation()
+  } else {
+    selectedId = selectedNode.id
+    updateData(selectedNode)
+    updateSimulation()
+  }
+
+  var neighbors = getNeighbors(selectedNode)
+
+  // we modify the styles to highlight selected nodes
+  nodeElements.attr('fill', function (node) { return getNodeColor(node, neighbors) })
+  textElements.attr('fill', function (node) { return getTextColor(node, neighbors) })
+  linkElements.attr('stroke', function (link) { return getLinkColor(selectedNode, link) })
+}
+
+// this helper simple adds all nodes and links
+// that are missing, to recreate the initial state
+function resetData() {
+  var nodeIds = nodes.map(function (node) { return node.id })
+
+  baseNodes.forEach(function (node) {
+    if (nodeIds.indexOf(node.id) === -1) {
+      nodes.push(node)
+    }
+  })
+
+  links = baseLinks
+}
+
+// diffing and mutating the data
+function updateData(selectedNode) {
+  var neighbors = getNeighbors(selectedNode)
+  var newNodes = baseNodes.filter(function (node) {
+    return neighbors.indexOf(node.id) > -1 || node.level === 1
+  })
+
+  var diff = {
+    removed: nodes.filter(function (node) { return newNodes.indexOf(node) === -1 }),
+    added: newNodes.filter(function (node) { return nodes.indexOf(node) === -1 })
+  }
+
+  diff.removed.forEach(function (node) { nodes.splice(nodes.indexOf(node), 1) })
+  diff.added.forEach(function (node) { nodes.push(node) })
+
+  links = baseLinks.filter(function (link) {
+    return link.target.id === selectedNode.id || link.source.id === selectedNode.id
+  })
+}
+
+function updateGraph() {
+  // links
+  linkElements = linkGroup.selectAll('line')
+    .data(links, function (link) {
+      return link.target.id + link.source.id
+    })
+
+  linkElements.exit().remove()
+
+  var linkEnter = linkElements
+    .enter().append('line')
+    .attr('stroke-width', 1)
+    .attr('stroke', 'rgba(50, 50, 50, 0.2)')
+
+  linkElements = linkEnter.merge(linkElements)
+
+  // nodes
+  nodeElements = nodeGroup.selectAll('circle')
+    .data(nodes, function (node) { return node.id })
+
+  nodeElements.exit().remove()
+
+  var nodeEnter = nodeElements
+    .enter()
+    .append('circle')
+    .attr('r', 10)
+    .attr('fill', function (node) { return node.level === 1 ? 'purple' : node.level === 2 ? 'blue'
+    : node.level === 3 ? 'pink' : node.level === 4 ? 'yellow' : node.level === 5 ? 'orange' 
+    : node.level === 7 ? 'brown': 'gray' })
+    .call(dragDrop)
+    // we link the selectNode method here
+    // to update the graph on every click
+    .on('click', selectNode)
+
+  nodeElements = nodeEnter.merge(nodeElements)
+
+  // texts
+  textElements = textGroup.selectAll('text')
+    .data(nodes, function (node) { return node.id })
+
+  textElements.exit().remove()
+
+  var textEnter = textElements
+    .enter()
+    .append('text')
+    .text(function (node) { return node.label })
+    .attr('font-size', 15)
+    .attr('dx', 15)
+    .attr('dy', 4)
+
+  textElements = textEnter.merge(textElements)
+}
+
+function updateSimulation() {
+  updateGraph()
+
+  simulation.nodes(nodes).on('tick', () => {
+    nodeElements
+      .attr('cx', function (node) { return node.x })
+      .attr('cy', function (node) { return node.y })
+    textElements
+      .attr('x', function (node) { return node.x })
+      .attr('y', function (node) { return node.y })
+    linkElements
+      .attr('x1', function (link) { return link.source.x })
+      .attr('y1', function (link) { return link.source.y })
+      .attr('x2', function (link) { return link.target.x })
+      .attr('y2', function (link) { return link.target.y })
+  })
+
+  simulation.force('link').links(links)
+  simulation.alphaTarget(0.7).restart()
+}
+
+// last but not least, we call updateSimulation
+// to trigger the initial render
+updateSimulation()
+
+</script>
