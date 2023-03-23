@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 
-<svg width="500" height="400"></svg>
+<style>
+  svg {
+      width: 100vw;
+      height: 100vh;
+  }
+</style>
+
+<svg></svg>
 
 <h1 align="center">Deuxième Dataviz avec D3.js</h1>
 
@@ -11,17 +18,18 @@
 
 <script>
 var baseNodes =[
+
   {
-    "id": "Name FR",
-    "label": "Name FR"
+    "id": "NameFR",
+    "label": "NameFR"
   },
   {
-    "id": "Application web progressive",
-    "label": "Application web progressive"
+    "id": "Applicationwebprogressive",
+    "label": "Applicationwebprogressive"
   },
   {
-    "id": "Board member",
-    "label": "Board member"
+    "id": "Boardmember",
+    "label": "Boardmember"
   },
   {
     "id": "Rôles",
@@ -44,20 +52,20 @@ var baseNodes =[
     "label": "Cofondateur"
   },
   {
-    "id": "Match Com",
-    "label": "Match Com"
+    "id": "MatchCom",
+    "label": "MatchCom"
   },
   {
     "id": "Stagiaire",
     "label": "Stagiaire"
   },
   {
-    "id": "Groupe ADP",
-    "label": "Groupe ADP"
+    "id": "GroupeADP",
+    "label": "GroupeADP"
   },
   {
-    "id": "Full dev",
-    "label": "Full dev"
+    "id": "Fulldev",
+    "label": "Fulldev"
   },
   {
     "id": "Gamification",
@@ -68,8 +76,8 @@ var baseNodes =[
     "label": "Ubisoft"
   },
   {
-    "id": "Asobo Studio",
-    "label": "Asobo Studio"
+    "id": "AsoboStudio",
+    "label": "AsoboStudio"
   },
   {
     "id": "Actionnaire",
@@ -80,16 +88,16 @@ var baseNodes =[
     "label": "Prestataire"
   },
   {
-    "id": "Apporteur d'affaires",
-    "label": "Apporteur d'affaires"
+    "id": "Apporteurd'affaires",
+    "label": "Apporteurd'affaires"
   },
   {
     "id": "Investisseur",
     "label": "Investisseur"
   },
   {
-    "id": "Cannaux de ventes",
-    "label": "Cannaux de ventes"
+    "id": "Cannauxdeventes",
+    "label": "Cannauxdeventes"
   },
   {
     "id": "Aveva",
@@ -104,8 +112,8 @@ var baseNodes =[
     "label": "CEO"
   },
   {
-    "id": "Brand & Marketing",
-    "label": "Brand & Marketing"
+    "id": "Brand&Marketing",
+    "label": "Brand&Marketing"
   },
   {
     "id": "Équipe",
@@ -120,8 +128,8 @@ var baseNodes =[
     "label": "Vestas"
   },
   {
-    "id": "Air Products",
-    "label": "Air Products"
+    "id": "AirProducts",
+    "label": "AirProducts"
   },
   {
     "id": "Arquus",
@@ -136,16 +144,16 @@ var baseNodes =[
     "label": "Tech"
   },
   {
-    "id": "Ask for the moon",
-    "label": "Ask for the moon"
+    "id": "Askforthemoon",
+    "label": "Askforthemoon"
   },
   {
-    "id": "Microsoft Azure",
-    "label": "Microsoft Azure"
+    "id": "MicrosoftAzure",
+    "label": "MicrosoftAzure"
   },
   {
-    "id": "Leroy Merlin",
-    "label": "Leroy Merlin"
+    "id": "LeroyMerlin",
+    "label": "LeroyMerlin"
   },
   {
     "id": "Adéo",
@@ -156,16 +164,16 @@ var baseNodes =[
     "label": "Alumni"
   },
   {
-    "id": "Filtrage collaboratif",
-    "label": "Filtrage collaboratif"
+    "id": "Filtragecollaboratif",
+    "label": "Filtragecollaboratif"
   },
   {
-    "id": "Data Set",
-    "label": "Data Set"
+    "id": "DataSet",
+    "label": "DataSet"
   },
   {
-    "id": "Psa Peugeot Citroen",
-    "label": "Psa Peugeot Citroen"
+    "id": "PsaPeugeotCitroen",
+    "label": "PsaPeugeotCitroen"
   },
   {
     "id": "Stellantis",
@@ -196,8 +204,8 @@ var baseNodes =[
     "label": "Equinix"
   },
   {
-    "id": "Digital Reality",
-    "label": "Digital Reality"
+    "id": "DigitalReality",
+    "label": "DigitalReality"
   },
   {
     "id": "Vertiv",
@@ -212,8 +220,8 @@ var baseNodes =[
     "label": "Daher"
   },
   {
-    "id": "Visual Studio Code",
-    "label": "Visual Studio Code"
+    "id": "VisualStudioCode",
+    "label": "VisualStudioCode"
   },
   {
     "id": "Windows",
@@ -244,8 +252,8 @@ var baseNodes =[
     "label": "CTO"
   },
   {
-    "id": "Marketing Manager",
-    "label": "Marketing Manager"
+    "id": "MarketingManager",
+    "label": "MarketingManager"
   },
   {
     "id": "Outils",
@@ -260,8 +268,8 @@ var baseNodes =[
     "label": "Déploiement"
   },
   {
-    "id": "Supply chain",
-    "label": "Supply chain"
+    "id": "Supplychain",
+    "label": "Supplychain"
   },
   {
     "id": "Opérations",
@@ -300,8 +308,8 @@ var baseNodes =[
     "label": "Dessiner"
   },
   {
-    "id": "Intelligence Collective",
-    "label": "Intelligence Collective"
+    "id": "IntelligenceCollective",
+    "label": "IntelligenceCollective"
   },
   {
     "id": "Rédaction",
@@ -344,16 +352,16 @@ var baseNodes =[
     "label": "Anglais"
   },
   {
-    "id": "Parler en public",
-    "label": "Parler en public"
+    "id": "Parlerenpublic",
+    "label": "Parlerenpublic"
   },
   {
     "id": "Photoshop",
     "label": "Photoshop"
   },
   {
-    "id": "Prospection commerciale",
-    "label": "Prospection commerciale"
+    "id": "Prospectioncommerciale",
+    "label": "Prospectioncommerciale"
   },
   {
     "id": "Design",
@@ -364,12 +372,12 @@ var baseNodes =[
     "label": "Excel"
   },
   {
-    "id": "Gestion d'équipe",
-    "label": "Gestion d'équipe"
+    "id": "Gestiond'équipe",
+    "label": "Gestiond'équipe"
   },
   {
-    "id": "Business Development",
-    "label": "Business Development"
+    "id": "BusinessDevelopment",
+    "label": "BusinessDevelopment"
   },
   {
     "id": "Curiosité",
@@ -388,8 +396,8 @@ var baseNodes =[
     "label": "Événementiel"
   },
   {
-    "id": "Montage Vidéo",
-    "label": "Montage Vidéo"
+    "id": "MontageVidéo",
+    "label": "MontageVidéo"
   },
   {
     "id": "Budgets",
@@ -408,12 +416,12 @@ var baseNodes =[
     "label": "Portugais"
   },
   {
-    "id": "Jeux Vidéo",
-    "label": "Jeux Vidéo"
+    "id": "JeuxVidéo",
+    "label": "JeuxVidéo"
   },
   {
-    "id": "HTML CSS",
-    "label": "HTML CSS"
+    "id": "HTMLCSS",
+    "label": "HTMLCSS"
   },
   {
     "id": "Badminton",
@@ -436,24 +444,24 @@ var baseNodes =[
     "label": "Adaptabilité"
   },
   {
-    "id": "Jeux De Stratégie",
-    "label": "Jeux De Stratégie"
+    "id": "JeuxDeStratégie",
+    "label": "JeuxDeStratégie"
   },
   {
     "id": "Javascript",
     "label": "Javascript"
   },
   {
-    "id": "Relations Presse",
-    "label": "Relations Presse"
+    "id": "RelationsPresse",
+    "label": "RelationsPresse"
   },
   {
     "id": "Sociologie",
     "label": "Sociologie"
   },
   {
-    "id": "Web Design",
-    "label": "Web Design"
+    "id": "WebDesign",
+    "label": "WebDesign"
   },
   {
     "id": "Français",
@@ -464,32 +472,32 @@ var baseNodes =[
     "label": "PowerPoint"
   },
   {
-    "id": "Google Docs",
-    "label": "Google Docs"
+    "id": "GoogleDocs",
+    "label": "GoogleDocs"
   },
   {
-    "id": "Gestion de projet",
-    "label": "Gestion de projet"
+    "id": "Gestiondeprojet",
+    "label": "Gestiondeprojet"
   },
   {
-    "id": "Analyse De Data",
-    "label": "Analyse De Data"
+    "id": "AnalyseDeData",
+    "label": "AnalyseDeData"
   },
   {
-    "id": "Méthodes Agiles",
-    "label": "Méthodes Agiles"
+    "id": "MéthodesAgiles",
+    "label": "MéthodesAgiles"
   },
   {
-    "id": "Web Marketing",
-    "label": "Web Marketing"
+    "id": "WebMarketing",
+    "label": "WebMarketing"
   },
   {
-    "id": "Content Marketing",
-    "label": "Content Marketing"
+    "id": "ContentMarketing",
+    "label": "ContentMarketing"
   },
   {
-    "id": "Email Marketing",
-    "label": "Email Marketing"
+    "id": "EmailMarketing",
+    "label": "EmailMarketing"
   },
   {
     "id": "Rugby",
@@ -504,8 +512,8 @@ var baseNodes =[
     "label": "Python"
   },
   {
-    "id": "Design Produit",
-    "label": "Design Produit"
+    "id": "DesignProduit",
+    "label": "DesignProduit"
   },
   {
     "id": "Java",
@@ -516,20 +524,20 @@ var baseNodes =[
     "label": "Compétences"
   },
   {
-    "id": "Cinéma Engagé",
-    "label": "Cinéma Engagé"
+    "id": "CinémaEngagé",
+    "label": "CinémaEngagé"
   },
   {
-    "id": "Course À Pied",
-    "label": "Course À Pied"
+    "id": "CourseÀPied",
+    "label": "CourseÀPied"
   },
   {
-    "id": "Marketing de réseau",
-    "label": "Marketing de réseau"
+    "id": "Marketingderéseau",
+    "label": "Marketingderéseau"
   },
   {
-    "id": "Entreprise Libérée",
-    "label": "Entreprise Libérée"
+    "id": "EntrepriseLibérée",
+    "label": "EntrepriseLibérée"
   },
   {
     "id": "Musique",
@@ -544,12 +552,12 @@ var baseNodes =[
     "label": "Freelance"
   },
   {
-    "id": "Gestion des contrats",
-    "label": "Gestion des contrats"
+    "id": "Gestiondescontrats",
+    "label": "Gestiondescontrats"
   },
   {
-    "id": "Organisation Agile",
-    "label": "Organisation Agile"
+    "id": "OrganisationAgile",
+    "label": "OrganisationAgile"
   },
   {
     "id": "Psychologie",
@@ -560,52 +568,52 @@ var baseNodes =[
     "label": "OAuth"
   },
   {
-    "id": "Réinventer Les Organisations",
-    "label": "Réinventer Les Organisations"
+    "id": "RéinventerLesOrganisations",
+    "label": "RéinventerLesOrganisations"
   },
   {
-    "id": "Data Centres",
-    "label": "Data Centres"
+    "id": "DataCentres",
+    "label": "DataCentres"
   },
   {
     "id": "NodeJs",
     "label": "NodeJs"
   },
   {
-    "id": "Esprit d'équipe",
-    "label": "Esprit d'équipe"
+    "id": "Espritd'équipe",
+    "label": "Espritd'équipe"
   },
   {
-    "id": "Transformation Numérique",
-    "label": "Transformation Numérique"
+    "id": "TransformationNumérique",
+    "label": "TransformationNumérique"
   },
   {
-    "id": "Stratégies commerciales",
-    "label": "Stratégies commerciales"
+    "id": "Stratégiescommerciales",
+    "label": "Stratégiescommerciales"
   },
   {
     "id": "ReactJs",
     "label": "ReactJs"
   },
   {
-    "id": "Management du Changement",
-    "label": "Management du Changement"
+    "id": "ManagementduChangement",
+    "label": "ManagementduChangement"
   },
   {
-    "id": "Marketing Digital",
-    "label": "Marketing Digital"
+    "id": "MarketingDigital",
+    "label": "MarketingDigital"
   },
   {
-    "id": "Design Thinking",
-    "label": "Design Thinking"
+    "id": "DesignThinking",
+    "label": "DesignThinking"
   },
   {
     "id": "Logistique",
     "label": "Logistique"
   },
   {
-    "id": "Support Technique",
-    "label": "Support Technique"
+    "id": "SupportTechnique",
+    "label": "SupportTechnique"
   },
   {
     "id": "Loisirs",
@@ -620,8 +628,8 @@ var baseNodes =[
     "label": "Pays"
   },
   {
-    "id": "Langages Informatique",
-    "label": "Langages Informatique"
+    "id": "LangagesInformatique",
+    "label": "LangagesInformatique"
   },
   {
     "id": "IT",
@@ -632,28 +640,28 @@ var baseNodes =[
     "label": "Achats"
   },
   {
-    "id": "Business Intelligence",
-    "label": "Business Intelligence"
+    "id": "BusinessIntelligence",
+    "label": "BusinessIntelligence"
   },
   {
     "id": "Vente",
     "label": "Vente"
   },
   {
-    "id": "Top Management",
-    "label": "Top Management"
+    "id": "TopManagement",
+    "label": "TopManagement"
   },
   {
     "id": "SQL",
     "label": "SQL"
   },
   {
-    "id": "Marque employeur",
-    "label": "Marque employeur"
+    "id": "Marqueemployeur",
+    "label": "Marqueemployeur"
   },
   {
-    "id": "Développement logiciels",
-    "label": "Développement logiciels"
+    "id": "Développementlogiciels",
+    "label": "Développementlogiciels"
   },
   {
     "id": "Publicité",
@@ -664,92 +672,92 @@ var baseNodes =[
     "label": "Gourmand·e"
   },
   {
-    "id": "Observation critique",
-    "label": "Observation critique"
+    "id": "Observationcritique",
+    "label": "Observationcritique"
   },
   {
-    "id": "Etudes de marché",
-    "label": "Etudes de marché"
+    "id": "Etudesdemarché",
+    "label": "Etudesdemarché"
   },
   {
-    "id": "Automation Marketing",
-    "label": "Automation Marketing"
+    "id": "AutomationMarketing",
+    "label": "AutomationMarketing"
   },
   {
     "id": "Caché",
     "label": "Caché"
   },
   {
-    "id": "Direction RH",
-    "label": "Direction RH"
+    "id": "DirectionRH",
+    "label": "DirectionRH"
   },
   {
     "id": "Transport",
     "label": "Transport"
   },
   {
-    "id": "Design de Service",
-    "label": "Design de Service"
+    "id": "DesigndeService",
+    "label": "DesigndeService"
   },
   {
     "id": "Avant-Vente",
     "label": "Avant-Vente"
   },
   {
-    "id": "Run (IT)",
-    "label": "Run (IT)"
+    "id": "Run(IT)",
+    "label": "Run(IT)"
   },
   {
-    "id": "Livraison (IT)",
-    "label": "Livraison (IT)"
+    "id": "Livraison(IT)",
+    "label": "Livraison(IT)"
   },
   {
-    "id": "Consommation grand public",
-    "label": "Consommation grand public"
+    "id": "Consommationgrandpublic",
+    "label": "Consommationgrandpublic"
   },
   {
-    "id": "Conception des process",
-    "label": "Conception des process"
+    "id": "Conceptiondesprocess",
+    "label": "Conceptiondesprocess"
   },
   {
-    "id": "Build (IT)",
-    "label": "Build (IT)"
+    "id": "Build(IT)",
+    "label": "Build(IT)"
   },
   {
     "id": "Devops",
     "label": "Devops"
   },
   {
-    "id": "Divertissement and Médias",
-    "label": "Divertissement and Médias"
+    "id": "DivertissementandMédias",
+    "label": "DivertissementandMédias"
   },
   {
-    "id": "Transport ferroviaire",
-    "label": "Transport ferroviaire"
+    "id": "Transportferroviaire",
+    "label": "Transportferroviaire"
   },
   {
-    "id": "Orange S.A.",
-    "label": "Orange S.A."
+    "id": "OrangeS.A.",
+    "label": "OrangeS.A."
   },
   {
-    "id": "Société Générale",
-    "label": "Société Générale"
+    "id": "SociétéGénérale",
+    "label": "SociétéGénérale"
   },
   {
-    "id": "La Poste",
-    "label": "La Poste"
+    "id": "LaPoste",
+    "label": "LaPoste"
   },
   {
-    "id": "Électricité de France",
-    "label": "Électricité de France"
+    "id": "ÉlectricitédeFrance",
+    "label": "ÉlectricitédeFrance"
   },
   {
     "id": "Renault",
     "label": "Renault"
   },
   {
-    "id": "Groupe BPCE",
-    "label": "Groupe BPCE"
+    "id": "GroupeBPCE",
+    "label": "GroupeBPCE"
   },
   {
     "id": "Auchan",
@@ -764,8 +772,8 @@ var baseNodes =[
     "label": "AXA"
   },
   {
-    "id": "Crédit Agricole",
-    "label": "Crédit Agricole"
+    "id": "CréditAgricole",
+    "label": "CréditAgricole"
   },
   {
     "id": "Peugeot",
@@ -776,28 +784,28 @@ var baseNodes =[
     "label": "Veolia"
   },
   {
-    "id": "Christian Dior",
-    "label": "Christian Dior"
+    "id": "ChristianDior",
+    "label": "ChristianDior"
   },
   {
-    "id": "Schneider Electric",
-    "label": "Schneider Electric"
+    "id": "SchneiderElectric",
+    "label": "SchneiderElectric"
   },
   {
-    "id": "BNP Paribas",
-    "label": "BNP Paribas"
+    "id": "BNPParibas",
+    "label": "BNPParibas"
   },
   {
     "id": "Engie",
     "label": "Engie"
   },
   {
-    "id": "Air Liquide",
-    "label": "Air Liquide"
+    "id": "AirLiquide",
+    "label": "AirLiquide"
   },
   {
-    "id": "Global Switch",
-    "label": "Global Switch"
+    "id": "GlobalSwitch",
+    "label": "GlobalSwitch"
   },
   {
     "id": "Plongée",
@@ -812,8 +820,8 @@ var baseNodes =[
     "label": "Coach"
   },
   {
-    "id": "Google Sheet",
-    "label": "Google Sheet"
+    "id": "GoogleSheet",
+    "label": "GoogleSheet"
   },
   {
     "id": "Mode",
@@ -848,8 +856,8 @@ var baseNodes =[
     "label": "RATP"
   },
   {
-    "id": "Total S. A.",
-    "label": "Total S. A."
+    "id": "TotalS.A.",
+    "label": "TotalS.A."
   },
   {
     "id": "SNCF",
@@ -876,16 +884,16 @@ var baseNodes =[
     "label": "L'Oréal"
   },
   {
-    "id": "Credit Agricole",
-    "label": "Credit Agricole"
+    "id": "CreditAgricole",
+    "label": "CreditAgricole"
   },
   {
-    "id": "Air France",
-    "label": "Air France"
+    "id": "AirFrance",
+    "label": "AirFrance"
   },
   {
-    "id": "Saint Gobain",
-    "label": "Saint Gobain"
+    "id": "SaintGobain",
+    "label": "SaintGobain"
   },
   {
     "id": "Bouygues",
@@ -908,32 +916,32 @@ var baseNodes =[
     "label": "Hubspot"
   },
   {
-    "id": "Amélioration continue",
-    "label": "Amélioration continue"
+    "id": "Améliorationcontinue",
+    "label": "Améliorationcontinue"
   },
   {
-    "id": "I-Expo ",
-    "label": "I-Expo "
+    "id": "I-Expo",
+    "label": "I-Expo"
   },
   {
     "id": "Github",
     "label": "Github"
   },
   {
-    "id": "Pull Request",
-    "label": "Pull Request"
+    "id": "PullRequest",
+    "label": "PullRequest"
   },
   {
-    "id": "Revue de code",
-    "label": "Revue de code"
+    "id": "Revuedecode",
+    "label": "Revuedecode"
   },
   {
-    "id": "Intégration mail",
-    "label": "Intégration mail"
+    "id": "Intégrationmail",
+    "label": "Intégrationmail"
   },
   {
-    "id": "Droits d'accès",
-    "label": "Droits d'accès"
+    "id": "Droitsd'accès",
+    "label": "Droitsd'accès"
   },
   {
     "id": "Airbus",
@@ -952,12 +960,12 @@ var baseNodes =[
     "label": "Nexter"
   },
   {
-    "id": "Ministère des armées ",
-    "label": "Ministère des armées "
+    "id": "Ministèredesarmées",
+    "label": "Ministèredesarmées"
   },
   {
-    "id": "Ministère de l’intérieur ",
-    "label": "Ministère de l’intérieur "
+    "id": "Ministèredel’intérieur",
+    "label": "Ministèredel’intérieur"
   },
   {
     "id": "Navalgroup",
@@ -968,24 +976,24 @@ var baseNodes =[
     "label": "Quarkslab"
   },
   {
-    "id": "Airbus helicopters",
-    "label": "Airbus helicopters"
+    "id": "Airbushelicopters",
+    "label": "Airbushelicopters"
   },
   {
-    "id": "Airbus Defence",
-    "label": "Airbus Defence"
+    "id": "AirbusDefence",
+    "label": "AirbusDefence"
   },
   {
-    "id": "Thales Avionics ",
-    "label": "Thales Avionics "
+    "id": "ThalesAvionics",
+    "label": "ThalesAvionics"
   },
   {
-    "id": "LIEBHERR ",
-    "label": "LIEBHERR "
+    "id": "LIEBHERR",
+    "label": "LIEBHERR"
   },
   {
-    "id": "Renaud trucks defense",
-    "label": "Renaud trucks defense"
+    "id": "Renaudtrucksdefense",
+    "label": "Renaudtrucksdefense"
   },
   {
     "id": "LVMH",
@@ -996,8 +1004,8 @@ var baseNodes =[
     "label": "Accenture"
   },
   {
-    "id": "Cap gemini",
-    "label": "Cap gemini"
+    "id": "Capgemini",
+    "label": "Capgemini"
   },
   {
     "id": "Dassault",
@@ -1012,44 +1020,44 @@ var baseNodes =[
     "label": "STmicroelectronics"
   },
   {
-    "id": "SOGECLAIR ",
-    "label": "SOGECLAIR "
+    "id": "SOGECLAIR",
+    "label": "SOGECLAIR"
   },
   {
-    "id": "Ariane Group",
-    "label": "Ariane Group"
+    "id": "ArianeGroup",
+    "label": "ArianeGroup"
   },
   {
     "id": "PROMETHEE",
     "label": "PROMETHEE"
   },
   {
-    "id": "Thales Alenia Space ",
-    "label": "Thales Alenia Space "
+    "id": "ThalesAleniaSpace",
+    "label": "ThalesAleniaSpace"
   },
   {
     "id": "MBDA",
     "label": "MBDA"
   },
   {
-    "id": "TARMAC AEROSAVE ",
-    "label": "TARMAC AEROSAVE "
+    "id": "TARMACAEROSAVE",
+    "label": "TARMACAEROSAVE"
   },
   {
     "id": "Ouvry",
     "label": "Ouvry"
   },
   {
-    "id": "AEROSPACE VALLEY",
-    "label": "AEROSPACE VALLEY"
+    "id": "AEROSPACEVALLEY",
+    "label": "AEROSPACEVALLEY"
   },
   {
     "id": "OUVRY",
     "label": "OUVRY"
   },
   {
-    "id": "VERNEY CARON",
-    "label": "VERNEY CARON"
+    "id": "VERNEYCARON",
+    "label": "VERNEYCARON"
   },
   {
     "id": "AIRSEAS",
@@ -1068,8 +1076,8 @@ var baseNodes =[
     "label": "CEA"
   },
   {
-    "id": "Cluster E CLIDE",
-    "label": "Cluster E CLIDE"
+    "id": "ClusterECLIDE",
+    "label": "ClusterECLIDE"
   },
   {
     "id": "DAHER",
@@ -1084,40 +1092,40 @@ var baseNodes =[
     "label": "HELISIM"
   },
   {
-    "id": "CEGELEC DEFENSE",
-    "label": "CEGELEC DEFENSE"
+    "id": "CEGELECDEFENSE",
+    "label": "CEGELECDEFENSE"
   },
   {
-    "id": "PIERRE FABRE",
-    "label": "PIERRE FABRE"
+    "id": "PIERREFABRE",
+    "label": "PIERREFABRE"
   },
   {
     "id": "BOEING",
     "label": "BOEING"
   },
   {
-    "id": "ROLLS ROYCE",
-    "label": "ROLLS ROYCE"
+    "id": "ROLLSROYCE",
+    "label": "ROLLSROYCE"
   },
   {
     "id": "SPHEREA",
     "label": "SPHEREA"
   },
   {
-    "id": "COLLINS AEROSPACE",
-    "label": "COLLINS AEROSPACE"
+    "id": "COLLINSAEROSPACE",
+    "label": "COLLINSAEROSPACE"
   },
   {
     "id": "AKKA",
     "label": "AKKA"
   },
   {
-    "id": "Rotcshild ",
-    "label": "Rotcshild "
+    "id": "Rotcshild",
+    "label": "Rotcshild"
   },
   {
-    "id": "Bouygues Construction",
-    "label": "Bouygues Construction"
+    "id": "BouyguesConstruction",
+    "label": "BouyguesConstruction"
   },
   {
     "id": "CNES",
@@ -1128,24 +1136,24 @@ var baseNodes =[
     "label": "NLP"
   },
   {
-    "id": "Pitch Commercial",
-    "label": "Pitch Commercial"
+    "id": "PitchCommercial",
+    "label": "PitchCommercial"
   },
   {
     "id": "Dovetail",
     "label": "Dovetail"
   },
   {
-    "id": "Sûreté nucléaire",
-    "label": "Sûreté nucléaire"
+    "id": "Sûreténucléaire",
+    "label": "Sûreténucléaire"
   },
   {
     "id": "Confidentialité",
     "label": "Confidentialité"
   },
   {
-    "id": "Active directory",
-    "label": "Active directory"
+    "id": "Activedirectory",
+    "label": "Activedirectory"
   },
   {
     "id": "SIRH",
@@ -1156,12 +1164,12 @@ var baseNodes =[
     "label": "DSI"
   },
   {
-    "id": "Répondre aux objections",
-    "label": "Répondre aux objections"
+    "id": "Répondreauxobjections",
+    "label": "Répondreauxobjections"
   },
   {
-    "id": "Charte graphique",
-    "label": "Charte graphique"
+    "id": "Chartegraphique",
+    "label": "Chartegraphique"
   },
   {
     "id": "SMR",
@@ -1176,8 +1184,8 @@ var baseNodes =[
     "label": "Cybersécurité"
   },
   {
-    "id": "Knowledge Lifecycle",
-    "label": "Knowledge Lifecycle"
+    "id": "KnowledgeLifecycle",
+    "label": "KnowledgeLifecycle"
   },
   {
     "id": "LogRocket",
@@ -1192,12 +1200,12 @@ var baseNodes =[
     "label": "Upsell"
   },
   {
-    "id": "Customer success",
-    "label": "Customer success"
+    "id": "Customersuccess",
+    "label": "Customersuccess"
   },
   {
-    "id": "Site vitrine",
-    "label": "Site vitrine"
+    "id": "Sitevitrine",
+    "label": "Sitevitrine"
   },
   {
     "id": "Filtre",
@@ -1228,8 +1236,8 @@ var baseNodes =[
     "label": "Fonctionnalité"
   },
   {
-    "id": "Question vidéo",
-    "label": "Question vidéo"
+    "id": "Questionvidéo",
+    "label": "Questionvidéo"
   },
   {
     "id": "Zoulou",
@@ -1264,32 +1272,32 @@ var baseNodes =[
     "label": "Entreprises"
   },
   {
-    "id": "Global Industrie",
-    "label": "Global Industrie"
+    "id": "GlobalIndustrie",
+    "label": "GlobalIndustrie"
   },
   {
-    "id": "Knowledge Management",
-    "label": "Knowledge Management"
+    "id": "KnowledgeManagement",
+    "label": "KnowledgeManagement"
   },
   {
-    "id": "Secteur de l'Energie",
-    "label": "Secteur de l'Energie"
+    "id": "Secteurdel'Energie",
+    "label": "Secteurdel'Energie"
   },
   {
     "id": "Geosciences",
     "label": "Geosciences"
   },
   {
-    "id": "Content Management",
-    "label": "Content Management"
+    "id": "ContentManagement",
+    "label": "ContentManagement"
   },
   {
     "id": "TotalEnergies",
     "label": "TotalEnergies"
   },
   {
-    "id": "Societe du grand paris",
-    "label": "Societe du grand paris"
+    "id": "Societedugrandparis",
+    "label": "Societedugrandparis"
   },
   {
     "id": "Storengy",
@@ -1300,8 +1308,8 @@ var baseNodes =[
     "label": "Terega"
   },
   {
-    "id": "SLN Eramet",
-    "label": "SLN Eramet"
+    "id": "SLNEramet",
+    "label": "SLNEramet"
   },
   {
     "id": "Imerys",
@@ -1332,8 +1340,8 @@ var baseNodes =[
     "label": "EDF"
   },
   {
-    "id": "Intégration Teams",
-    "label": "Intégration Teams"
+    "id": "IntégrationTeams",
+    "label": "IntégrationTeams"
   },
   {
     "id": "Teams",
@@ -1348,80 +1356,80 @@ var baseNodes =[
     "label": "Slack"
   },
   {
-    "id": "Intégration Slack",
-    "label": "Intégration Slack"
+    "id": "IntégrationSlack",
+    "label": "IntégrationSlack"
   },
   {
     "id": "Russe",
     "label": "Russe"
   },
   {
-    "id": "UX design",
-    "label": "UX design"
+    "id": "UXdesign",
+    "label": "UXdesign"
   },
   {
     "id": "ACOVA",
     "label": "ACOVA"
   },
   {
-    "id": "Communication interne",
-    "label": "Communication interne"
+    "id": "Communicationinterne",
+    "label": "Communicationinterne"
   },
   {
-    "id": "Jauge de pertinence",
-    "label": "Jauge de pertinence"
+    "id": "Jaugedepertinence",
+    "label": "Jaugedepertinence"
   },
   {
-    "id": "Question posée par mail",
-    "label": "Question posée par mail"
+    "id": "Questionposéeparmail",
+    "label": "Questionposéeparmail"
   },
   {
     "id": "Image",
     "label": "Image"
   },
   {
-    "id": "Microsoft Store",
-    "label": "Microsoft Store"
+    "id": "MicrosoftStore",
+    "label": "MicrosoftStore"
   },
   {
-    "id": "Microsoft Partner Center",
-    "label": "Microsoft Partner Center"
+    "id": "MicrosoftPartnerCenter",
+    "label": "MicrosoftPartnerCenter"
   },
   {
-    "id": "Jeux de role",
-    "label": "Jeux de role"
+    "id": "Jeuxderole",
+    "label": "Jeuxderole"
   },
   {
     "id": "Zapier",
     "label": "Zapier"
   },
   {
-    "id": "Welcome to the Jungle",
-    "label": "Welcome to the Jungle"
+    "id": "WelcometotheJungle",
+    "label": "WelcometotheJungle"
   },
   {
     "id": "Golf",
     "label": "Golf"
   },
   {
-    "id": "Conception Pédagogique",
-    "label": "Conception Pédagogique"
+    "id": "ConceptionPédagogique",
+    "label": "ConceptionPédagogique"
   },
   {
     "id": "TikTok",
     "label": "TikTok"
   },
   {
-    "id": "Théorie des organisations",
-    "label": "Théorie des organisations"
+    "id": "Théoriedesorganisations",
+    "label": "Théoriedesorganisations"
   },
   {
-    "id": "Ingénieur projet",
-    "label": "Ingénieur projet"
+    "id": "Ingénieurprojet",
+    "label": "Ingénieurprojet"
   },
   {
-    "id": "Planche à voile",
-    "label": "Planche à voile"
+    "id": "Plancheàvoile",
+    "label": "Plancheàvoile"
   },
   {
     "id": "Santé",
@@ -1440,24 +1448,24 @@ var baseNodes =[
     "label": "Horaires"
   },
   {
-    "id": "Relation client",
-    "label": "Relation client"
+    "id": "Relationclient",
+    "label": "Relationclient"
   },
   {
     "id": "MQL",
     "label": "MQL"
   },
   {
-    "id": "Prototypes Figma",
-    "label": "Prototypes Figma"
+    "id": "PrototypesFigma",
+    "label": "PrototypesFigma"
   },
   {
     "id": "Interfaces",
     "label": "Interfaces"
   },
   {
-    "id": "Évolutions UX Design",
-    "label": "Évolutions UX Design"
+    "id": "ÉvolutionsUXDesign",
+    "label": "ÉvolutionsUXDesign"
   },
   {
     "id": "Stonly",
@@ -1480,8 +1488,8 @@ var baseNodes =[
     "label": "Compliance"
   },
   {
-    "id": "Entreprise apprenante",
-    "label": "Entreprise apprenante"
+    "id": "Entrepriseapprenante",
+    "label": "Entrepriseapprenante"
   },
   {
     "id": "Qualité",
@@ -1500,16 +1508,16 @@ var baseNodes =[
     "label": "Algorithmes"
   },
   {
-    "id": "Cegelec CEM",
-    "label": "Cegelec CEM"
+    "id": "CegelecCEM",
+    "label": "CegelecCEM"
   },
   {
     "id": "Ordinateur",
     "label": "Ordinateur"
   },
   {
-    "id": "Charte éditoriale",
-    "label": "Charte éditoriale"
+    "id": "Charteéditoriale",
+    "label": "Charteéditoriale"
   },
   {
     "id": "Astrologie",
@@ -1524,32 +1532,32 @@ var baseNodes =[
     "label": "Mail"
   },
   {
-    "id": "Levée de fonds",
-    "label": "Levée de fonds"
+    "id": "Levéedefonds",
+    "label": "Levéedefonds"
   },
   {
-    "id": "Appel à manifestation d'intérêt",
-    "label": "Appel à manifestation d'intérêt"
+    "id": "Appelàmanifestationd'intérêt",
+    "label": "Appelàmanifestationd'intérêt"
   },
   {
-    "id": "Concours Start-up",
-    "label": "Concours Start-up"
+    "id": "ConcoursStart-up",
+    "label": "ConcoursStart-up"
   },
   {
     "id": "Couleurs",
     "label": "Couleurs"
   },
   {
-    "id": "Recherche Utilisateur",
-    "label": "Recherche Utilisateur"
+    "id": "RechercheUtilisateur",
+    "label": "RechercheUtilisateur"
   },
   {
     "id": "CSV",
     "label": "CSV"
   },
   {
-    "id": "FAQ Clients",
-    "label": "FAQ Clients"
+    "id": "FAQClients",
+    "label": "FAQClients"
   },
   {
     "id": "Reversibilité",
@@ -1576,8 +1584,8 @@ var baseNodes =[
     "label": "Statistiques"
   },
   {
-    "id": "Discours de Clément",
-    "label": "Discours de Clément"
+    "id": "DiscoursdeClément",
+    "label": "DiscoursdeClément"
   },
   {
     "id": "MobX",
@@ -1596,28 +1604,28 @@ var baseNodes =[
     "label": "Déplacements"
   },
   {
-    "id": "Google Slide",
-    "label": "Google Slide"
+    "id": "GoogleSlide",
+    "label": "GoogleSlide"
   },
   {
-    "id": "Offre de prix",
-    "label": "Offre de prix"
+    "id": "Offredeprix",
+    "label": "Offredeprix"
   },
   {
-    "id": "Cas d'usage",
-    "label": "Cas d'usage"
+    "id": "Casd'usage",
+    "label": "Casd'usage"
   },
   {
     "id": "Industrialisation",
     "label": "Industrialisation"
   },
   {
-    "id": "Suivi commercial",
-    "label": "Suivi commercial"
+    "id": "Suivicommercial",
+    "label": "Suivicommercial"
   },
   {
-    "id": "Management de compte",
-    "label": "Management de compte"
+    "id": "Managementdecompte",
+    "label": "Managementdecompte"
   },
   {
     "id": "Acquisition",
@@ -1648,8 +1656,8 @@ var baseNodes =[
     "label": "LinkedIn"
   },
   {
-    "id": "Sales Navigator",
-    "label": "Sales Navigator"
+    "id": "SalesNavigator",
+    "label": "SalesNavigator"
   },
   {
     "id": "Rendez-vous",
@@ -1664,8 +1672,8 @@ var baseNodes =[
     "label": "mongoDB"
   },
   {
-    "id": "Tunnel de vente",
-    "label": "Tunnel de vente"
+    "id": "Tunneldevente",
+    "label": "Tunneldevente"
   },
   {
     "id": "RaiseLab",
@@ -1680,12 +1688,12 @@ var baseNodes =[
     "label": "CGV"
   },
   {
-    "id": "Carrefours Excellences",
-    "label": "Carrefours Excellences"
+    "id": "CarrefoursExcellences",
+    "label": "CarrefoursExcellences"
   },
   {
-    "id": "Gestion de crise",
-    "label": "Gestion de crise"
+    "id": "Gestiondecrise",
+    "label": "Gestiondecrise"
   },
   {
     "id": "Chroniques",
@@ -1708,8 +1716,8 @@ var baseNodes =[
     "label": "Peinture"
   },
   {
-    "id": "Points critiques",
-    "label": "Points critiques"
+    "id": "Pointscritiques",
+    "label": "Pointscritiques"
   },
   {
     "id": "Trésorerie",
@@ -1744,56 +1752,52 @@ var baseNodes =[
     "label": "Question"
   },
   {
-    "id": "Ressources Humaines",
-    "label": "Ressources Humaines"
+    "id": "RessourcesHumaines",
+    "label": "RessourcesHumaines"
   },
   {
-    "id": "Processus d'harmonisation",
-    "label": "Processus d'harmonisation"
+    "id": "Processusd'harmonisation",
+    "label": "Processusd'harmonisation"
   },
   {
     "id": "Vision",
     "label": "Vision"
   },
   {
-    "id": "Centre de ressources",
-    "label": "Centre de ressources"
+    "id": "Centrederessources",
+    "label": "Centrederessources"
   },
   {
-    "id": "Git des bonnes pratiques",
-    "label": "Git des bonnes pratiques"
+    "id": "Gitdesbonnespratiques",
+    "label": "Gitdesbonnespratiques"
   },
   {
-    "id": "Concurrence ",
-    "label": "Concurrence "
+    "id": "Concurrence",
+    "label": "Concurrence"
   },
   {
-    "id": "Protection des données",
-    "label": "Protection des données"
-  },
-  {
-    "id": "SQL",
-    "label": "SQL"
+    "id": "Protectiondesdonnées",
+    "label": "Protectiondesdonnées"
   },
   {
     "id": "Unaware",
     "label": "Unaware"
   },
   {
-    "id": "Problem Aware",
-    "label": "Problem Aware"
+    "id": "ProblemAware",
+    "label": "ProblemAware"
   },
   {
-    "id": "Solution Aware",
-    "label": "Solution Aware"
+    "id": "SolutionAware",
+    "label": "SolutionAware"
   },
   {
-    "id": "Product Aware",
-    "label": "Product Aware"
+    "id": "ProductAware",
+    "label": "ProductAware"
   },
   {
-    "id": "Mapping de compte",
-    "label": "Mapping de compte"
+    "id": "Mappingdecompte",
+    "label": "Mappingdecompte"
   },
   {
     "id": "Champion",
@@ -1824,44 +1828,44 @@ var baseNodes =[
     "label": "Plateforme"
   },
   {
-    "id": "Plateforme technique",
-    "label": "Plateforme technique"
+    "id": "Plateformetechnique",
+    "label": "Plateformetechnique"
   },
   {
-    "id": "Plateforme politique",
-    "label": "Plateforme politique"
+    "id": "Plateformepolitique",
+    "label": "Plateformepolitique"
   },
   {
-    "id": "Plateforme méthodologique",
-    "label": "Plateforme méthodologique"
+    "id": "Plateformeméthodologique",
+    "label": "Plateformeméthodologique"
   },
   {
-    "id": "Plateforme communautaire",
-    "label": "Plateforme communautaire"
+    "id": "Plateformecommunautaire",
+    "label": "Plateformecommunautaire"
   },
   {
     "id": "Livrables",
     "label": "Livrables"
   },
   {
-    "id": "Livrables Ops",
-    "label": "Livrables Ops"
+    "id": "LivrablesOps",
+    "label": "LivrablesOps"
   },
   {
-    "id": "Livrables Marketing",
-    "label": "Livrables Marketing"
+    "id": "LivrablesMarketing",
+    "label": "LivrablesMarketing"
   },
   {
-    "id": "App admin",
-    "label": "App admin"
+    "id": "Appadmin",
+    "label": "Appadmin"
   },
   {
-    "id": "Histoires utilisateurs",
-    "label": "Histoires utilisateurs"
+    "id": "Histoiresutilisateurs",
+    "label": "Histoiresutilisateurs"
   },
   {
-    "id": "Cas métiers",
-    "label": "Cas métiers"
+    "id": "Casmétiers",
+    "label": "Casmétiers"
   },
   {
     "id": "One-pager",
@@ -1876,8 +1880,8 @@ var baseNodes =[
     "label": "Tags"
   },
   {
-    "id": "Liens de Parenté",
-    "label": "Liens de Parenté"
+    "id": "LiensdeParenté",
+    "label": "LiensdeParenté"
   },
   {
     "id": "Parent",
@@ -1888,72 +1892,72 @@ var baseNodes =[
     "label": "Enfant"
   },
   {
-    "id": "Dimensions Ontologiques",
-    "label": "Dimensions Ontologiques"
+    "id": "DimensionsOntologiques",
+    "label": "DimensionsOntologiques"
   },
   {
     "id": "Familles",
     "label": "Familles"
   },
   {
-    "id": "Famille Royale",
-    "label": "Famille Royale"
+    "id": "FamilleRoyale",
+    "label": "FamilleRoyale"
   },
   {
-    "id": "Activité Métier",
-    "label": "Activité Métier"
+    "id": "ActivitéMétier",
+    "label": "ActivitéMétier"
   },
   {
-    "id": "Étapes d'onboarding",
-    "label": "Étapes d'onboarding"
+    "id": "Étapesd'onboarding",
+    "label": "Étapesd'onboarding"
   },
   {
-    "id": "Ask for the user",
-    "label": "Ask for the user"
+    "id": "Askfortheuser",
+    "label": "Askfortheuser"
   },
   {
-    "id": "Ask for the mood",
-    "label": "Ask for the mood"
+    "id": "Askforthemood",
+    "label": "Askforthemood"
   },
   {
-    "id": "Chemin d'engagement",
-    "label": "Chemin d'engagement"
+    "id": "Chemind'engagement",
+    "label": "Chemind'engagement"
   },
   {
-    "id": "Persona Vente",
-    "label": "Persona Vente"
+    "id": "PersonaVente",
+    "label": "PersonaVente"
   },
   {
-    "id": "Persona Marketing",
-    "label": "Persona Marketing"
+    "id": "PersonaMarketing",
+    "label": "PersonaMarketing"
   },
   {
-    "id": "Persona Utilisateur",
-    "label": "Persona Utilisateur"
+    "id": "PersonaUtilisateur",
+    "label": "PersonaUtilisateur"
   },
   {
-    "id": "Fiche persona",
-    "label": "Fiche persona"
+    "id": "Fichepersona",
+    "label": "Fichepersona"
   },
   {
-    "id": "Service blueprint",
-    "label": "Service blueprint"
+    "id": "Serviceblueprint",
+    "label": "Serviceblueprint"
   },
   {
-    "id": "Chemin d'engagement utilisateur",
-    "label": "Chemin d'engagement utilisateur"
+    "id": "Chemind'engagementutilisateur",
+    "label": "Chemind'engagementutilisateur"
   },
   {
-    "id": "Chemin d'engagement catalyseur",
-    "label": "Chemin d'engagement catalyseur"
+    "id": "Chemind'engagementcatalyseur",
+    "label": "Chemind'engagementcatalyseur"
   },
   {
-    "id": "Sales Funnel",
-    "label": "Sales Funnel"
+    "id": "SalesFunnel",
+    "label": "SalesFunnel"
   },
   {
-    "id": "Awareness Funnel",
-    "label": "Awareness Funnel"
+    "id": "AwarenessFunnel",
+    "label": "AwarenessFunnel"
   },
   {
     "id": "Leadership",
@@ -1972,40 +1976,40 @@ var baseNodes =[
     "label": "Découverte"
   },
   {
-    "id": "Power user",
-    "label": "Power user"
+    "id": "Poweruser",
+    "label": "Poweruser"
   },
   {
-    "id": "Tag Owner",
-    "label": "Tag Owner"
+    "id": "TagOwner",
+    "label": "TagOwner"
   },
   {
-    "id": "Product Lead Growth",
-    "label": "Product Lead Growth"
+    "id": "ProductLeadGrowth",
+    "label": "ProductLeadGrowth"
   },
   {
     "id": "Salons",
     "label": "Salons"
   },
   {
-    "id": "Rituels et processus",
-    "label": "Rituels et processus"
+    "id": "Rituelsetprocessus",
+    "label": "Rituelsetprocessus"
   },
   {
-    "id": "Design responsif",
-    "label": "Design responsif"
+    "id": "Designresponsif",
+    "label": "Designresponsif"
   },
   {
-    "id": "Import / Export",
-    "label": "Import / Export"
+    "id": "Import/Export",
+    "label": "Import/Export"
   },
   {
-    "id": "Pitch party",
-    "label": "Pitch party"
+    "id": "Pitchparty",
+    "label": "Pitchparty"
   },
   {
-    "id": "Accord de confidentialité",
-    "label": "Accord de confidentialité"
+    "id": "Accorddeconfidentialité",
+    "label": "Accorddeconfidentialité"
   },
   {
     "id": "Japonnais",
@@ -2024,12 +2028,12 @@ var baseNodes =[
     "label": "SalesQL"
   },
   {
-    "id": "Suite office",
-    "label": "Suite office"
+    "id": "Suiteoffice",
+    "label": "Suiteoffice"
   },
   {
-    "id": "Algorithme de tri",
-    "label": "Algorithme de tri"
+    "id": "Algorithmedetri",
+    "label": "Algorithmedetri"
   },
   {
     "id": "Word",
@@ -2040,40 +2044,40 @@ var baseNodes =[
     "label": "Autocomplete"
   },
   {
-    "id": "Data Viz",
-    "label": "Data Viz"
+    "id": "DataViz",
+    "label": "DataViz"
   },
   {
     "id": "Django",
     "label": "Django"
   },
   {
-    "id": "Segmentation d'images",
-    "label": "Segmentation d'images"
+    "id": "Segmentationd'images",
+    "label": "Segmentationd'images"
   },
   {
-    "id": "Ecriture d'article scientifique",
-    "label": "Ecriture d'article scientifique"
+    "id": "Ecritured'articlescientifique",
+    "label": "Ecritured'articlescientifique"
   },
   {
-    "id": "Airbus Atlantic",
-    "label": "Airbus Atlantic"
+    "id": "AirbusAtlantic",
+    "label": "AirbusAtlantic"
   },
   {
     "id": "GSK",
     "label": "GSK"
   },
   {
-    "id": "Adobe Lightroom",
-    "label": "Adobe Lightroom"
+    "id": "AdobeLightroom",
+    "label": "AdobeLightroom"
   },
   {
-    "id": "Adobe XD",
-    "label": "Adobe XD"
+    "id": "AdobeXD",
+    "label": "AdobeXD"
   },
   {
-    "id": "Vinci Energies",
-    "label": "Vinci Energies"
+    "id": "VinciEnergies",
+    "label": "VinciEnergies"
   },
   {
     "id": "PostgreSQL",
@@ -2096,8 +2100,8 @@ var baseNodes =[
     "label": "jQuery"
   },
   {
-    "id": "Bouygues ByTech",
-    "label": "Bouygues ByTech"
+    "id": "BouyguesByTech",
+    "label": "BouyguesByTech"
   },
   {
     "id": "Vélo",
@@ -2108,56 +2112,56 @@ var baseNodes =[
     "label": "MAO"
   },
   {
-    "id": "Réseau DEF",
-    "label": "Réseau DEF"
+    "id": "RéseauDEF",
+    "label": "RéseauDEF"
   },
   {
-    "id": "Spie Industrie",
-    "label": "Spie Industrie"
+    "id": "SpieIndustrie",
+    "label": "SpieIndustrie"
   },
   {
-    "id": "Eiffage Energie Systèmes",
-    "label": "Eiffage Energie Systèmes"
+    "id": "EiffageEnergieSystèmes",
+    "label": "EiffageEnergieSystèmes"
   },
   {
-    "id": "Manpower Group",
-    "label": "Manpower Group"
+    "id": "ManpowerGroup",
+    "label": "ManpowerGroup"
   },
   {
-    "id": "CDC Habitats",
-    "label": "CDC Habitats"
+    "id": "CDCHabitats",
+    "label": "CDCHabitats"
   },
   {
-    "id": "Thales Aviobook",
-    "label": "Thales Aviobook"
+    "id": "ThalesAviobook",
+    "label": "ThalesAviobook"
   },
   {
-    "id": "SNCF Réseau",
-    "label": "SNCF Réseau"
+    "id": "SNCFRéseau",
+    "label": "SNCFRéseau"
   },
   {
-    "id": "SNCF DGEX",
-    "label": "SNCF DGEX"
+    "id": "SNCFDGEX",
+    "label": "SNCFDGEX"
   },
   {
-    "id": "Spie Nucléaire",
-    "label": "Spie Nucléaire"
+    "id": "SpieNucléaire",
+    "label": "SpieNucléaire"
   },
   {
-    "id": "TotalEnergies OneTech",
-    "label": "TotalEnergies OneTech"
+    "id": "TotalEnergiesOneTech",
+    "label": "TotalEnergiesOneTech"
   },
   {
-    "id": "SNCF Sferis",
-    "label": "SNCF Sferis"
+    "id": "SNCFSferis",
+    "label": "SNCFSferis"
   },
   {
     "id": "AFNOR",
     "label": "AFNOR"
   },
   {
-    "id": "Automotive Cells Company (ACC)",
-    "label": "Automotive Cells Company (ACC)"
+    "id": "AutomotiveCellsCompany(ACC)",
+    "label": "AutomotiveCellsCompany(ACC)"
   },
   {
     "id": "Latécoère",
@@ -2168,16 +2172,16 @@ var baseNodes =[
     "label": "Boccard"
   },
   {
-    "id": "General Electric Aviation",
-    "label": "General Electric Aviation"
+    "id": "GeneralElectricAviation",
+    "label": "GeneralElectricAviation"
   },
   {
     "id": "Yoga",
     "label": "Yoga"
   },
   {
-    "id": "Formule Excel",
-    "label": "Formule Excel"
+    "id": "FormuleExcel",
+    "label": "FormuleExcel"
   },
   {
     "id": "Alternant",
@@ -2192,29 +2196,575 @@ var baseNodes =[
     "label": "Management"
   },
   {
-    "id": "Katie Leede Inc ",
-    "label": "Katie Leede Inc "
+    "id": "KatieLeedeInc",
+    "label": "KatieLeedeInc"
   },
   {
     "id": "Keen",
     "label": "Keen"
   },
   {
-    "id": "Marque blanche",
-    "label": "Marque blanche"
+    "id": "Marqueblanche",
+    "label": "Marqueblanche"
   },
+
+
+
+  {
+    "id": "Tech",
+    "label": "Tech"
+  },
+  {
+    "id": "WingzyRole",
+    "label": "WingzyRole"
+  },
+  {
+    "id": "Hidden",
+    "label": "Hidden"
+  },
+  {
+    "id": "FrenchCompanies",
+    "label": "FrenchCompanies"
+  },
+  {
+    "id": "Brand-andMarketing",
+    "label": "Brand-andMarketing"
+  },
+  {
+    "id": "Sales26688",
+    "label": "Sales26688"
+  },
+  {},
+  {
+    "id": "Outils",
+    "label": "Outils"
+  },
+  {
+    "id": "Ia",
+    "label": "Ia"
+  },
+  {
+    "id": "DataAnalysis",
+    "label": "DataAnalysis"
+  },
+  {
+    "id": "SoftwareDevelopment",
+    "label": "SoftwareDevelopment"
+  },
+  {
+    "id": "IT",
+    "label": "IT"
+  },
+  {
+    "id": "Administrative",
+    "label": "Administrative"
+  },
+  {
+    "id": "Fonctionnalite",
+    "label": "Fonctionnalite"
+  },
+  {
+    "id": "Deploiement",
+    "label": "Deploiement"
+  },
+  {
+    "id": "Organization",
+    "label": "Organization"
+  },
+  {
+    "id": "Operations86854",
+    "label": "Operations86854"
+  },
+  {
+    "id": "Logistic",
+    "label": "Logistic"
+  },
+  {
+    "id": "Appadmin",
+    "label": "Appadmin"
+  },
+  {
+    "id": "FrenchCompanies",
+    "label": "FrenchCompanies"
+  },
+  {
+    "id": "IT",
+    "label": "IT"
+  },
+  {
+    "id": "Logistic",
+    "label": "Logistic"
+  },
+  {
+    "id": "Hobbies",
+    "label": "Hobbies"
+  },
+  {
+    "id": "Langues",
+    "label": "Langues"
+  },
+  {
+    "id": "Skills",
+    "label": "Skills"
+  },
+  {
+    "id": "TopManagement",
+    "label": "TopManagement"
+  },
+  {
+    "id": "Software",
+    "label": "Software"
+  },
+  {
+    "id": "Design",
+    "label": "Design"
+  },
+  {
+    "id": "Excel",
+    "label": "Excel"
+  },
+  {
+    "id": "Communication",
+    "label": "Communication"
+  },
+  {
+    "id": "Sales26688",
+    "label": "Sales26688"
+  },
+  {
+    "id": "Brand-andMarketing",
+    "label": "Brand-andMarketing"
+  },
+  {
+    "id": "ProgrammingLanguages",
+    "label": "ProgrammingLanguages"
+  },
+  {
+    "id": "Sport",
+    "label": "Sport"
+  },
+  {
+    "id": "Software",
+    "label": "Software"
+  },
+  {
+    "id": "BI",
+    "label": "BI"
+  },
+  {
+    "id": "Management51831",
+    "label": "Management51831"
+  },
+  {
+    "id": "TopManagement",
+    "label": "TopManagement"
+  },
+  {
+    "id": "Administrative",
+    "label": "Administrative"
+  },
+  {
+    "id": "TechnologicalPlateform",
+    "label": "TechnologicalPlateform"
+  },
+  {
+    "id": "Tech",
+    "label": "Tech"
+  },
+  {
+    "id": "SupplyChain",
+    "label": "SupplyChain"
+  },
+  {
+    "id": "Skills",
+    "label": "Skills"
+  },
+  {
+    "id": "BI",
+    "label": "BI"
+  },
+  {
+    "id": "RessourcesHumaines",
+    "label": "RessourcesHumaines"
+  },
+  {
+    "id": "Operations86854",
+    "label": "Operations86854"
+  },
+  {
+    "id": "TransportIndustry",
+    "label": "TransportIndustry"
+  },
+  {
+    "id": "PsaPeugeotCitroen",
+    "label": "PsaPeugeotCitroen"
+  },
+  {
+    "id": "WebMarketing",
+    "label": "WebMarketing"
+  },
+  {
+    "id": "Fonctionnalite",
+    "label": "Fonctionnalite"
+  },
+  {
+    "id": "TechnologicalPlateform",
+    "label": "TechnologicalPlateform"
+  },
+  {
+    "id": "Vinci",
+    "label": "Vinci"
+  },
+  {
+    "id": "BouyguesByTech",
+    "label": "BouyguesByTech"
+  },
+  {
+    "id": "Securite",
+    "label": "Securite"
+  },
+  {
+    "id": "Integration",
+    "label": "Integration"
+  },
+  {
+    "id": "Brand",
+    "label": "Brand"
+  },
+  {
+    "id": "Securite",
+    "label": "Securite"
+  },
+  {
+    "id": "KnowledgeManagement37459",
+    "label": "KnowledgeManagement37459"
+  },
+  {
+    "id": "Brand",
+    "label": "Brand"
+  },
+  {
+    "id": "Navigateur",
+    "label": "Navigateur"
+  },
+  {
+    "id": "Platform",
+    "label": "Platform"
+  },
+  {
+    "id": "Management51831",
+    "label": "Management51831"
+  },
+  {
+    "id": "AccountMapping",
+    "label": "AccountMapping"
+  },
+  {
+    "id": "Tradeshow",
+    "label": "Tradeshow"
+  },
+  {
+    "id": "WingzyRole",
+    "label": "WingzyRole"
+  },
+  {
+    "id": "ContentMarketing",
+    "label": "ContentMarketing"
+  },
+  {
+    "id": "TotalSa",
+    "label": "TotalSa"
+  },
+  {
+    "id": "Sport",
+    "label": "Sport"
+  },
+  {
+    "id": "Teams",
+    "label": "Teams"
+  },
+  {
+    "id": "Outils",
+    "label": "Outils"
+  },
+  {
+    "id": "Slack",
+    "label": "Slack"
+  },
+  {
+    "id": "Platform",
+    "label": "Platform"
+  },
+  {
+    "id": "Communication",
+    "label": "Communication"
+  },
+  {
+    "id": "UxDesign",
+    "label": "UxDesign"
+  },
+  {
+    "id": "MicrosoftStore",
+    "label": "MicrosoftStore"
+  },
+  {
+    "id": "EmployerBrand",
+    "label": "EmployerBrand"
+  },
+  {
+    "id": "TunnelDeVente",
+    "label": "TunnelDeVente"
+  },
+  {
+    "id": "Figma",
+    "label": "Figma"
+  },
+  {
+    "id": "Hobbies",
+    "label": "Hobbies"
+  },
+  {
+    "id": "Cybersecurite",
+    "label": "Cybersecurite"
+  },
+  {
+    "id": "Deploiement",
+    "label": "Deploiement"
+  },
+  {
+    "id": "Dsi",
+    "label": "Dsi"
+  },
+  {
+    "id": "Interfaces",
+    "label": "Interfaces"
+  },
+  {
+    "id": "Investisseur",
+    "label": "Investisseur"
+  },
+  {
+    "id": "ConcoursStartUp",
+    "label": "ConcoursStartUp"
+  },
+  {
+    "id": "CharteGraphique",
+    "label": "CharteGraphique"
+  },
+  {
+    "id": "Dovetail",
+    "label": "Dovetail"
+  },
+  {
+    "id": "DataAnalysis",
+    "label": "DataAnalysis"
+  },
+  {
+    "id": "PreSales",
+    "label": "PreSales"
+  },
+  {
+    "id": "ProtectionDesDonnees",
+    "label": "ProtectionDesDonnees"
+  },
+  {
+    "id": "AskForTheMoon",
+    "label": "AskForTheMoon"
+  },
+  {
+    "id": "ProductDesign",
+    "label": "ProductDesign"
+  },
+  {
+    "id": "Casmetiers",
+    "label": "Casmetiers"
+  },
+  {
+    "id": "AccountManagement",
+    "label": "AccountManagement"
+  },
+  {
+    "id": "SalesNavigator",
+    "label": "SalesNavigator"
+  },
+  {
+    "id": "Writing34535",
+    "label": "Writing34535"
+  },
+  {
+    "id": "EventManagement",
+    "label": "EventManagement"
+  },
+  {
+    "id": "RituelsEtProcessus",
+    "label": "RituelsEtProcessus"
+  },
+  {
+    "id": "Accounting",
+    "label": "Accounting"
+  },
+  {
+    "id": "UserResearch",
+    "label": "UserResearch"
+  },
+  {
+    "id": "ChangeManagement",
+    "label": "ChangeManagement"
+  },
+  {
+    "id": "Management",
+    "label": "Management"
+  },
+  {
+    "id": "AmeliorationContinue",
+    "label": "AmeliorationContinue"
+  },
+  {
+    "id": "SiteVitrine",
+    "label": "SiteVitrine"
+  },
+  {
+    "id": "Cybersecurite",
+    "label": "Cybersecurite"
+  },
+  {
+    "id": "TunnelDeVente",
+    "label": "TunnelDeVente"
+  },
+  {
+    "id": "Mql",
+    "label": "Mql"
+  },
+  {
+    "id": "AccountMapping",
+    "label": "AccountMapping"
+  },
+  {
+    "id": "MethodologicalPlatform",
+    "label": "MethodologicalPlatform"
+  },
+  {
+    "id": "Livrables",
+    "label": "Livrables"
+  },
+  {
+    "id": "CentreDeRessources",
+    "label": "CentreDeRessources"
+  },
+  {
+    "id": "MethodologicalPlatform",
+    "label": "MethodologicalPlatform"
+  },
+  {
+    "id": "LivrablesMarketing",
+    "label": "LivrablesMarketing"
+  },
+  {
+    "id": "LivrablesOps",
+    "label": "LivrablesOps"
+  },
+  {
+    "id": "Familles",
+    "label": "Familles"
+  },
+  {
+    "id": "Ontologie",
+    "label": "Ontologie"
+  },
+  {
+    "id": "DimensionsOntologiques",
+    "label": "DimensionsOntologiques"
+  },
+  {
+    "id": "RituelsEtProcessus",
+    "label": "RituelsEtProcessus"
+  },
+  {
+    "id": "Cheminengagement",
+    "label": "Cheminengagement"
+  },
+  {
+    "id": "Cheminengagementutilisateur",
+    "label": "Cheminengagementutilisateur"
+  },
+  {
+    "id": "Utilisateurs",
+    "label": "Utilisateurs"
+  },
+  {
+    "id": "SalesStrategy",
+    "label": "SalesStrategy"
+  },
+  {
+    "id": "UxDesign",
+    "label": "UxDesign"
+  },
+  {
+    "id": "Confidentialite",
+    "label": "Confidentialite"
+  },
+  {
+    "id": "Certificat",
+    "label": "Certificat"
+  },
+  {
+    "id": "ProgrammingLanguages",
+    "label": "ProgrammingLanguages"
+  },
+  {
+    "id": "SuiteOffice",
+    "label": "SuiteOffice"
+  },
+  {
+    "id": "Airbus61693",
+    "label": "Airbus61693"
+  },
+  {
+    "id": "Vinci",
+    "label": "Vinci"
+  },
+  {
+    "id": "Django",
+    "label": "Django"
+  },
+  {
+    "id": "Bouygues75321",
+    "label": "Bouygues75321"
+  },
+  {
+    "id": "Music",
+    "label": "Music"
+  },
+  {
+    "id": "Sncf93609",
+    "label": "Sncf93609"
+  },
+  {
+    "id": "TotalEnergies",
+    "label": "TotalEnergies"
+  },
+  {
+    "id": "Excel",
+    "label": "Excel"
+  },
+  {
+    "id": "FullStackDeveloper",
+    "label": "FullStackDeveloper"
+  }
+
+  
 ]
 
 var baseLinks = 
 [
   {
     "target": "Tech",
-    "source": "Application web progressive",
+    "source": "Applicationwebprogressive",
     "strength": 0.7
   },
   {
     "target": "WingzyRole",
-    "source": "Board member",
+    "source": "Boardmember",
     "strength": 0.7
   },
   {
@@ -2244,7 +2794,7 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "Match Com",
+    "source": "MatchCom",
     "strength": 0.7
   },
   {
@@ -2254,16 +2804,16 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "Groupe ADP",
+    "source": "GroupeADP",
     "strength": 0.7
   },
   {
     "target": "WingzyRole",
-    "source": "Full dev",
+    "source": "Fulldev",
     "strength": 0.7
   },
   {
-    "target": "Brand-andMarketing ",
+    "target": "Brand-andMarketing",
     "source": "Gamification",
     "strength": 0.7
   },
@@ -2274,7 +2824,7 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "Asobo Studio",
+    "source": "AsoboStudio",
     "strength": 0.7
   },
   {
@@ -2289,7 +2839,7 @@ var baseLinks =
   },
   {
     "target": "WingzyRole",
-    "source": "Apporteur d'affaires",
+    "source": "Apporteurd'affaires",
     "strength": 0.7
   },
   {
@@ -2299,7 +2849,7 @@ var baseLinks =
   },
   {
     "target": "Sales26688",
-    "source": "Cannaux de ventes",
+    "source": "Cannauxdeventes",
     "strength": 0.7
   },
   {
@@ -2334,7 +2884,7 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "Air Products",
+    "source": "AirProducts",
     "strength": 0.7
   },
   {
@@ -2349,17 +2899,17 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "Ask for the moon",
+    "source": "Askforthemoon",
     "strength": 0.7
   },
   {
     "target": "Outils",
-    "source": "Microsoft Azure",
+    "source": "MicrosoftAzure",
     "strength": 0.7
   },
   {
     "target": "FrenchCompanies",
-    "source": "Leroy Merlin",
+    "source": "LeroyMerlin",
     "strength": 0.7
   },
   {
@@ -2374,17 +2924,17 @@ var baseLinks =
   },
   {
     "target": "Ia",
-    "source": "Filtrage collaboratif",
+    "source": "Filtragecollaboratif",
     "strength": 0.7
   },
   {
     "target": "DataAnalysis",
-    "source": "Data Set",
+    "source": "DataSet",
     "strength": 0.7
   },
   {
     "target": "FrenchCompanies",
-    "source": "Psa Peugeot Citroen",
+    "source": "PsaPeugeotCitroen",
     "strength": 0.7
   },
   {
@@ -2424,7 +2974,7 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "Digital Reality",
+    "source": "DigitalReality",
     "strength": 0.7
   },
   {
@@ -2444,7 +2994,7 @@ var baseLinks =
   },
   {
     "target": "SoftwareDevelopment",
-    "source": "Visual Studio Code",
+    "source": "VisualStudioCode",
     "strength": 0.7
   },
   {
@@ -2453,12 +3003,12 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Administrative ",
+    "target": "Administrative",
     "source": "Comptabilité",
     "strength": 0.7
   },
   {
-    "target": "Administrative ",
+    "target": "Administrative",
     "source": "Facturation",
     "strength": 0.7
   },
@@ -2468,7 +3018,7 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Deploiement ",
+    "target": "Deploiement",
     "source": "Ontologie",
     "strength": 0.7
   },
@@ -2484,7 +3034,7 @@ var baseLinks =
   },
   {
     "target": "WingzyRole",
-    "source": "Marketing Manager",
+    "source": "MarketingManager",
     "strength": 0.7
   },
   {
@@ -2504,26 +3054,26 @@ var baseLinks =
   },
   {
     "target": "Logistic",
-    "source": "Supply chain",
+    "source": "Supplychain",
     "strength": 0.7
   },
   {
-    "target": "Appadmin ",
+    "target": "Appadmin",
     "source": "Dashboard",
     "strength": 0.7
   },
   {
-    "target": "FrenchCompanies ",
+    "target": "FrenchCompanies",
     "source": "Framatome",
     "strength": 0.7
   },
   {
-    "target": "IT ",
+    "target": "IT",
     "source": "IA",
     "strength": 0.7
   },
   {
-    "target": "Logistic ",
+    "target": "Logistic",
     "source": "Administratif",
     "strength": 0.7
   },
@@ -2549,11 +3099,11 @@ var baseLinks =
   },
   {
     "target": "TopManagement",
-    "source": "Intelligence Collective",
+    "source": "IntelligenceCollective",
     "strength": 0.7
   },
   {
-    "target": "Brand-andMarketing ",
+    "target": "Brand-andMarketing",
     "source": "Rédaction",
     "strength": 0.7
   },
@@ -2604,7 +3154,7 @@ var baseLinks =
   },
   {
     "target": "Skills",
-    "source": "Parler en public",
+    "source": "Parlerenpublic",
     "strength": 0.7
   },
   {
@@ -2614,27 +3164,27 @@ var baseLinks =
   },
   {
     "target": "Sales26688",
-    "source": "Prospection commerciale",
+    "source": "Prospectioncommerciale",
     "strength": 0.7
   },
   {
-    "target": "Design ",
+    "target": "Design",
     "source": "Design",
     "strength": 0.7
   },
   {
-    "target": "Excel ",
+    "target": "Excel",
     "source": "Excel",
     "strength": 0.7
   },
   {
     "target": "TopManagement",
-    "source": "Gestion d'équipe",
+    "source": "Gestiond'équipe",
     "strength": 0.7
   },
   {
     "target": "Skills",
-    "source": "Business Development",
+    "source": "BusinessDevelopment",
     "strength": 0.7
   },
   {
@@ -2643,7 +3193,7 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Communication ",
+    "target": "Communication",
     "source": "Communication",
     "strength": 0.7
   },
@@ -2653,17 +3203,17 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Sales26688 ",
+    "target": "Sales26688",
     "source": "Événementiel",
     "strength": 0.7
   },
   {
-    "target": "Brand-andMarketing ",
-    "source": "Montage Vidéo",
+    "target": "Brand-andMarketing",
+    "source": "MontageVidéo",
     "strength": 0.7
   },
   {
-    "target": "Logistic ",
+    "target": "Logistic",
     "source": "Budgets",
     "strength": 0.7
   },
@@ -2673,7 +3223,7 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Administrative ",
+    "target": "Administrative",
     "source": "Organisation",
     "strength": 0.7
   },
@@ -2684,12 +3234,12 @@ var baseLinks =
   },
   {
     "target": "Hobbies",
-    "source": "Jeux Vidéo",
+    "source": "JeuxVidéo",
     "strength": 0.7
   },
   {
-    "target": "ProgrammingLanguages ",
-    "source": "HTML CSS",
+    "target": "ProgrammingLanguages",
+    "source": "HTMLCSS",
     "strength": 0.7
   },
   {
@@ -2719,17 +3269,17 @@ var baseLinks =
   },
   {
     "target": "Hobbies",
-    "source": "Jeux De Stratégie",
+    "source": "JeuxDeStratégie",
     "strength": 0.7
   },
   {
-    "target": "ProgrammingLanguages ",
+    "target": "ProgrammingLanguages",
     "source": "Javascript",
     "strength": 0.7
   },
   {
-    "target": "Brand-andMarketing ",
-    "source": "Relations Presse",
+    "target": "Brand-andMarketing",
+    "source": "RelationsPresse",
     "strength": 0.7
   },
   {
@@ -2738,8 +3288,8 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Design ",
-    "source": "Web Design",
+    "target": "Design",
+    "source": "WebDesign",
     "strength": 0.7
   },
   {
@@ -2748,38 +3298,38 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Software ",
+    "target": "Software",
     "source": "PowerPoint",
     "strength": 0.7
   },
   {
     "target": "Software",
-    "source": "Google Docs",
+    "source": "GoogleDocs",
     "strength": 0.7
   },
   {
     "target": "BI",
-    "source": "Analyse De Data",
+    "source": "AnalyseDeData",
     "strength": 0.7
   },
   {
     "target": "Management51831",
-    "source": "Méthodes Agiles",
+    "source": "MéthodesAgiles",
     "strength": 0.7
   },
   {
     "target": "Brand-andMarketing",
-    "source": "Web Marketing",
+    "source": "WebMarketing",
     "strength": 0.7
   },
   {
     "target": "Brand-andMarketing",
-    "source": "Content Marketing",
+    "source": "ContentMarketing",
     "strength": 0.7
   },
   {
     "target": "Brand-andMarketing",
-    "source": "Email Marketing",
+    "source": "EmailMarketing",
     "strength": 0.7
   },
   {
@@ -2788,22 +3338,22 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "TopManagement ",
+    "target": "TopManagement",
     "source": "Stratégie",
     "strength": 0.7
   },
   {
-    "target": "ProgrammingLanguages ",
+    "target": "ProgrammingLanguages",
     "source": "Python",
     "strength": 0.7
   },
   {
-    "target": "Design ",
-    "source": "Design Produit",
+    "target": "Design",
+    "source": "DesignProduit",
     "strength": 0.7
   },
   {
-    "target": "ProgrammingLanguages ",
+    "target": "ProgrammingLanguages",
     "source": "Java",
     "strength": 0.7
   },
@@ -2814,22 +3364,22 @@ var baseLinks =
   },
   {
     "target": "Hobbies",
-    "source": "Cinéma Engagé",
+    "source": "CinémaEngagé",
     "strength": 0.7
   },
   {
     "target": "Sport",
-    "source": "Course À Pied",
+    "source": "CourseÀPied",
     "strength": 0.7
   },
   {
-    "target": "Sales26688 ",
-    "source": "Marketing de réseau",
+    "target": "Sales26688",
+    "source": "Marketingderéseau",
     "strength": 0.7
   },
   {
     "target": "Management51831",
-    "source": "Entreprise Libérée",
+    "source": "EntrepriseLibérée",
     "strength": 0.7
   },
   {
@@ -2849,12 +3399,12 @@ var baseLinks =
   },
   {
     "target": "Administrative",
-    "source": "Gestion des contrats",
+    "source": "Gestiondescontrats",
     "strength": 0.7
   },
   {
     "target": "Management51831",
-    "source": "Organisation Agile",
+    "source": "OrganisationAgile",
     "strength": 0.7
   },
   {
@@ -2869,57 +3419,57 @@ var baseLinks =
   },
   {
     "target": "TopManagement",
-    "source": "Réinventer Les Organisations",
+    "source": "RéinventerLesOrganisations",
     "strength": 0.7
   },
   {
     "target": "IT",
-    "source": "Data Centres",
+    "source": "DataCentres",
     "strength": 0.7
   },
   {
-    "target": "ProgrammingLanguages ",
+    "target": "ProgrammingLanguages",
     "source": "NodeJs",
     "strength": 0.7
   },
   {
     "target": "Skills",
-    "source": "Esprit d'équipe",
+    "source": "Espritd'équipe",
     "strength": 0.7
   },
   {
     "target": "Brand-andMarketing",
-    "source": "Transformation Numérique",
-    "strength": 0.7
-  },
-  {
-    "target": "Sales26688 ",
-    "source": "Stratégies commerciales",
-    "strength": 0.7
-  },
-  {
-    "target": "ProgrammingLanguages ",
-    "source": "ReactJs",
-    "strength": 0.7
-  },
-  {
-    "target": "TopManagement ",
-    "source": "Management du Changement",
-    "strength": 0.7
-  },
-  {
-    "target": "Brand-andMarketing",
-    "source": "Marketing Digital",
+    "source": "TransformationNumérique",
     "strength": 0.7
   },
   {
     "target": "Sales26688",
-    "source": "Design Thinking",
+    "source": "Stratégiescommerciales",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages",
+    "source": "ReactJs",
+    "strength": 0.7
+  },
+  {
+    "target": "TopManagement",
+    "source": "ManagementduChangement",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "MarketingDigital",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "DesignThinking",
     "strength": 0.7
   },
   {
     "target": "Tech",
-    "source": "Support Technique",
+    "source": "SupportTechnique",
     "strength": 0.7
   },
   {
@@ -2934,7 +3484,7 @@ var baseLinks =
   },
   {
     "target": "Skills",
-    "source": "Langages Informatique",
+    "source": "LangagesInformatique",
     "strength": 0.7
   },
   {
@@ -2948,28 +3498,28 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Skills ",
-    "source": "Business Intelligence",
+    "target": "Skills",
+    "source": "BusinessIntelligence",
     "strength": 0.7
   },
   {
     "target": "WingzyRole",
-    "source": "Top Management",
+    "source": "TopManagement",
     "strength": 0.7
   },
   {
-    "target": "ProgrammingLanguages ",
+    "target": "ProgrammingLanguages",
     "source": "SQL",
     "strength": 0.7
   },
   {
     "target": "Brand-andMarketing",
-    "source": "Marque employeur",
+    "source": "Marqueemployeur",
     "strength": 0.7
   },
   {
     "target": "IT",
-    "source": "Développement logiciels",
+    "source": "Développementlogiciels",
     "strength": 0.7
   },
   {
@@ -2984,17 +3534,17 @@ var baseLinks =
   },
   {
     "target": "Skills",
-    "source": "Observation critique",
+    "source": "Observationcritique",
     "strength": 0.7
   },
   {
-    "target": "BI ",
-    "source": "Etudes de marché",
+    "target": "BI",
+    "source": "Etudesdemarché",
     "strength": 0.7
   },
   {
     "target": "Brand-andMarketing",
-    "source": "Automation Marketing",
+    "source": "AutomationMarketing",
     "strength": 0.7
   },
   {
@@ -3004,7 +3554,7 @@ var baseLinks =
   },
   {
     "target": "RessourcesHumaines",
-    "source": "Direction RH",
+    "source": "DirectionRH",
     "strength": 0.7
   },
   {
@@ -3013,8 +3563,8 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Design ",
-    "source": "Design de Service",
+    "target": "Design",
+    "source": "DesigndeService",
     "strength": 0.7
   },
   {
@@ -3023,58 +3573,58 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "IT ",
-    "source": "Run (IT)",
+    "target": "IT",
+    "source": "Run(IT)",
     "strength": 0.7
   },
   {
-    "target": "IT ",
-    "source": "Livraison (IT)",
+    "target": "IT",
+    "source": "Livraison(IT)",
     "strength": 0.7
   },
   {
-    "target": "Operations86854 ",
-    "source": "Conception des process",
+    "target": "Operations86854",
+    "source": "Conceptiondesprocess",
     "strength": 0.7
   },
   {
-    "target": "IT ",
-    "source": "Build (IT)",
+    "target": "IT",
+    "source": "Build(IT)",
     "strength": 0.7
   },
   {
-    "target": "IT ",
+    "target": "IT",
     "source": "Devops",
     "strength": 0.7
   },
   {
     "target": "Hobbies",
-    "source": "Divertissement and Médias",
+    "source": "DivertissementandMédias",
     "strength": 0.7
   },
   {
-    "target": "TransportIndustry ",
-    "source": "Transport ferroviaire",
-    "strength": 0.7
-  },
-  {
-    "target": "FrenchCompanies",
-    "source": "Orange S.A.",
+    "target": "TransportIndustry",
+    "source": "Transportferroviaire",
     "strength": 0.7
   },
   {
     "target": "FrenchCompanies",
-    "source": "Société Générale",
+    "source": "OrangeS.A.",
     "strength": 0.7
   },
   {
     "target": "FrenchCompanies",
-    "source": "La Poste",
+    "source": "SociétéGénérale",
     "strength": 0.7
   },
   {
     "target": "FrenchCompanies",
-    "source": "Électricité de France",
+    "source": "LaPoste",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "ÉlectricitédeFrance",
     "strength": 0.7
   },
   {
@@ -3084,7 +3634,7 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "Groupe BPCE",
+    "source": "GroupeBPCE",
     "strength": 0.7
   },
   {
@@ -3104,11 +3654,11 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "Crédit Agricole",
+    "source": "CréditAgricole",
     "strength": 0.7
   },
   {
-    "target": "PsaPeugeotCitroen ",
+    "target": "PsaPeugeotCitroen",
     "source": "Peugeot",
     "strength": 0.7
   },
@@ -3119,17 +3669,17 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "Christian Dior",
+    "source": "ChristianDior",
     "strength": 0.7
   },
   {
     "target": "FrenchCompanies",
-    "source": "Schneider Electric",
+    "source": "SchneiderElectric",
     "strength": 0.7
   },
   {
     "target": "FrenchCompanies",
-    "source": "BNP Paribas",
+    "source": "BNPParibas",
     "strength": 0.7
   },
   {
@@ -3139,12 +3689,12 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "Air Liquide",
+    "source": "AirLiquide",
     "strength": 0.7
   },
   {
     "target": "FrenchCompanies",
-    "source": "Global Switch",
+    "source": "GlobalSwitch",
     "strength": 0.7
   },
   {
@@ -3164,7 +3714,7 @@ var baseLinks =
   },
   {
     "target": "Outils",
-    "source": "Google Sheet",
+    "source": "GoogleSheet",
     "strength": 0.7
   },
   {
@@ -3178,7 +3728,7 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "FrenchCompanies ",
+    "target": "FrenchCompanies",
     "source": "Vinci",
     "strength": 0.7
   },
@@ -3204,7 +3754,7 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "Total S. A.",
+    "source": "TotalS.A.",
     "strength": 0.7
   },
   {
@@ -3239,17 +3789,17 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "Credit Agricole",
+    "source": "CreditAgricole",
     "strength": 0.7
   },
   {
     "target": "FrenchCompanies",
-    "source": "Air France",
+    "source": "AirFrance",
     "strength": 0.7
   },
   {
     "target": "FrenchCompanies",
-    "source": "Saint Gobain",
+    "source": "SaintGobain",
     "strength": 0.7
   },
   {
@@ -3273,18 +3823,18 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "WebMarketing ",
+    "target": "WebMarketing",
     "source": "Hubspot",
     "strength": 0.7
   },
   {
     "target": "Operations86854",
-    "source": "Amélioration continue",
+    "source": "Améliorationcontinue",
     "strength": 0.7
   },
   {
     "target": "FrenchCompanies",
-    "source": "I-Expo ",
+    "source": "I-Expo",
     "strength": 0.7
   },
   {
@@ -3294,22 +3844,22 @@ var baseLinks =
   },
   {
     "target": "SoftwareDevelopment",
-    "source": "Pull Request",
+    "source": "PullRequest",
     "strength": 0.7
   },
   {
     "target": "Tech",
-    "source": "Revue de code",
+    "source": "Revuedecode",
     "strength": 0.7
   },
   {
-    "target": "Fonctionnalite ",
-    "source": "Intégration mail",
+    "target": "Fonctionnalite",
+    "source": "Intégrationmail",
     "strength": 0.7
   },
   {
-    "target": "TechnologicalPlateform ",
-    "source": "Droits d'accès",
+    "target": "TechnologicalPlateform",
+    "source": "Droitsd'accès",
     "strength": 0.7
   },
   {
@@ -3334,12 +3884,12 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "Ministère des armées ",
+    "source": "Ministèredesarmées",
     "strength": 0.7
   },
   {
     "target": "FrenchCompanies",
-    "source": "Ministère de l’intérieur ",
+    "source": "Ministèredel’intérieur",
     "strength": 0.7
   },
   {
@@ -3353,28 +3903,28 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "FrenchCompanies ",
-    "source": "Airbus helicopters",
-    "strength": 0.7
-  },
-  {
-    "target": "FrenchCompanies ",
-    "source": "Airbus Defence",
-    "strength": 0.7
-  },
-  {
-    "target": "FrenchCompanies ",
-    "source": "Thales Avionics ",
+    "target": "FrenchCompanies",
+    "source": "Airbushelicopters",
     "strength": 0.7
   },
   {
     "target": "FrenchCompanies",
-    "source": "LIEBHERR ",
+    "source": "AirbusDefence",
     "strength": 0.7
   },
   {
-    "target": "FrenchCompanies ",
-    "source": "Renaud trucks defense",
+    "target": "FrenchCompanies",
+    "source": "ThalesAvionics",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "LIEBHERR",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Renaudtrucksdefense",
     "strength": 0.7
   },
   {
@@ -3389,7 +3939,7 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "Cap gemini",
+    "source": "Capgemini",
     "strength": 0.7
   },
   {
@@ -3409,12 +3959,12 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "SOGECLAIR ",
+    "source": "SOGECLAIR",
     "strength": 0.7
   },
   {
     "target": "FrenchCompanies",
-    "source": "Ariane Group",
+    "source": "ArianeGroup",
     "strength": 0.7
   },
   {
@@ -3423,8 +3973,8 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "FrenchCompanies ",
-    "source": "Thales Alenia Space ",
+    "target": "FrenchCompanies",
+    "source": "ThalesAleniaSpace",
     "strength": 0.7
   },
   {
@@ -3434,7 +3984,7 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "TARMAC AEROSAVE ",
+    "source": "TARMACAEROSAVE",
     "strength": 0.7
   },
   {
@@ -3444,7 +3994,7 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "AEROSPACE VALLEY",
+    "source": "AEROSPACEVALLEY",
     "strength": 0.7
   },
   {
@@ -3454,7 +4004,7 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "VERNEY CARON",
+    "source": "VERNEYCARON",
     "strength": 0.7
   },
   {
@@ -3479,7 +4029,7 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "Cluster E CLIDE",
+    "source": "ClusterECLIDE",
     "strength": 0.7
   },
   {
@@ -3499,12 +4049,12 @@ var baseLinks =
   },
   {
     "target": "Vinci",
-    "source": "CEGELEC DEFENSE",
+    "source": "CEGELECDEFENSE",
     "strength": 0.7
   },
   {
     "target": "FrenchCompanies",
-    "source": "PIERRE FABRE",
+    "source": "PIERREFABRE",
     "strength": 0.7
   },
   {
@@ -3514,7 +4064,7 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "ROLLS ROYCE",
+    "source": "ROLLSROYCE",
     "strength": 0.7
   },
   {
@@ -3524,7 +4074,7 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "COLLINS AEROSPACE",
+    "source": "COLLINSAEROSPACE",
     "strength": 0.7
   },
   {
@@ -3534,12 +4084,12 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "Rotcshild ",
+    "source": "Rotcshild",
     "strength": 0.7
   },
   {
-    "target": "BouyguesByTech ",
-    "source": "Bouygues Construction",
+    "target": "BouyguesByTech",
+    "source": "BouyguesConstruction",
     "strength": 0.7
   },
   {
@@ -3553,8 +4103,8 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Sales26688 ",
-    "source": "Pitch Commercial",
+    "target": "Sales26688",
+    "source": "PitchCommercial",
     "strength": 0.7
   },
   {
@@ -3564,17 +4114,17 @@ var baseLinks =
   },
   {
     "target": "Skills",
-    "source": "Sûreté nucléaire",
+    "source": "Sûreténucléaire",
     "strength": 0.7
   },
   {
-    "target": "Securite ",
+    "target": "Securite",
     "source": "Confidentialité",
     "strength": 0.7
   },
   {
     "target": "Integration",
-    "source": "Active directory",
+    "source": "Activedirectory",
     "strength": 0.7
   },
   {
@@ -3589,16 +4139,16 @@ var baseLinks =
   },
   {
     "target": "Sales26688",
-    "source": "Répondre aux objections",
+    "source": "Répondreauxobjections",
     "strength": 0.7
   },
   {
-    "target": "Communication ",
-    "source": "Charte graphique",
+    "target": "Communication",
+    "source": "Chartegraphique",
     "strength": 0.7
   },
   {
-    "target": "Brand ",
+    "target": "Brand",
     "source": "SMR",
     "strength": 0.7
   },
@@ -3614,7 +4164,7 @@ var baseLinks =
   },
   {
     "target": "KnowledgeManagement37459",
-    "source": "Knowledge Lifecycle",
+    "source": "KnowledgeLifecycle",
     "strength": 0.7
   },
   {
@@ -3634,12 +4184,12 @@ var baseLinks =
   },
   {
     "target": "Operations86854",
-    "source": "Customer success",
+    "source": "Customersuccess",
     "strength": 0.7
   },
   {
     "target": "Brand",
-    "source": "Site vitrine",
+    "source": "Sitevitrine",
     "strength": 0.7
   },
   {
@@ -3678,8 +4228,8 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Fonctionnalite ",
-    "source": "Question vidéo",
+    "target": "Fonctionnalite",
+    "source": "Questionvidéo",
     "strength": 0.7
   },
   {
@@ -3703,12 +4253,12 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Management51831 ",
+    "target": "Management51831",
     "source": "Formation",
     "strength": 0.7
   },
   {
-    "target": "AccountMapping ",
+    "target": "AccountMapping",
     "source": "Catalyseurs",
     "strength": 0.7
   },
@@ -3724,17 +4274,17 @@ var baseLinks =
   },
   {
     "target": "Tradeshow",
-    "source": "Global Industrie",
+    "source": "GlobalIndustrie",
     "strength": 0.7
   },
   {
     "target": "WingzyRole",
-    "source": "Knowledge Management",
+    "source": "KnowledgeManagement",
     "strength": 0.7
   },
   {
     "target": "FrenchCompanies",
-    "source": "Secteur de l'Energie",
+    "source": "Secteurdel'Energie",
     "strength": 0.7
   },
   {
@@ -3744,17 +4294,17 @@ var baseLinks =
   },
   {
     "target": "ContentMarketing",
-    "source": "Content Management",
+    "source": "ContentManagement",
     "strength": 0.7
   },
   {
-    "target": "TotalSa ",
+    "target": "TotalSa",
     "source": "TotalEnergies",
     "strength": 0.7
   },
   {
     "target": "FrenchCompanies",
-    "source": "Societe du grand paris",
+    "source": "Societedugrandparis",
     "strength": 0.7
   },
   {
@@ -3769,7 +4319,7 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "SLN Eramet",
+    "source": "SLNEramet",
     "strength": 0.7
   },
   {
@@ -3788,7 +4338,7 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Sport ",
+    "target": "Sport",
     "source": "Surf",
     "strength": 0.7
   },
@@ -3808,28 +4358,28 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Teams ",
-    "source": "Intégration Teams",
+    "target": "Teams",
+    "source": "IntégrationTeams",
     "strength": 0.7
   },
   {
-    "target": "Outils ",
+    "target": "Outils",
     "source": "Teams",
     "strength": 0.7
   },
   {
-    "target": "Fonctionnalite ",
+    "target": "Fonctionnalite",
     "source": "Validation",
     "strength": 0.7
   },
   {
-    "target": "Outils ",
+    "target": "Outils",
     "source": "Slack",
     "strength": 0.7
   },
   {
-    "target": "Slack ",
-    "source": "Intégration Slack",
+    "target": "Slack",
+    "source": "IntégrationSlack",
     "strength": 0.7
   },
   {
@@ -3838,8 +4388,8 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Platform ",
-    "source": "UX design",
+    "target": "Platform",
+    "source": "UXdesign",
     "strength": 0.7
   },
   {
@@ -3849,37 +4399,37 @@ var baseLinks =
   },
   {
     "target": "Communication",
-    "source": "Communication interne",
+    "source": "Communicationinterne",
     "strength": 0.7
   },
   {
-    "target": "Fonctionnalite ",
-    "source": "Jauge de pertinence",
+    "target": "Fonctionnalite",
+    "source": "Jaugedepertinence",
     "strength": 0.7
   },
   {
     "target": "Hidden",
-    "source": "Question posée par mail",
+    "source": "Questionposéeparmail",
     "strength": 0.7
   },
   {
-    "target": "UxDesign ",
+    "target": "UxDesign",
     "source": "Image",
     "strength": 0.7
   },
   {
     "target": "FrenchCompanies",
-    "source": "Microsoft Store",
+    "source": "MicrosoftStore",
     "strength": 0.7
   },
   {
-    "target": "MicrosoftStore ",
-    "source": "Microsoft Partner Center",
+    "target": "MicrosoftStore",
+    "source": "MicrosoftPartnerCenter",
     "strength": 0.7
   },
   {
     "target": "Hobbies",
-    "source": "Jeux de role",
+    "source": "Jeuxderole",
     "strength": 0.7
   },
   {
@@ -3889,7 +4439,7 @@ var baseLinks =
   },
   {
     "target": "EmployerBrand",
-    "source": "Welcome to the Jungle",
+    "source": "WelcometotheJungle",
     "strength": 0.7
   },
   {
@@ -3899,7 +4449,7 @@ var baseLinks =
   },
   {
     "target": "Skills",
-    "source": "Conception Pédagogique",
+    "source": "ConceptionPédagogique",
     "strength": 0.7
   },
   {
@@ -3909,17 +4459,17 @@ var baseLinks =
   },
   {
     "target": "Skills",
-    "source": "Théorie des organisations",
+    "source": "Théoriedesorganisations",
     "strength": 0.7
   },
   {
     "target": "WingzyRole",
-    "source": "Ingénieur projet",
+    "source": "Ingénieurprojet",
     "strength": 0.7
   },
   {
     "target": "Hobbies",
-    "source": "Planche à voile",
+    "source": "Plancheàvoile",
     "strength": 0.7
   },
   {
@@ -3938,8 +4488,8 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Sales26688 ",
-    "source": "Relation client",
+    "target": "Sales26688",
+    "source": "Relationclient",
     "strength": 0.7
   },
   {
@@ -3948,18 +4498,18 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Figma ",
-    "source": "Prototypes Figma",
+    "target": "Figma",
+    "source": "PrototypesFigma",
     "strength": 0.7
   },
   {
-    "target": "UxDesign ",
+    "target": "UxDesign",
     "source": "Interfaces",
     "strength": 0.7
   },
   {
-    "target": "UxDesign ",
-    "source": "Évolutions UX Design",
+    "target": "UxDesign",
+    "source": "ÉvolutionsUXDesign",
     "strength": 0.7
   },
   {
@@ -3973,23 +4523,23 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Deploiement ",
+    "target": "Deploiement",
     "source": "POC/V",
     "strength": 0.7
   },
   {
-    "target": "Hobbies ",
+    "target": "Hobbies",
     "source": "Ecrire",
     "strength": 0.7
   },
   {
-    "target": "Cybersecurite ",
+    "target": "Cybersecurite",
     "source": "Compliance",
     "strength": 0.7
   },
   {
     "target": "Management51831",
-    "source": "Entreprise apprenante",
+    "source": "Entrepriseapprenante",
     "strength": 0.7
   },
   {
@@ -4003,7 +4553,7 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Administrative ",
+    "target": "Administrative",
     "source": "RIB",
     "strength": 0.7
   },
@@ -4014,7 +4564,7 @@ var baseLinks =
   },
   {
     "target": "Vinci",
-    "source": "Cegelec CEM",
+    "source": "CegelecCEM",
     "strength": 0.7
   },
   {
@@ -4023,8 +4573,8 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Brand ",
-    "source": "Charte éditoriale",
+    "target": "Brand",
+    "source": "Charteéditoriale",
     "strength": 0.7
   },
   {
@@ -4038,52 +4588,52 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Outils ",
+    "target": "Outils",
     "source": "Mail",
     "strength": 0.7
   },
   {
     "target": "Investisseur",
-    "source": "Levée de fonds",
+    "source": "Levéedefonds",
     "strength": 0.7
   },
   {
     "target": "ConcoursStartUp",
-    "source": "Appel à manifestation d'intérêt",
+    "source": "Appelàmanifestationd'intérêt",
     "strength": 0.7
   },
   {
     "target": "Brand-andMarketing",
-    "source": "Concours Start-up",
+    "source": "ConcoursStart-up",
     "strength": 0.7
   },
   {
-    "target": "CharteGraphique ",
+    "target": "CharteGraphique",
     "source": "Couleurs",
     "strength": 0.7
   },
   {
-    "target": "Dovetail ",
-    "source": "Recherche Utilisateur",
+    "target": "Dovetail",
+    "source": "RechercheUtilisateur",
     "strength": 0.7
   },
   {
-    "target": "DataAnalysis ",
+    "target": "DataAnalysis",
     "source": "CSV",
     "strength": 0.7
   },
   {
-    "target": "PreSales ",
-    "source": "FAQ Clients",
+    "target": "PreSales",
+    "source": "FAQClients",
     "strength": 0.7
   },
   {
-    "target": "ProtectionDesDonnees ",
+    "target": "ProtectionDesDonnees",
     "source": "Reversibilité",
     "strength": 0.7
   },
   {
-    "target": "Sales26688 ",
+    "target": "Sales26688",
     "source": "Export",
     "strength": 0.7
   },
@@ -4093,7 +4643,7 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "TechnologicalPlateform ",
+    "target": "TechnologicalPlateform",
     "source": "Onboarding",
     "strength": 0.7
   },
@@ -4108,17 +4658,17 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "AskForTheMoon ",
-    "source": "Discours de Clément",
+    "target": "AskForTheMoon",
+    "source": "DiscoursdeClément",
     "strength": 0.7
   },
   {
-    "target": "ProductDesign ",
+    "target": "ProductDesign",
     "source": "MobX",
     "strength": 0.7
   },
   {
-    "target": "Operations86854 ",
+    "target": "Operations86854",
     "source": "REX",
     "strength": 0.7
   },
@@ -4134,32 +4684,32 @@ var baseLinks =
   },
   {
     "target": "Outils",
-    "source": "Google Slide",
+    "source": "GoogleSlide",
     "strength": 0.7
   },
   {
-    "target": "Sales26688 ",
-    "source": "Offre de prix",
+    "target": "Sales26688",
+    "source": "Offredeprix",
     "strength": 0.7
   },
   {
     "target": "Casmetiers",
-    "source": "Cas d'usage",
+    "source": "Casd'usage",
     "strength": 0.7
   },
   {
-    "target": "Operations86854 ",
+    "target": "Operations86854",
     "source": "Industrialisation",
     "strength": 0.7
   },
   {
     "target": "AccountManagement",
-    "source": "Suivi commercial",
+    "source": "Suivicommercial",
     "strength": 0.7
   },
   {
     "target": "Sales26688",
-    "source": "Management de compte",
+    "source": "Managementdecompte",
     "strength": 0.7
   },
   {
@@ -4168,7 +4718,7 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Sales26688 ",
+    "target": "Sales26688",
     "source": "Prospect",
     "strength": 0.7
   },
@@ -4188,7 +4738,7 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Sales26688 ",
+    "target": "Sales26688",
     "source": "Démo",
     "strength": 0.7
   },
@@ -4198,12 +4748,12 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Brand-andMarketing ",
-    "source": "Sales Navigator",
+    "target": "Brand-andMarketing",
+    "source": "SalesNavigator",
     "strength": 0.7
   },
   {
-    "target": "Sales26688 ",
+    "target": "Sales26688",
     "source": "Rendez-vous",
     "strength": 0.7
   },
@@ -4213,13 +4763,13 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Outils ",
+    "target": "Outils",
     "source": "mongoDB",
     "strength": 0.7
   },
   {
-    "target": "Sales26688 ",
-    "source": "Tunnel de vente",
+    "target": "Sales26688",
+    "source": "Tunneldevente",
     "strength": 0.7
   },
   {
@@ -4228,23 +4778,23 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Sales26688 ",
+    "target": "Sales26688",
     "source": "Pricing",
     "strength": 0.7
   },
   {
-    "target": "Sales26688 ",
+    "target": "Sales26688",
     "source": "CGV",
     "strength": 0.7
   },
   {
     "target": "Tradeshow",
-    "source": "Carrefours Excellences",
+    "source": "CarrefoursExcellences",
     "strength": 0.7
   },
   {
     "target": "TopManagement",
-    "source": "Gestion de crise",
+    "source": "Gestiondecrise",
     "strength": 0.7
   },
   {
@@ -4274,7 +4824,7 @@ var baseLinks =
   },
   {
     "target": "RituelsEtProcessus",
-    "source": "Points critiques",
+    "source": "Pointscritiques",
     "strength": 0.7
   },
   {
@@ -4288,27 +4838,27 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "UserResearch ",
+    "target": "UserResearch",
     "source": "Utilisateurs",
     "strength": 0.7
   },
   {
-    "target": "ChangeManagement ",
+    "target": "ChangeManagement",
     "source": "Scale",
     "strength": 0.7
   },
   {
-    "target": "Sales26688 ",
+    "target": "Sales26688",
     "source": "ROI",
     "strength": 0.7
   },
   {
-    "target": "Operations86854 ",
+    "target": "Operations86854",
     "source": "Guides",
     "strength": 0.7
   },
   {
-    "target": "Management ",
+    "target": "Management",
     "source": "Reconnaissance",
     "strength": 0.7
   },
@@ -4319,67 +4869,67 @@ var baseLinks =
   },
   {
     "target": "WingzyRole",
-    "source": "Ressources Humaines",
+    "source": "RessourcesHumaines",
     "strength": 0.7
   },
   {
     "target": "AmeliorationContinue",
-    "source": "Processus d'harmonisation",
+    "source": "Processusd'harmonisation",
     "strength": 0.7
   },
   {
-    "target": "AskForTheMoon ",
+    "target": "AskForTheMoon",
     "source": "Vision",
     "strength": 0.7
   },
   {
     "target": "SiteVitrine",
-    "source": "Centre de ressources",
+    "source": "Centrederessources",
     "strength": 0.7
   },
   {
     "target": "SoftwareDevelopment",
-    "source": "Git des bonnes pratiques",
+    "source": "Gitdesbonnespratiques",
     "strength": 0.7
   },
   {
-    "target": "Brand-andMarketing ",
-    "source": "Concurrence ",
+    "target": "Brand-andMarketing",
+    "source": "Concurrence",
     "strength": 0.7
   },
   {
     "target": "Cybersecurite",
-    "source": "Protection des données",
+    "source": "Protectiondesdonnées",
     "strength": 0.7
   },
   {
-    "target": "TunnelDeVente ",
+    "target": "TunnelDeVente",
     "source": "SQL",
     "strength": 0.7
   },
   {
-    "target": "Mql ",
+    "target": "Mql",
     "source": "Unaware",
     "strength": 0.7
   },
   {
-    "target": "Mql ",
-    "source": "Problem Aware",
+    "target": "Mql",
+    "source": "ProblemAware",
     "strength": 0.7
   },
   {
-    "target": "Mql ",
-    "source": "Solution Aware",
+    "target": "Mql",
+    "source": "SolutionAware",
     "strength": 0.7
   },
   {
-    "target": "Mql ",
-    "source": "Product Aware",
+    "target": "Mql",
+    "source": "ProductAware",
     "strength": 0.7
   },
   {
     "target": "AccountManagement",
-    "source": "Mapping de compte",
+    "source": "Mappingdecompte",
     "strength": 0.7
   },
   {
@@ -4419,22 +4969,22 @@ var baseLinks =
   },
   {
     "target": "Platform",
-    "source": "Plateforme technique",
+    "source": "Plateformetechnique",
     "strength": 0.7
   },
   {
     "target": "Platform",
-    "source": "Plateforme politique",
+    "source": "Plateformepolitique",
     "strength": 0.7
   },
   {
     "target": "Platform",
-    "source": "Plateforme méthodologique",
+    "source": "Plateformeméthodologique",
     "strength": 0.7
   },
   {
     "target": "Platform",
-    "source": "Plateforme communautaire",
+    "source": "Plateformecommunautaire",
     "strength": 0.7
   },
   {
@@ -4443,37 +4993,37 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Livrables ",
-    "source": "Livrables Ops",
+    "target": "Livrables",
+    "source": "LivrablesOps",
     "strength": 0.7
   },
   {
-    "target": "Livrables ",
-    "source": "Livrables Marketing",
+    "target": "Livrables",
+    "source": "LivrablesMarketing",
     "strength": 0.7
   },
   {
     "target": "TechnologicalPlateform",
-    "source": "App admin",
+    "source": "Appadmin",
     "strength": 0.7
   },
   {
-    "target": "CentreDeRessources ",
-    "source": "Histoires utilisateurs",
+    "target": "CentreDeRessources",
+    "source": "Histoiresutilisateurs",
     "strength": 0.7
   },
   {
-    "target": "MethodologicalPlatform ",
-    "source": "Cas métiers",
+    "target": "MethodologicalPlatform",
+    "source": "Casmétiers",
     "strength": 0.7
   },
   {
-    "target": "LivrablesMarketing ",
+    "target": "LivrablesMarketing",
     "source": "One-pager",
     "strength": 0.7
   },
   {
-    "target": "LivrablesOps ",
+    "target": "LivrablesOps",
     "source": "Microprocess",
     "strength": 0.7
   },
@@ -4484,137 +5034,137 @@ var baseLinks =
   },
   {
     "target": "Familles",
-    "source": "Liens de Parenté",
+    "source": "LiensdeParenté",
     "strength": 0.7
   },
   {
-    "target": "Ontologie ",
+    "target": "Ontologie",
     "source": "Parent",
     "strength": 0.7
   },
   {
-    "target": "Ontologie ",
+    "target": "Ontologie",
     "source": "Enfant",
     "strength": 0.7
   },
   {
-    "target": "Ontologie ",
-    "source": "Dimensions Ontologiques",
+    "target": "Ontologie",
+    "source": "DimensionsOntologiques",
     "strength": 0.7
   },
   {
-    "target": "Ontologie ",
+    "target": "Ontologie",
     "source": "Familles",
     "strength": 0.7
   },
   {
-    "target": "DimensionsOntologiques ",
-    "source": "Famille Royale",
+    "target": "DimensionsOntologiques",
+    "source": "FamilleRoyale",
     "strength": 0.7
   },
   {
-    "target": "DimensionsOntologiques ",
-    "source": "Activité Métier",
+    "target": "DimensionsOntologiques",
+    "source": "ActivitéMétier",
     "strength": 0.7
   },
   {
-    "target": "Ontologie ",
-    "source": "Étapes d'onboarding",
+    "target": "Ontologie",
+    "source": "Étapesd'onboarding",
     "strength": 0.7
   },
   {
-    "target": "RituelsEtProcessus ",
-    "source": "Ask for the user",
+    "target": "RituelsEtProcessus",
+    "source": "Askfortheuser",
     "strength": 0.7
   },
   {
-    "target": "RituelsEtProcessus ",
-    "source": "Ask for the mood",
+    "target": "RituelsEtProcessus",
+    "source": "Askforthemood",
     "strength": 0.7
   },
   {
-    "target": "Outils ",
-    "source": "Chemin d'engagement",
+    "target": "Outils",
+    "source": "Chemind'engagement",
     "strength": 0.7
   },
   {
-    "target": "Sales26688 ",
-    "source": "Persona Vente",
+    "target": "Sales26688",
+    "source": "PersonaVente",
     "strength": 0.7
   },
   {
-    "target": "Brand-andMarketing ",
-    "source": "Persona Marketing",
+    "target": "Brand-andMarketing",
+    "source": "PersonaMarketing",
     "strength": 0.7
   },
   {
-    "target": "UserResearch ",
-    "source": "Persona Utilisateur",
+    "target": "UserResearch",
+    "source": "PersonaUtilisateur",
     "strength": 0.7
   },
   {
-    "target": "UxDesign ",
-    "source": "Fiche persona",
+    "target": "UxDesign",
+    "source": "Fichepersona",
     "strength": 0.7
   },
   {
-    "target": "Outils ",
-    "source": "Service blueprint",
-    "strength": 0.7
-  },
-  {
-    "target": "Cheminengagement",
-    "source": "Chemin d'engagement utilisateur",
+    "target": "Outils",
+    "source": "Serviceblueprint",
     "strength": 0.7
   },
   {
     "target": "Cheminengagement",
-    "source": "Chemin d'engagement catalyseur",
+    "source": "Chemind'engagementutilisateur",
     "strength": 0.7
   },
   {
-    "target": "TunnelDeVente ",
-    "source": "Sales Funnel",
+    "target": "Cheminengagement",
+    "source": "Chemind'engagementcatalyseur",
     "strength": 0.7
   },
   {
-    "target": "TunnelDeVente ",
-    "source": "Awareness Funnel",
+    "target": "TunnelDeVente",
+    "source": "SalesFunnel",
     "strength": 0.7
   },
   {
-    "target": "Cheminengagementutilisateur ",
+    "target": "TunnelDeVente",
+    "source": "AwarenessFunnel",
+    "strength": 0.7
+  },
+  {
+    "target": "Cheminengagementutilisateur",
     "source": "Leadership",
     "strength": 0.7
   },
   {
-    "target": "Cheminengagementutilisateur ",
+    "target": "Cheminengagementutilisateur",
     "source": "Engagement",
     "strength": 0.7
   },
   {
-    "target": "Cheminengagementutilisateur ",
+    "target": "Cheminengagementutilisateur",
     "source": "Embarquement",
     "strength": 0.7
   },
   {
-    "target": "Cheminengagementutilisateur ",
+    "target": "Cheminengagementutilisateur",
     "source": "Découverte",
     "strength": 0.7
   },
   {
-    "target": "Utilisateurs ",
-    "source": "Power user",
+    "target": "Utilisateurs",
+    "source": "Poweruser",
     "strength": 0.7
   },
   {
-    "target": "Fonctionnalite ",
-    "source": "Tag Owner",
+    "target": "Fonctionnalite",
+    "source": "TagOwner",
     "strength": 0.7
   },
   {
-    "target": "SalesStrategy ",
-    "source": "Product Lead Growth",
+    "target": "SalesStrategy",
+    "source": "ProductLeadGrowth",
     "strength": 0.7
   },
   {
@@ -4624,27 +5174,27 @@ var baseLinks =
   },
   {
     "target": "AmeliorationContinue",
-    "source": "Rituels et processus",
+    "source": "Rituelsetprocessus",
     "strength": 0.7
   },
   {
     "target": "UxDesign",
-    "source": "Design responsif",
+    "source": "Designresponsif",
     "strength": 0.7
   },
   {
-    "target": "Fonctionnalite ",
-    "source": "Import / Export",
+    "target": "Fonctionnalite",
+    "source": "Import/Export",
     "strength": 0.7
   },
   {
     "target": "RituelsEtProcessus",
-    "source": "Pitch party",
+    "source": "Pitchparty",
     "strength": 0.7
   },
   {
-    "target": "Confidentialite ",
-    "source": "Accord de confidentialité",
+    "target": "Confidentialite",
+    "source": "Accorddeconfidentialité",
     "strength": 0.7
   },
   {
@@ -4653,12 +5203,12 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "IT ",
+    "target": "IT",
     "source": "Certificat",
     "strength": 0.7
   },
   {
-    "target": "Certificat ",
+    "target": "Certificat",
     "source": "SSL",
     "strength": 0.7
   },
@@ -4669,12 +5219,12 @@ var baseLinks =
   },
   {
     "target": "Outils",
-    "source": "Suite office",
+    "source": "Suiteoffice",
     "strength": 0.7
   },
   {
     "target": "Ia",
-    "source": "Algorithme de tri",
+    "source": "Algorithmedetri",
     "strength": 0.7
   },
   {
@@ -4688,8 +5238,8 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "DataAnalysis ",
-    "source": "Data Viz",
+    "target": "DataAnalysis",
+    "source": "DataViz",
     "strength": 0.7
   },
   {
@@ -4699,17 +5249,17 @@ var baseLinks =
   },
   {
     "target": "Ia",
-    "source": "Segmentation d'images",
+    "source": "Segmentationd'images",
     "strength": 0.7
   },
   {
     "target": "Writing34535",
-    "source": "Ecriture d'article scientifique",
+    "source": "Ecritured'articlescientifique",
     "strength": 0.7
   },
   {
-    "target": "Airbus61693 ",
-    "source": "Airbus Atlantic",
+    "target": "Airbus61693",
+    "source": "AirbusAtlantic",
     "strength": 0.7
   },
   {
@@ -4719,17 +5269,17 @@ var baseLinks =
   },
   {
     "target": "Outils",
-    "source": "Adobe Lightroom",
+    "source": "AdobeLightroom",
     "strength": 0.7
   },
   {
     "target": "Outils",
-    "source": "Adobe XD",
+    "source": "AdobeXD",
     "strength": 0.7
   },
   {
-    "target": "Vinci ",
-    "source": "Vinci Energies",
+    "target": "Vinci",
+    "source": "VinciEnergies",
     "strength": 0.7
   },
   {
@@ -4748,7 +5298,7 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Django ",
+    "target": "Django",
     "source": "DjangoRestFramework",
     "strength": 0.7
   },
@@ -4758,8 +5308,8 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "Bouygues75321 ",
-    "source": "Bouygues ByTech",
+    "target": "Bouygues75321",
+    "source": "BouyguesByTech",
     "strength": 0.7
   },
   {
@@ -4774,57 +5324,57 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "Réseau DEF",
+    "source": "RéseauDEF",
     "strength": 0.7
   },
   {
     "target": "FrenchCompanies",
-    "source": "Spie Industrie",
+    "source": "SpieIndustrie",
     "strength": 0.7
   },
   {
     "target": "FrenchCompanies",
-    "source": "Eiffage Energie Systèmes",
+    "source": "EiffageEnergieSystèmes",
     "strength": 0.7
   },
   {
     "target": "FrenchCompanies",
-    "source": "Manpower Group",
+    "source": "ManpowerGroup",
     "strength": 0.7
   },
   {
     "target": "FrenchCompanies",
-    "source": "CDC Habitats",
+    "source": "CDCHabitats",
     "strength": 0.7
   },
   {
-    "target": "FrenchCompanies ",
-    "source": "Thales Aviobook",
+    "target": "FrenchCompanies",
+    "source": "ThalesAviobook",
     "strength": 0.7
   },
   {
     "target": "Sncf93609",
-    "source": "SNCF Réseau",
+    "source": "SNCFRéseau",
     "strength": 0.7
   },
   {
     "target": "Sncf93609",
-    "source": "SNCF DGEX",
+    "source": "SNCFDGEX",
     "strength": 0.7
   },
   {
     "target": "FrenchCompanies",
-    "source": "Spie Nucléaire",
+    "source": "SpieNucléaire",
     "strength": 0.7
   },
   {
-    "target": "TotalEnergies ",
-    "source": "TotalEnergies OneTech",
+    "target": "TotalEnergies",
+    "source": "TotalEnergiesOneTech",
     "strength": 0.7
   },
   {
     "target": "Sncf93609",
-    "source": "SNCF Sferis",
+    "source": "SNCFSferis",
     "strength": 0.7
   },
   {
@@ -4834,7 +5384,7 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "Automotive Cells Company (ACC)",
+    "source": "AutomotiveCellsCompany(ACC)",
     "strength": 0.7
   },
   {
@@ -4849,17 +5399,17 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "General Electric Aviation",
+    "source": "GeneralElectricAviation",
     "strength": 0.7
   },
   {
-    "target": "Sport ",
+    "target": "Sport",
     "source": "Yoga",
     "strength": 0.7
   },
   {
     "target": "Excel",
-    "source": "Formule Excel",
+    "source": "FormuleExcel",
     "strength": 0.7
   },
   {
@@ -4868,7 +5418,7 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "FullStackDeveloper ",
+    "target": "FullStackDeveloper",
     "source": "MEP",
     "strength": 0.7
   },
@@ -4879,7 +5429,7 @@ var baseLinks =
   },
   {
     "target": "FrenchCompanies",
-    "source": "Katie Leede Inc ",
+    "source": "KatieLeedeInc",
     "strength": 0.7
   },
   {
@@ -4888,8 +5438,8 @@ var baseLinks =
     "strength": 0.7
   },
   {
-    "target": "TechnologicalPlateform ",
-    "source": "Marque blanche",
+    "target": "TechnologicalPlateform",
+    "source": "Marqueblanche",
     "strength": 0.7
   }
 ]
@@ -4961,27 +5511,26 @@ var linkForce = d3
   .forceLink()
   .id(function (link) { return link.id })
   .strength(function (link) { return link.strength })
+  
 
 var simulation = d3
   .forceSimulation()
   .force('link', linkForce)
-  .force('charge', d3.forceManyBody().strength(-120))
+  .force('charge', d3.forceManyBody().strength(-12))
   .force('center', d3.forceCenter(width / 2, height / 2))
 
-var dragDrop = d3.drag().on('start', function (node) {
-  node.fx = node.x
-  node.fy = node.y
+  var dragDrop = d3.drag().on('start', function (node) {
+  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+  node.fx = node.x;
+  node.fy = node.y;
 }).on('drag', function (node) {
-  simulation.alphaTarget(0.7).restart()
-  node.fx = d3.event.x
-  node.fy = d3.event.y
+  node.fx = d3.event.x;
+  node.fy = d3.event.y;
 }).on('end', function (node) {
-  if (!d3.event.active) {
-    simulation.alphaTarget(0)
-  }
-  node.fx = null
-  node.fy = null
-})
+  if (!d3.event.active) simulation.alphaTarget(0);
+  node.fx = null;
+  node.fy = null;
+});
 
 // select node is called on every click
 // we either update the data according to the selection
