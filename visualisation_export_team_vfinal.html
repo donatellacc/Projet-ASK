@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+
+<h1 align="center" style="font-weight: bold;">Visualisation ontologie métier 2D</h1>
+
+
+
+
+<body style="background-color: lightblue;">
+    <img src="C:\Users\Pierre-Jean\Desktop\Projet ASK\partie_js\logoask.png" width="10%">
+
+
+</body>
+
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Brahma+Rounded:wght@700&display=swap">
+	<title>My Page</title>
+	<style>
+		body {
+			background-color: lightblue;
+		}
+    
+      img {
+        display: block;
+        margin: 0 auto;
+        position: absolute;
+        top: 0; 
+        right: 0;
+      }
+      .vertical-box {
+        position: fixed;
+        top: 250px; /* Moves down by 250 pixels*/
+        right: 50px;
+        width: 150px;
+        height: 25%;
+        background-color: #f1f1f1;
+        border: 1px solid #6b55ec;
+        padding: 20px; 
+        border-radius: 10px;
+      }
+      .popup {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      background-color: #fff;
+      border: 1px solid #000;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    /* Style pour le bouton "Fermer" */
+    .close-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      cursor: pointer;
+    }
+    .close-btn:hover {
+  cursor: pointer;
+}
+.popup {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #000;
+  padding: 10px;
+  z-index: 9999;
+}
+
+.vertical-box h3 {
+  margin-top: 0;
+}
+
+.vertical-box p {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.vertical-box .details {
+  height: 0;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  transition: height 0.3s, padding 0.3s, margin 0.3s, opacity 0.3s;
+}
+
+.vertical-box.open .details {
+  height: 50px;
+  padding: 10px 20px;
+  margin: 10px 0;
+  opacity: 1;
+  transition: height 0.3s, padding 0.3s, margin 0.3s, opacity 0.3s;
+  font-size: 80%;
+}
+.section {
+  margin-top: 10px;
+}
+
+.section-title {
+  font-family: 'Brahma Rounded BoldbyTall Chai', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.section-content {
+  display: none;
+  margin-top: 5px;
+}
+
+.section-content.open {
+  display: block;
+}
+
+.section-content p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.section.open {
+  margin-bottom: 20px;
+}
+h1 {
+  font-family: 'Brahma Rounded BoldbyTall Chai', sans-serif;
+}
+h3 {
+  font-family: 'Brahma Rounded BoldbyTall Chai', sans-serif;
+}
+.menu {
+  position: fixed;
+  top: 20px;
+  left: 50px;
+}
+
+.menu-icon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.menu-dropdown {
+  display: none;
+  position: absolute;
+  top: 30px;
+  left: -7px;
+  background-color: #fff;
+  border: 1px solid #1900ff;
+  border-radius: 5px;
+  width: 170px;
+  animation: slide-up 0.2s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+
+.menu-item {
+  display: block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: black;
+  font-family: 'Brahma Rounded', sans-serif;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+
+.menu-item:hover {
+  color: white;
+  background-color: blue;
+}
+
+.menu:hover .menu-dropdown {
+  display: block;
+  animation-play-state: running;
+  animation: slide-down 0.2s ease-in-out;
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+}
+
+	</style>
+</head>
+
+
+
+<div style="position: fixed; bottom: 20px; left: 20px; width: 150px; height: 40px; background-color: #f0f0f0; padding: 10px; border: 1px solid blue; border-radius: 5px;">
+  <img src="user_icon.png" alt="Your Image" style="float: left; margin-top: 17px; margin-right: 10px; width: 24px; height: 24px;">
+  <p style="font-family: 'Brahma Rounded', sans-serif; font-weight: bold; margin: 0; line-height: 40px;">Mon compte</p>
+</div>
+
+<div class="menu">
+  <img src="icons8-plus-48.png" alt="Menu Icon" class="menu-icon">
+  <div class="menu-dropdown">
+    <a href="#" class="menu-item">Ajouter un noeud</a>
+    <a href="#" class="menu-item">Ajouter une question</a>
+  </div>
+</div>
+
+
+<body>
+  <div class="vertical-box">
+    <h3>Inforamtions générales</h3>
+    <div class="section">
+      <p class="section-title">Noeuds populaires</p>
+      <div class="section-content">
+        <p>Famille 2 : 17 liaisons</p>
+        <p>Famille 1 : 11 liaisons</p>
+        <p>WingzyRole : 10 liaisons</p>
+        <p>Famille 3 : 8 liaisons</p>
+      </div>
+    </div>
+    <div class="section">
+      <p class="section-title">Statistiques</p>
+      <div class="section-content">
+        <p>Nombre d'éléments : 49</p>
+        <p>Nombre de questions : 14</p>
+        <p>Liaisons moyenne : 5</p>
+      </div>
+    </div>
+    <div class="section">
+      <p class="section-title">Questions populaires</p>
+      <div class="section-content">
+        <p>Mon svg ne marche pas (48)</p>
+        <p>Comment récupérer un id ? (27)</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+<svg width="500" height="400"></svg>
+
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<script>
+
+const sections = document.querySelectorAll('.section');
+
+
+
+// On ajoute un gestionnaire d'événement "click" à chaque section
+sections.forEach(section => {
+  const title = section.querySelector('.section-title');
+  const content = section.querySelector('.section-content');
+
+  title.addEventListener('click', () => {
+    if (content.classList.contains('open')) {
+      // Si la section est déjà ouverte, la fermer
+      content.classList.remove('open');
+      section.classList.remove('open');
+    } else {
+      // Si la section est fermée, l'ouvrir et fermer les autres sections
+      sections.forEach(s => {
+        const c = s.querySelector('.section-content');
+        if (c.classList.contains('open')) {
+          c.classList.remove('open');
+          s.classList.remove('open');
+        }
+      });
+      content.classList.add('open');
+      section.classList.add('open');
+    }
+  });
+});
+
+
+
+//const nodeID = node.id;
+
+var baseNodes = [
+
+  { id: "fam1", group: 0, label: "Famille 1", level: 1 },
+  { id: "fam2"   , group: 0, label: "Famille 2"   , level: 1 },
+  { id: "fam3"   , group: 0, label: "Famille 3"   , level: 1 },
+  { id: "fam4"   , group: 0, label: "Famille 4"  , level: 1 },
+  { id: "tech"   , group: 1, label: "Tech"    , level: 2 },
+  { id: "wingzyrole", group: 1, label: "WingzyRole", level: 2 },
+  { id: "hidden"   , group: 1, label: "Hidden"   , level: 2 },
+  { id: "frenchcompagnies"   , group: 1, label: "French Companies"   , level: 2 },
+  { id: "productdesign"  , group: 1, label: "Product Design"   , level: 2 },
+  { id: "productLeadGrowth"  , group: 1, label: "Product Lead Growth"   , level: 2 },
+  { id: "brandmarketing"  , group: 1, label: "Brand and Marketing"  , level: 2 },
+  { id: "progressiveWebApp"  , group: 1, label: "Progressive Web App"  , level: 2 },
+  { id: "technologicalPlateform"  , group: 1, label: "Technological Plateform"  , level: 2 },
+  { id: "sales"  , group: 1, label: "Sales26688"  , level: 2 },
+  { id: "0"  , group: 1, label: "Application web progressive"  , level: 3 },
+  { id: "1"  , group: 1, label: "Board membe"  , level: 3 },
+  { id: "2"  , group: 1, label: "Roles"  , level: 3 },
+  { id: "3"  , group: 1, label: "Amazon"  , level: 3 },
+  { id: "4"  , group: 1, label: "Sogeti"  , level: 3 },
+  { id: "5"  , group: 1, label: "Full-time"  , level: 3 },
+  { id: "6"  , group: 1, label: "Cofondateur"  , level: 3 },
+  { id: "7"  , group: 1, label: "Match Com"  , level: 3 },
+  { id: "8"  , group: 1, label: "Stagiaire"  , level: 3 },
+  { id: "9"  , group: 1, label: "Groupe ADP"  , level: 3 },
+  { id: "10"  , group: 1, label: "Full Dev"  , level: 3 },
+  { id: "11"  , group: 1, label: "Gamification"  , level: 3 },
+  { id: "12"  , group: 1, label: "Ubisoft"  , level: 3 },
+  { id: "13"  , group: 1, label: "Asobo Studio"  , level: 3 },
+  { id: "14"  , group: 1, label: "Actionnaire"  , level: 3 },
+  { id: "15"  , group: 1, label: "Prestataire"  , level: 3 },
+  { id: "16"  , group: 1, label: "Apporteur d'affaires"  , level: 3 },
+  { id: "17"  , group: 1, label: "Investisseur"  , level: 3 },
+  { id: "18"  , group: 1, label: "Cannaux de ventes"  , level: 3 },
+  { id: "ProgressiveWebApp"  , group: 1, label: "ProgressiveWebApp"  , level: 4 },
+  { id: "BoardMember"  , group: 1, label: "BoardMember"  , level: 4 },
+  { id: "WingzyRole"  , group: 1, label: "WingzyRole"  , level: 4 },
+  { id: "Amazon"  , group: 1, label: "Amazon"  , level: 4 },
+
+
+]
+
+var baseLinks = [
+  { target: "ProgressiveWebApp", source: "0" , strength: 0.7 },
+  { target: "BoardMember", source: "1" , strength: 0.7 },
+  { target: "Amazon", source: "3" , strength: 0.7 },
+  { target: "WingzyRole", source: "2" , strength: 0.7 },
+
+  { target: "fam1", source: "fam2" , strength: 0.7 },
+  { target: "fam1", source: "fam3" , strength: 0.7 },
+  { target: "fam3", source: "fam4" , strength: 0.7 },
+  { target: "fam2", source: "fam4" , strength: 0.7 },
+	{ target: "fam1", source: "0" , strength: 0.7 },
+	{ target: "technologicalPlateform", source: "0" , strength: 0.7 },
+  { target: "tech", source: "0" , strength: 0.7 },
+  { target: "progressiveWebApp", source: "0" , strength: 0.7 },
+  { target: "fam2", source: "1" , strength: 0.7 },
+  { target: "wingzyrole", source: "1" , strength: 0.7 },
+  { target: "fam2"  , source: "2", strength: 0.7 },
+  { target: "hidden"  , source: "2", strength: 0.7 },
+  { target: "fam3"  , source: "3" , strength: 0.1 },
+  { target: "frenchcompagnies"   , source: "3" , strength: 0.1 },
+	{ target: "frenchcompagnies"  , source: "4" , strength: 0.1 },
+   { target: "fam3"  , source: "4" , strength: 0.1 },
+   { target: "fam2"  , source: "5" , strength: 0.1 },
+   { target: "wingzyrole"  , source: "5" , strength: 0.1 },
+   { target: "fam2"  , source: "6" , strength: 0.1 },
+   { target: "wingzyrole"  , source: "6" , strength: 0.1 },
+   { target: "fam3"  , source: "7" , strength: 0.1 },
+   { target: "frenchcompagnies"  , source: "7" , strength: 0.1 },
+   { target: "fam2"  , source: "8" , strength: 0.1 },
+   { target: "wingzyrole"  , source: "8" , strength: 0.1 },
+   { target: "fam3"  , source: "9" , strength: 0.1 },
+   { target: "frenchcompagnies"  , source: "9" , strength: 0.1 },
+   { target: "fam2"  , source: "10" , strength: 0.1 },
+   { target: "wingzyrole"  , source: "10" , strength: 0.1 },
+   { target: "fam1"  , source: "11" , strength: 0.1 },
+   { target: "brandmarketing"  , source: "11" , strength: 0.1 },
+   { target: "productLeadGrowth"  , source: "11" , strength: 0.1 },
+   { target: "productdesign"  , source: "11" , strength: 0.1 },
+   { target: "progressiveWebApp"  , source: "11" , strength: 0.1 },
+   { target: "fam3"  , source: "12" , strength: 0.1 },
+   { target: "frenchcompagnies"  , source: "12" , strength: 0.1 },
+   { target: "fam3"  , source: "12" , strength: 0.1 },
+   { target: "frenchcompagnies"  , source: "12" , strength: 0.1 },
+   { target: "fam2"  , source: "13" , strength: 0.1 },
+   { target: "wingzyrole"  , source: "13" , strength: 0.1 },
+   { target: "fam2"  , source: "14" , strength: 0.1 },
+   { target: "wingzyrole"  , source: "14" , strength: 0.1 },
+   { target: "fam2"  , source: "15" , strength: 0.1 },
+   { target: "wingzyrole"  , source: "15" , strength: 0.1 },
+   { target: "fam2"  , source: "16" , strength: 0.1 },
+   { target: "wingzyrole"  , source: "16" , strength: 0.1 },
+   { target: "fam2"  , source: "17" , strength: 0.1 },
+   { target: "wingzyrole"  , source: "17" , strength: 0.1 },
+   { target: "fam4"  , source: "18" , strength: 0.1 },
+   { target: "sales"  , source: "18" , strength: 0.1 },
+]
+
+var nodes = [...baseNodes]
+var links = [...baseLinks]
+
+function getNeighbors(node) {
+  return baseLinks.reduce(function (neighbors, link) {
+      if (link.target.id === node.id) {
+        neighbors.push(link.source.id)
+      } else if (link.source.id === node.id) {
+        neighbors.push(link.target.id)
+      }
+      return neighbors
+    },
+    [node.id]
+  )
+}
+
+function isNeighborLink(node, link) {
+  return link.target.id === node.id || link.source.id === node.id
+}
+
+
+function getNodeColor(node, neighbors) {
+  if (Array.isArray(neighbors) && neighbors.indexOf(node.id) > -1) {
+   return node.level === 1 ? 'purple' : node.level === 2 ? 'blue'
+    : node.level === 3 ? 'pink' : node.level === 4 ? 'yellow' : node.level === 5 ? 'orange' 
+    : node.level === 7 ? 'brown': 'gray' }
+  
+
+  return node.level === 1 ? 'purple' : node.level === 2 ? 'blue'
+    : node.level === 3 ? 'pink' : node.level === 4 ? 'yellow' : node.level === 5 ? 'orange' 
+    : node.level === 7 ? 'brown': 'gray' }
+
+
+function getLinkColor(node, link) {
+  return isNeighborLink(node, link) ? 'grey' : '#E5E5E5'
+}
+
+function getTextColor(node, neighbors) {
+  return Array.isArray(neighbors) && neighbors.indexOf(node.id) > -1 ? 'black' : 'black'
+}
+
+var width = window.innerWidth
+var height = window.innerHeight
+
+var svg = d3.select('svg')
+svg.attr('width', width).attr('height', height)
+
+var linkElements,
+  nodeElements,
+  textElements
+
+// we use svg groups to logically group the elements together
+var linkGroup = svg.append('g').attr('class', 'links')
+var nodeGroup = svg.append('g').attr('class', 'nodes')
+var textGroup = svg.append('g').attr('class', 'texts')
+
+// we use this reference to select/deselect
+// after clicking the same element twice
+var selectedId
+
+// simulation setup with all forces
+var linkForce = d3
+  .forceLink()
+  .id(function (link) { return link.id })
+  .strength(function (link) { return link.strength })
+
+var simulation = d3
+  .forceSimulation()
+  .force('link', linkForce)
+  .force('charge', d3.forceManyBody().strength(-120))
+  .force('center', d3.forceCenter(width / 2, height / 2))
+
+var dragDrop = d3.drag().on('start', function (node) {
+  node.fx = node.x
+  node.fy = node.y
+}).on('drag', function (node) {
+  simulation.alphaTarget(0.7).restart()
+  node.fx = d3.event.x
+  node.fy = d3.event.y
+}).on('end', function (node) {
+  if (!d3.event.active) {
+    simulation.alphaTarget(0)
+  }
+  node.fx = null
+  node.fy = null
+})
+
+
+function selectNode(selectedNode) {
+  if (selectedId === selectedNode.id) {
+    selectedId = undefined
+    resetData()
+    updateSimulation()
+  } else {
+    selectedId = selectedNode.id
+    updateData(selectedNode)
+    updateSimulation()
+  }
+
+  var neighbors = getNeighbors(selectedNode)
+
+  nodeElements.attr('fill', function (node) { return getNodeColor(node, neighbors) })
+  textElements.attr('fill', function (node) { return getTextColor(node, neighbors) })
+  linkElements.attr('stroke', function (link) { return getLinkColor(selectedNode, link) })
+}
+
+function resetData() {
+  var nodeIds = nodes.map(function (node) { return node.id })
+
+  baseNodes.forEach(function (node) {
+    if (nodeIds.indexOf(node.id) === -1) {
+      nodes.push(node)
+    }
+  })
+
+  links = baseLinks
+}
+
+function updateData(selectedNode) {
+  var neighbors = getNeighbors(selectedNode)
+  var newNodes = baseNodes.filter(function (node) {
+    return neighbors.indexOf(node.id) > -1 || node.level === 1
+  })
+
+  var diff = {
+    removed: nodes.filter(function (node) { return newNodes.indexOf(node) === -1 }),
+    added: newNodes.filter(function (node) { return nodes.indexOf(node) === -1 })
+  }
+
+  diff.removed.forEach(function (node) { nodes.splice(nodes.indexOf(node), 1) })
+  diff.added.forEach(function (node) { nodes.push(node) })
+
+  links = baseLinks.filter(function (link) {
+    return link.target.id === selectedNode.id || link.source.id === selectedNode.id
+  })
+}
+
+function updateGraph() {
+  // links
+  linkElements = linkGroup.selectAll('line')
+    .data(links, function (link) {
+      return link.target.id + link.source.id
+    })
+
+  linkElements.exit().remove()
+
+  var linkEnter = linkElements
+    .enter().append('line')
+    .attr('stroke-width', 1)
+    .attr('stroke', 'rgba(50, 50, 50, 0.2)')
+
+  linkElements = linkEnter.merge(linkElements)
+
+  // nodes
+  nodeElements = nodeGroup.selectAll('circle')
+    .data(nodes, function (node) { return node.id })
+
+  nodeElements.exit().remove()
+
+  var nodeEnter = nodeElements
+    .enter()
+    .append('circle')
+    .attr('r', 10)
+    .attr('fill', function (node) { return node.level === 1 ? 'purple' : node.level === 2 ? 'blue'
+    : node.level === 3 ? 'pink' : node.level === 4 ? 'yellow' : node.level === 5 ? 'orange' 
+    : node.level === 7 ? 'brown': 'gray' })
+    .call(dragDrop)
+    // we link the selectNode method here
+    // to update the graph on every click
+    .on('click', selectNode)
+
+  nodeElements = nodeEnter.merge(nodeElements)
+
+  // Sélectionnez tous les cercles de la page
+var circles = document.querySelectorAll('circle');
+
+// Parcourez tous les cercles et ajoutez un gestionnaire d'événements "mouseenter" à chaque cercle
+for (var i = 0; i < circles.length; i++) {
+  circles[i].addEventListener('mouseenter', function(e) {
+    // Changez le curseur pour pointer
+    e.target.style.cursor = 'pointer';
+    //e.target.style.background-color : white;
+  });
+}
+
+
+  // texts
+  textElements = textGroup.selectAll('text')
+    .data(nodes, function (node) { return node.id })
+
+  textElements.exit().remove()
+
+  var textEnter = textElements
+    .enter()
+    .append('text')
+    .text(function (node) { return node.label })
+    .attr('font-size', 15)
+    .attr('dx', 15)
+    .attr('dy', 4)
+
+  textElements = textEnter.merge(textElements)
+}
+
+function updateSimulation() {
+  updateGraph()
+
+  simulation.nodes(nodes).on('tick', () => {
+    nodeElements
+      .attr('cx', function (node) { return node.x })
+      .attr('cy', function (node) { return node.y })
+    textElements
+      .attr('x', function (node) { return node.x })
+      .attr('y', function (node) { return node.y })
+    linkElements
+      .attr('x1', function (link) { return link.source.x })
+      .attr('y1', function (link) { return link.source.y })
+      .attr('x2', function (link) { return link.target.x })
+      .attr('y2', function (link) { return link.target.y })
+  })
+
+  simulation.force('link').links(links)
+  simulation.alphaTarget(0.7).restart()
+}
+
+updateSimulation()
+
+
+
+
+// Sélectionne tous les nœuds de la page
+var nodes = document.querySelectorAll('circle');
+
+// Parcoure tous les nœuds et ajoute un gestionnaire d'événements "click" à chaque nœud
+for (var i = 0; i < nodes.length; i++) {
+  nodes[i].addEventListener('click', function(e) {
+    // Récupérez le nom du noeud
+    var nodeName = e.target.nodeName;
+    
+    // Crée une nouvelle div pour la fenêtre pop-up
+    var popup = document.createElement('div');
+    popup.classList.add('popup');
+    
+    // Ajoute le nom du noeud dans la pop-up
+    var popupContent = document.createElement('p');
+    popupContent.textContent = "Node: " + nodeName;
+    popup.appendChild(popupContent);
+    
+// Ajoute un bouton pour fermer la pop-up
+var closeBtn = document.createElement('img');
+closeBtn.classList.add('close-btn');
+closeBtn.setAttribute('src', 'croix_fermer_popup.png');
+closeBtn.addEventListener('click', function() {
+  if (activePopup) {
+        activePopup.remove();
+      }
+});
+
+// Ajoute des styles CSS pour le bouton de fermeture
+closeBtn.style.position = 'absolute';
+closeBtn.style.top = '2px';
+closeBtn.style.right = '2px';
+closeBtn.style.cursor = 'pointer';
+closeBtn.style.width = '20%';
+    // Stocke la référence de la pop-up active
+    activePopup = popup;
+popup.appendChild(closeBtn);
+    
+    // Ajoute la div à la page
+    document.body.appendChild(popup);
+    
+    // Positionne la pop-up à l'endroit du curseur
+    popup.style.left = (e.pageX + 10) + 'px';
+    popup.style.top = (e.pageY + 10) + 'px';
+    
+    // Affiche la pop-up
+    popup.style.display = 'block';
+    
+  });
+
+}
+
+</script>
