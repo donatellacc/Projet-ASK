@@ -1,0 +1,9273 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+
+<h1 align="center" style="font-weight: bold;">Visualisation finale</h1>
+
+
+<body style="background-color: lightblue;">
+  <img src="C:\Users\Pierre-Jean\Desktop\Projet ASK\partie_js\logoask.png" width="10%">
+
+
+</body>
+
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Brahma+Rounded:wght@700&display=swap">
+<title>My Page</title>
+<style>
+  body {
+    svg {
+      width: 100vw;
+      height: 100vh;
+  }
+    background-color: lightblue;
+  }
+  
+    img {
+      display: block;
+      margin: 0 auto;
+      position: absolute;
+      top: 0; 
+      right: 0;
+    }
+    .vertical-box {
+      position: fixed;
+      top: 250px; /* Moves down by 250 pixels*/
+      right: 50px;
+      width: 150px;
+      height: 25%;
+      background-color: #f1f1f1;
+      border: 1px solid #6b55ec;
+      padding: 20px; 
+      border-radius: 10px;
+    }
+    .popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: #fff;
+    border: 1px solid #000;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  /* Style pour le bouton "Fermer" */
+  .close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+  }
+  .close-btn:hover {
+cursor: pointer;
+}
+.popup {
+position: absolute;
+background-color: #fff;
+border: 1px solid #000;
+padding: 10px;
+z-index: 9999;
+}
+
+.vertical-box h3 {
+margin-top: 0;
+}
+
+.vertical-box p {
+margin-bottom: 10px;
+cursor: pointer;
+}
+
+.vertical-box .details {
+height: 0;
+padding: 0;
+margin: 0;
+opacity: 0;
+transition: height 0.3s, padding 0.3s, margin 0.3s, opacity 0.3s;
+}
+
+.vertical-box.open .details {
+height: 50px;
+padding: 10px 20px;
+margin: 10px 0;
+opacity: 1;
+transition: height 0.3s, padding 0.3s, margin 0.3s, opacity 0.3s;
+font-size: 80%;
+}
+.section {
+margin-top: 10px;
+}
+
+.section-title {
+font-family: 'Brahma Rounded BoldbyTall Chai', sans-serif;
+font-size: 16px;
+font-weight: bold;
+cursor: pointer;
+}
+
+.section-content {
+display: none;
+margin-top: 5px;
+}
+
+.section-content.open {
+display: block;
+}
+
+.section-content p {
+font-size: 14px;
+margin: 0;
+}
+
+.section.open {
+margin-bottom: 20px;
+}
+h1 {
+font-family: 'Brahma Rounded BoldbyTall Chai', sans-serif;
+}
+h3 {
+font-family: 'Brahma Rounded BoldbyTall Chai', sans-serif;
+}
+.menu {
+position: fixed;
+top: 20px;
+left: 50px;
+}
+
+.menu-icon {
+width: 40px;
+height: 40px;
+cursor: pointer;
+}
+
+.menu-dropdown {
+display: none;
+position: absolute;
+top: 30px;
+left: -7px;
+background-color: #fff;
+border: 1px solid #1900ff;
+border-radius: 5px;
+width: 170px;
+animation: slide-up 0.2s ease-in-out;
+animation-fill-mode: forwards;
+animation-play-state: paused;
+}
+
+.menu-item {
+display: block;
+margin-bottom: 10px;
+text-decoration: none;
+color: black;
+font-family: 'Brahma Rounded', sans-serif;
+font-weight: bold;
+transition: all 0.2s ease-in-out;
+}
+
+.menu-item:hover {
+color: white;
+background-color: blue;
+}
+
+.menu:hover .menu-dropdown {
+display: block;
+animation-play-state: running;
+animation: slide-down 0.2s ease-in-out;
+}
+
+@keyframes slide-down {
+0% {
+  transform: translateY(-10px);
+  opacity: 0;
+}
+100% {
+  transform: translateY(0);
+  opacity: 1;
+}
+}
+
+@keyframes slide-up {
+0% {
+  transform: translateY(0);
+  opacity: 1;
+}
+100% {
+  transform: translateY(-10px);
+  opacity: 0;
+}
+}
+
+</style>
+</head>
+
+
+
+<div style="position: fixed; bottom: 20px; left: 20px; width: 150px; height: 40px; background-color: #f0f0f0; padding: 10px; border: 1px solid blue; border-radius: 5px;">
+<img src="user_icon.png" alt="Your Image" style="float: left; margin-top: 17px; margin-right: 10px; width: 24px; height: 24px;">
+<p style="font-family: 'Brahma Rounded', sans-serif; font-weight: bold; margin: 0; line-height: 40px;">Mon compte</p>
+</div>
+
+<div class="menu">
+<img src="icons8-plus-48.png" alt="Menu Icon" class="menu-icon">
+<div class="menu-dropdown">
+  <a href="#" class="menu-item">Ajouter un noeud</a>
+  <a href="#" class="menu-item">Ajouter une question</a>
+</div>
+</div>
+
+
+<body>
+<div class="vertical-box">
+  <h3>Inforamtions générales</h3>
+  <div class="section">
+    <p class="section-title">Noeuds populaires</p>
+    <div class="section-content">
+      <p>Famille 2 : 17 liaisons</p>
+      <p>Famille 1 : 11 liaisons</p>
+      <p>WingzyRole : 10 liaisons</p>
+      <p>Famille 3 : 8 liaisons</p>
+    </div>
+  </div>
+  <div class="section">
+    <p class="section-title">Statistiques</p>
+    <div class="section-content">
+      <p>Nombre d'éléments : 49</p>
+      <p>Nombre de questions : 14</p>
+      <p>Liaisons moyenne : 5</p>
+    </div>
+  </div>
+  <div class="section">
+    <p class="section-title">Questions populaires</p>
+    <div class="section-content">
+      <p>Mon svg ne marche pas (48)</p>
+      <p>Comment récupérer un id ? (27)</p>
+    </div>
+  </div>
+</div>
+</body>
+
+<!-- <style>
+  svg {
+      width: 100vw;
+      height: 100vh;
+  }
+</style> -->
+
+<svg></svg>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<script>
+
+
+const sections = document.querySelectorAll('.section');
+
+
+
+// On ajoute un gestionnaire d'événement "click" à chaque section
+sections.forEach(section => {
+  const title = section.querySelector('.section-title');
+  const content = section.querySelector('.section-content');
+
+  title.addEventListener('click', () => {
+    if (content.classList.contains('open')) {
+      // Si la section est déjà ouverte, la fermer
+      content.classList.remove('open');
+      section.classList.remove('open');
+    } else {
+      // Si la section est fermée, l'ouvrir et fermer les autres sections
+      sections.forEach(s => {
+        const c = s.querySelector('.section-content');
+        if (c.classList.contains('open')) {
+          c.classList.remove('open');
+          s.classList.remove('open');
+        }
+      });
+      content.classList.add('open');
+      section.classList.add('open');
+    }
+  });
+});
+
+
+
+var baseNodes =[
+
+  {
+    "id": "NameFR",
+    "label": "NameFR",
+    "level": 5
+  },
+  {
+    "id": "Applicationwebprogressive",
+    "label": "Applicationwebprogressive",
+    "level": 5
+  },
+  {
+    "id": "Boardmember",
+    "label": "Boardmember",
+    "level": 5
+  },
+  {
+    "id": "Rôles",
+    "label": "Rôles",
+    "level": 5
+  },
+  {
+    "id": "Amazon",
+    "label": "Amazon",
+    "level": 5
+  },
+  {
+    "id": "Sogeti",
+    "label": "Sogeti",
+    "level": 5
+  },
+  {
+    "id": "Full-time",
+    "label": "Full-time",
+    "level": 5
+  },
+  {
+    "id": "Cofondateur",
+    "label": "Cofondateur",
+    "level": 5
+  },
+  {
+    "id": "MatchCom",
+    "label": "MatchCom",
+    "level": 5
+  },
+  {
+    "id": "Stagiaire",
+    "label": "Stagiaire",
+    "level": 5
+  },
+  {
+    "id": "GroupeADP",
+    "label": "GroupeADP",
+    "level": 5
+  },
+  {
+    "id": "Fulldev",
+    "label": "Fulldev",
+    "level": 5
+  },
+  {
+    "id": "Gamification",
+    "label": "Gamification",
+    "level": 5
+  },
+  {
+    "id": "Ubisoft",
+    "label": "Ubisoft",
+    "level": 5
+  },
+  {
+    "id": "AsoboStudio",
+    "label": "AsoboStudio",
+    "level": 5
+  },
+  {
+    "id": "Actionnaire",
+    "label": "Actionnaire",
+    "level": 5
+  },
+  {
+    "id": "Prestataire",
+    "label": "Prestataire",
+    "level": 5
+  },
+  {
+    "id": "Apporteurd'affaires",
+    "label": "Apporteurd'affaires",
+    "level": 5
+  },
+  {
+    "id": "Investisseur",
+    "label": "Investisseur",
+    "level": 5
+  },
+  {
+    "id": "Cannauxdeventes",
+    "label": "Cannauxdeventes",
+    "level": 5
+  },
+  {
+    "id": "Aveva",
+    "label": "Aveva",
+    "level": 5
+  },
+  {
+    "id": "Avocat",
+    "label": "Avocat",
+    "level": 5
+  },
+  {
+    "id": "CEO",
+    "label": "CEO",
+    "level": 5
+  },
+  {
+    "id": "Brand&Marketing",
+    "label": "Brand&Marketing",
+    "level": 5
+  },
+  {
+    "id": "Équipe",
+    "label": "Équipe",
+    "level": 5
+  },
+  {
+    "id": "Rotarex",
+    "label": "Rotarex",
+    "level": 5
+  },
+  {
+    "id": "Vestas",
+    "label": "Vestas",
+    "level": 5
+  },
+  {
+    "id": "AirProducts",
+    "label": "AirProducts",
+    "level": 5
+  },
+  {
+    "id": "Arquus",
+    "label": "Arquus",
+    "level": 5
+  },
+  {
+    "id": "Soframe",
+    "label": "Soframe",
+    "level": 5
+  },
+  {
+    "id": "Tech",
+    "label": "Tech",
+    "level": 5
+  },
+  {
+    "id": "Askforthemoon",
+    "label": "Askforthemoon",
+    "level": 5
+  },
+  {
+    "id": "MicrosoftAzure",
+    "label": "MicrosoftAzure",
+    "level": 5
+  },
+  {
+    "id": "LeroyMerlin",
+    "label": "LeroyMerlin",
+    "level": 5
+  },
+  {
+    "id": "Adéo",
+    "label": "Adéo",
+    "level": 5
+  },
+  {
+    "id": "Alumni",
+    "label": "Alumni",
+    "level": 5
+  },
+  {
+    "id": "Filtragecollaboratif",
+    "label": "Filtragecollaboratif",
+    "level": 5
+  },
+  {
+    "id": "DataSet",
+    "label": "DataSet",
+    "level": 5
+  },
+  {
+    "id": "PsaPeugeotCitroen",
+    "label": "PsaPeugeotCitroen",
+    "level": 5
+  },
+  {
+    "id": "Stellantis",
+    "label": "Stellantis",
+    "level": 5
+  },
+  {
+    "id": "CGI",
+    "label": "CGI",
+    "level": 5
+  },
+  {
+    "id": "Figma",
+    "label": "Figma",
+    "level": 5
+  },
+  {
+    "id": "DAF",
+    "label": "DAF",
+    "level": 5
+  },
+  {
+    "id": "Mentor",
+    "label": "Mentor",
+    "level": 5
+  },
+  {
+    "id": "IBM",
+    "label": "IBM",
+    "level": 5
+  },
+  {
+    "id": "Equinix",
+    "label": "Equinix",
+    "level": 5
+  },
+  {
+    "id": "DigitalReality",
+    "label": "DigitalReality",
+    "level": 5
+  },
+  {
+    "id": "Vertiv",
+    "label": "Vertiv",
+    "level": 5
+  },
+  {
+    "id": "Rittal",
+    "label": "Rittal",
+    "level": 5
+  },
+  {
+    "id": "Daher",
+    "label": "Daher",
+    "level": 5
+  },
+  {
+    "id": "VisualStudioCode",
+    "label": "VisualStudioCode",
+    "level": 5
+  },
+  {
+    "id": "Windows",
+    "label": "Windows",
+    "level": 5
+  },
+  {
+    "id": "Comptabilité",
+    "label": "Comptabilité",
+    "level": 5
+  },
+  {
+    "id": "Facturation",
+    "label": "Facturation",
+    "level": 5
+  },
+  {
+    "id": "Notification",
+    "label": "Notification",
+    "level": 5
+  },
+  {
+    "id": "Ontologie",
+    "label": "Ontologie",
+    "level": 5
+  },
+  {
+    "id": "Agenda",
+    "label": "Agenda",
+    "level": 5
+  },
+  {
+    "id": "CTO",
+    "label": "CTO",
+    "level": 5
+  },
+  {
+    "id": "MarketingManager",
+    "label": "MarketingManager",
+    "level": 5
+  },
+  {
+    "id": "Outils",
+    "label": "Outils",
+    "level": 5
+  },
+  {
+    "id": "Notion",
+    "label": "Notion",
+    "level": 5
+  },
+  {
+    "id": "Déploiement",
+    "label": "Déploiement",
+    "level": 5
+  },
+  {
+    "id": "Supplychain",
+    "label": "Supplychain",
+    "level": 5
+  },
+  {
+    "id": "Opérations",
+    "label": "Opérations",
+    "level": 5
+  },
+  {
+    "id": "Dashboard",
+    "label": "Dashboard",
+    "level": 5
+  },
+  {
+    "id": "Framatome",
+    "label": "Framatome",
+    "level": 5
+  },
+  {
+    "id": "IA",
+    "label": "IA",
+    "level": 5
+  },
+  {
+    "id": "Administratif",
+    "label": "Administratif",
+    "level": 5
+  },
+  {
+    "id": "Piano",
+    "label": "Piano",
+    "level": 5
+  },
+  {
+    "id": "Arabe",
+    "label": "Arabe",
+    "level": 5
+  },
+  {
+    "id": "Autonomie",
+    "label": "Autonomie",
+    "level": 5
+  },
+  {
+    "id": "Dessiner",
+    "label": "Dessiner",
+    "level": 5
+  },
+  {
+    "id": "IntelligenceCollective",
+    "label": "IntelligenceCollective",
+    "level": 5
+  },
+  {
+    "id": "Rédaction",
+    "label": "Rédaction",
+    "level": 5
+  },
+  {
+    "id": "Tennis",
+    "label": "Tennis",
+    "level": 5
+  },
+  {
+    "id": "Bière",
+    "label": "Bière",
+    "level": 5
+  },
+  {
+    "id": "Écoute",
+    "label": "Écoute",
+    "level": 5
+  },
+  {
+    "id": "Allemand",
+    "label": "Allemand",
+    "level": 5
+  },
+  {
+    "id": "Football",
+    "label": "Football",
+    "level": 5
+  },
+  {
+    "id": "Cuisine",
+    "label": "Cuisine",
+    "level": 5
+  },
+  {
+    "id": "Voyages",
+    "label": "Voyages",
+    "level": 5
+  },
+  {
+    "id": "Espagnol",
+    "label": "Espagnol",
+    "level": 5
+  },
+  {
+    "id": "Anglais",
+    "label": "Anglais",
+    "level": 5
+  },
+  {
+    "id": "Parlerenpublic",
+    "label": "Parlerenpublic",
+    "level": 5
+  },
+  {
+    "id": "Photoshop",
+    "label": "Photoshop",
+    "level": 5
+  },
+  {
+    "id": "Prospectioncommerciale",
+    "label": "Prospectioncommerciale",
+    "level": 5
+  },
+  {
+    "id": "Design",
+    "label": "Design",
+    "level": 5
+  },
+  {
+    "id": "Excel",
+    "label": "Excel",
+    "level": 5
+  },
+  {
+    "id": "Gestiond'équipe",
+    "label": "Gestiond'équipe",
+    "level": 5
+  },
+  {
+    "id": "BusinessDevelopment",
+    "label": "BusinessDevelopment",
+    "level": 5
+  },
+  {
+    "id": "Curiosité",
+    "label": "Curiosité",
+    "level": 5
+  },
+  {
+    "id": "Communication",
+    "label": "Communication",
+    "level": 5
+  },
+  {
+    "id": "Cinéma",
+    "label": "Cinéma",
+    "level": 5
+  },
+  {
+    "id": "Événementiel",
+    "label": "Événementiel",
+    "level": 5
+  },
+  {
+    "id": "MontageVidéo",
+    "label": "MontageVidéo",
+    "level": 5
+  },
+  {
+    "id": "Budgets",
+    "label": "Budgets",
+    "level": 5
+  },
+  {
+    "id": "Sport",
+    "label": "Sport",
+    "level": 5
+  },
+  {
+    "id": "Organisation",
+    "label": "Organisation",
+    "level": 5
+  },
+  {
+    "id": "Portugais",
+    "label": "Portugais",
+    "level": 5
+  },
+  {
+    "id": "JeuxVidéo",
+    "label": "JeuxVidéo",
+    "level": 5
+  },
+  {
+    "id": "HTMLCSS",
+    "label": "HTMLCSS",
+    "level": 5
+  },
+  {
+    "id": "Badminton",
+    "label": "Badminton",
+    "level": 5
+  },
+  {
+    "id": "Ingéniosité",
+    "label": "Ingéniosité",
+    "level": 5
+  },
+  {
+    "id": "Volleyball",
+    "label": "Volleyball",
+    "level": 5
+  },
+  {
+    "id": "Mentorat",
+    "label": "Mentorat",
+    "level": 5
+  },
+  {
+    "id": "Adaptabilité",
+    "label": "Adaptabilité",
+    "level": 5
+  },
+  {
+    "id": "JeuxDeStratégie",
+    "label": "JeuxDeStratégie",
+    "level": 5
+  },
+  {
+    "id": "Javascript",
+    "label": "Javascript",
+    "level": 5
+  },
+  {
+    "id": "RelationsPresse",
+    "label": "RelationsPresse",
+    "level": 5
+  },
+  {
+    "id": "Sociologie",
+    "label": "Sociologie",
+    "level": 5
+  },
+  {
+    "id": "WebDesign",
+    "label": "WebDesign",
+    "level": 5
+  },
+  {
+    "id": "Français",
+    "label": "Français",
+    "level": 5
+  },
+  {
+    "id": "PowerPoint",
+    "label": "PowerPoint",
+    "level": 5
+  },
+  {
+    "id": "GoogleDocs",
+    "label": "GoogleDocs",
+    "level": 5
+  },
+  {
+    "id": "Gestiondeprojet",
+    "label": "Gestiondeprojet",
+    "level": 5
+  },
+  {
+    "id": "AnalyseDeData",
+    "label": "AnalyseDeData",
+    "level": 5
+  },
+  {
+    "id": "MéthodesAgiles",
+    "label": "MéthodesAgiles",
+    "level": 5
+  },
+  {
+    "id": "WebMarketing",
+    "label": "WebMarketing",
+    "level": 5
+  },
+  {
+    "id": "ContentMarketing",
+    "label": "ContentMarketing",
+    "level": 5
+  },
+  {
+    "id": "EmailMarketing",
+    "label": "EmailMarketing",
+    "level": 5
+  },
+  {
+    "id": "Rugby",
+    "label": "Rugby",
+    "level": 5
+  },
+  {
+    "id": "Stratégie",
+    "label": "Stratégie",
+    "level": 5
+  },
+  {
+    "id": "Python",
+    "label": "Python",
+    "level": 5
+  },
+  {
+    "id": "DesignProduit",
+    "label": "DesignProduit",
+    "level": 5
+  },
+  {
+    "id": "Java",
+    "label": "Java",
+    "level": 5
+  },
+  {
+    "id": "Compétences",
+    "label": "Compétences",
+    "level": 5
+  },
+  {
+    "id": "CinémaEngagé",
+    "label": "CinémaEngagé",
+    "level": 5
+  },
+  {
+    "id": "CourseÀPied",
+    "label": "CourseÀPied",
+    "level": 5
+  },
+  {
+    "id": "Marketingderéseau",
+    "label": "Marketingderéseau",
+    "level": 5
+  },
+  {
+    "id": "EntrepriseLibérée",
+    "label": "EntrepriseLibérée",
+    "level": 5
+  },
+  {
+    "id": "Musique",
+    "label": "Musique",
+    "level": 5
+  },
+  {
+    "id": "Astronomie",
+    "label": "Astronomie",
+    "level": 5
+  },
+  {
+    "id": "Freelance",
+    "label": "Freelance",
+    "level": 5
+  },
+  {
+    "id": "Gestiondescontrats",
+    "label": "Gestiondescontrats",
+    "level": 5
+  },
+  {
+    "id": "OrganisationAgile",
+    "label": "OrganisationAgile",
+    "level": 5
+  },
+  {
+    "id": "Psychologie",
+    "label": "Psychologie",
+    "level": 5
+  },
+  {
+    "id": "OAuth",
+    "label": "OAuth",
+    "level": 5
+  },
+  {
+    "id": "RéinventerLesOrganisations",
+    "label": "RéinventerLesOrganisations",
+    "level": 5
+  },
+  {
+    "id": "DataCentres",
+    "label": "DataCentres",
+    "level": 5
+  },
+  {
+    "id": "NodeJs",
+    "label": "NodeJs",
+    "level": 5
+  },
+  {
+    "id": "Espritd'équipe",
+    "label": "Espritd'équipe",
+    "level": 5
+  },
+  {
+    "id": "TransformationNumérique",
+    "label": "TransformationNumérique",
+    "level": 5
+  },
+  {
+    "id": "Stratégiescommerciales",
+    "label": "Stratégiescommerciales",
+    "level": 5
+  },
+  {
+    "id": "ReactJs",
+    "label": "ReactJs",
+    "level": 5
+  },
+  {
+    "id": "ManagementduChangement",
+    "label": "ManagementduChangement",
+    "level": 5
+  },
+  {
+    "id": "MarketingDigital",
+    "label": "MarketingDigital",
+    "level": 5
+  },
+  {
+    "id": "DesignThinking",
+    "label": "DesignThinking",
+    "level": 5
+  },
+  {
+    "id": "Logistique",
+    "label": "Logistique",
+    "level": 5
+  },
+  {
+    "id": "SupportTechnique",
+    "label": "SupportTechnique",
+    "level": 5
+  },
+  {
+    "id": "Loisirs",
+    "label": "Loisirs",
+    "level": 5
+  },
+  {
+    "id": "Logiciels",
+    "label": "Logiciels",
+    "level": 5
+  },
+  {
+    "id": "Pays",
+    "label": "Pays",
+    "level": 5
+  },
+  {
+    "id": "LangagesInformatique",
+    "label": "LangagesInformatique",
+    "level": 5
+  },
+  {
+    "id": "IT",
+    "label": "IT",
+    "level": 5
+  },
+  {
+    "id": "Achats",
+    "label": "Achats",
+    "level": 5
+  },
+  {
+    "id": "BusinessIntelligence",
+    "label": "BusinessIntelligence",
+    "level": 5
+  },
+  {
+    "id": "Vente",
+    "label": "Vente",
+    "level": 5
+  },
+  {
+    "id": "TopManagement",
+    "label": "TopManagement",
+    "level": 5
+  },
+  {
+    "id": "SQL",
+    "label": "SQL",
+    "level": 5
+  },
+  {
+    "id": "Marqueemployeur",
+    "label": "Marqueemployeur",
+    "level": 5
+  },
+  {
+    "id": "Développementlogiciels",
+    "label": "Développementlogiciels",
+    "level": 5
+  },
+  {
+    "id": "Publicité",
+    "label": "Publicité",
+    "level": 5
+  },
+  {
+    "id": "Gourmand·e",
+    "label": "Gourmand·e",
+    "level": 5
+  },
+  {
+    "id": "Observationcritique",
+    "label": "Observationcritique",
+    "level": 5
+  },
+  {
+    "id": "Etudesdemarché",
+    "label": "Etudesdemarché",
+    "level": 5
+  },
+  {
+    "id": "AutomationMarketing",
+    "label": "AutomationMarketing",
+    "level": 5
+  },
+  {
+    "id": "Caché",
+    "label": "Caché",
+    "level": 5
+  },
+  {
+    "id": "DirectionRH",
+    "label": "DirectionRH",
+    "level": 5
+  },
+  {
+    "id": "Transport",
+    "label": "Transport",
+    "level": 5
+  },
+  {
+    "id": "DesigndeService",
+    "label": "DesigndeService",
+    "level": 5
+  },
+  {
+    "id": "Avant-Vente",
+    "label": "Avant-Vente",
+    "level": 5
+  },
+  {
+    "id": "Run(IT)",
+    "label": "Run(IT)",
+    "level": 5
+  },
+  {
+    "id": "Livraison(IT)",
+    "label": "Livraison(IT)",
+    "level": 5
+  },
+  {
+    "id": "Consommationgrandpublic",
+    "label": "Consommationgrandpublic",
+    "level": 5
+  },
+  {
+    "id": "Conceptiondesprocess",
+    "label": "Conceptiondesprocess",
+    "level": 5
+  },
+  {
+    "id": "Build(IT)",
+    "label": "Build(IT)",
+    "level": 5
+  },
+  {
+    "id": "Devops",
+    "label": "Devops",
+    "level": 5
+  },
+  {
+    "id": "DivertissementandMédias",
+    "label": "DivertissementandMédias",
+    "level": 5
+  },
+  {
+    "id": "Transportferroviaire",
+    "label": "Transportferroviaire",
+    "level": 5
+  },
+  {
+    "id": "OrangeS.A.",
+    "label": "OrangeS.A.",
+    "level": 5
+  },
+  {
+    "id": "SociétéGénérale",
+    "label": "SociétéGénérale",
+    "level": 5
+  },
+  {
+    "id": "LaPoste",
+    "label": "LaPoste",
+    "level": 5
+  },
+  {
+    "id": "ÉlectricitédeFrance",
+    "label": "ÉlectricitédeFrance",
+    "level": 5
+  },
+  {
+    "id": "Renault",
+    "label": "Renault",
+    "level": 5
+  },
+  {
+    "id": "GroupeBPCE",
+    "label": "GroupeBPCE",
+    "level": 5
+  },
+  {
+    "id": "Auchan",
+    "label": "Auchan",
+    "level": 5
+  },
+  {
+    "id": "Danone",
+    "label": "Danone",
+    "level": 5
+  },
+  {
+    "id": "AXA",
+    "label": "AXA",
+    "level": 5
+  },
+  {
+    "id": "CréditAgricole",
+    "label": "CréditAgricole",
+    "level": 5
+  },
+  {
+    "id": "Peugeot",
+    "label": "Peugeot",
+    "level": 5
+  },
+  {
+    "id": "Veolia",
+    "label": "Veolia",
+    "level": 5
+  },
+  {
+    "id": "ChristianDior",
+    "label": "ChristianDior",
+    "level": 5
+  },
+  {
+    "id": "SchneiderElectric",
+    "label": "SchneiderElectric",
+    "level": 5
+  },
+  {
+    "id": "BNPParibas",
+    "label": "BNPParibas",
+    "level": 5
+  },
+  {
+    "id": "Engie",
+    "label": "Engie",
+    "level": 5
+  },
+  {
+    "id": "AirLiquide",
+    "label": "AirLiquide",
+    "level": 5
+  },
+  {
+    "id": "GlobalSwitch",
+    "label": "GlobalSwitch",
+    "level": 5
+  },
+  {
+    "id": "Plongée",
+    "label": "Plongée",
+    "level": 5
+  },
+  {
+    "id": "Marque",
+    "label": "Marque",
+    "level": 5
+  },
+  {
+    "id": "Coach",
+    "label": "Coach",
+    "level": 5
+  },
+  {
+    "id": "GoogleSheet",
+    "label": "GoogleSheet",
+    "level": 5
+  },
+  {
+    "id": "Mode",
+    "label": "Mode",
+    "level": 5
+  },
+  {
+    "id": "Institutions",
+    "label": "Institutions",
+    "level": 5
+  },
+  {
+    "id": "Utilisation",
+    "label": "Utilisation",
+    "level": 5
+  },
+  {
+    "id": "Vinci",
+    "label": "Vinci",
+    "level": 5
+  },
+  {
+    "id": "Alstom",
+    "label": "Alstom",
+    "level": 5
+  },
+  {
+    "id": "Keolis",
+    "label": "Keolis",
+    "level": 5
+  },
+  {
+    "id": "CEC",
+    "label": "CEC",
+    "level": 5
+  },
+  {
+    "id": "RATP",
+    "label": "RATP",
+    "level": 5
+  },
+  {
+    "id": "TotalS.A.",
+    "label": "TotalS.A.",
+    "level": 5
+  },
+  {
+    "id": "SNCF",
+    "label": "SNCF",
+    "level": 5
+  },
+  {
+    "id": "LaPoste",
+    "label": "LaPoste",
+    "level": 5
+  },
+  {
+    "id": "Michelin",
+    "label": "Michelin",
+    "level": 5
+  },
+  {
+    "id": "Carrefour",
+    "label": "Carrefour",
+    "level": 5
+  },
+  {
+    "id": "Sanofi",
+    "label": "Sanofi",
+    "level": 5
+  },
+  {
+    "id": "L'Oréal",
+    "label": "L'Oréal",
+    "level": 5
+  },
+  {
+    "id": "CreditAgricole",
+    "label": "CreditAgricole",
+    "level": 5
+  },
+  {
+    "id": "AirFrance",
+    "label": "AirFrance",
+    "level": 5
+  },
+  {
+    "id": "SaintGobain",
+    "label": "SaintGobain",
+    "level": 5
+  },
+  {
+    "id": "Bouygues",
+    "label": "Bouygues",
+    "level": 5
+  },
+  {
+    "id": "Ericsson",
+    "label": "Ericsson",
+    "level": 5
+  },
+  {
+    "id": "Eiffage",
+    "label": "Eiffage",
+    "level": 5
+  },
+  {
+    "id": "Benetton",
+    "label": "Benetton",
+    "level": 5
+  },
+  {
+    "id": "Hubspot",
+    "label": "Hubspot",
+    "level": 5
+  },
+  {
+    "id": "Améliorationcontinue",
+    "label": "Améliorationcontinue",
+    "level": 5
+  },
+  {
+    "id": "I-Expo",
+    "label": "I-Expo",
+    "level": 5
+  },
+  {
+    "id": "Github",
+    "label": "Github",
+    "level": 5
+  },
+  {
+    "id": "PullRequest",
+    "label": "PullRequest",
+    "level": 5
+  },
+  {
+    "id": "Revuedecode",
+    "label": "Revuedecode",
+    "level": 5
+  },
+  {
+    "id": "Intégrationmail",
+    "label": "Intégrationmail",
+    "level": 5
+  },
+  {
+    "id": "Droitsd'accès",
+    "label": "Droitsd'accès",
+    "level": 5
+  },
+  {
+    "id": "Airbus",
+    "label": "Airbus",
+    "level": 5
+  },
+  {
+    "id": "Thales",
+    "label": "Thales",
+    "level": 5
+  },
+  {
+    "id": "Safran",
+    "label": "Safran",
+    "level": 5
+  },
+  {
+    "id": "Nexter",
+    "label": "Nexter",
+    "level": 5
+  },
+  {
+    "id": "Ministèredesarmées",
+    "label": "Ministèredesarmées",
+    "level": 5
+  },
+  {
+    "id": "Ministèredel’intérieur",
+    "label": "Ministèredel’intérieur",
+    "level": 5
+  },
+  {
+    "id": "Navalgroup",
+    "label": "Navalgroup",
+    "level": 5
+  },
+  {
+    "id": "Quarkslab",
+    "label": "Quarkslab",
+    "level": 5
+  },
+  {
+    "id": "Airbushelicopters",
+    "label": "Airbushelicopters",
+    "level": 5
+  },
+  {
+    "id": "AirbusDefence",
+    "label": "AirbusDefence",
+    "level": 5
+  },
+  {
+    "id": "ThalesAvionics",
+    "label": "ThalesAvionics",
+    "level": 5
+  },
+  {
+    "id": "LIEBHERR",
+    "label": "LIEBHERR",
+    "level": 5
+  },
+  {
+    "id": "Renaudtrucksdefense",
+    "label": "Renaudtrucksdefense",
+    "level": 5
+  },
+  {
+    "id": "LVMH",
+    "label": "LVMH",
+    "level": 5
+  },
+  {
+    "id": "Accenture",
+    "label": "Accenture",
+    "level": 5
+  },
+  {
+    "id": "Capgemini",
+    "label": "Capgemini",
+    "level": 5
+  },
+  {
+    "id": "Dassault",
+    "label": "Dassault",
+    "level": 5
+  },
+  {
+    "id": "Essilor",
+    "label": "Essilor",
+    "level": 5
+  },
+  {
+    "id": "STmicroelectronics",
+    "label": "STmicroelectronics",
+    "level": 5
+  },
+  {
+    "id": "SOGECLAIR",
+    "label": "SOGECLAIR",
+    "level": 5
+  },
+  {
+    "id": "ArianeGroup",
+    "label": "ArianeGroup",
+    "level": 5
+  },
+  {
+    "id": "PROMETHEE",
+    "label": "PROMETHEE",
+    "level": 5
+  },
+  {
+    "id": "ThalesAleniaSpace",
+    "label": "ThalesAleniaSpace",
+    "level": 5
+  },
+  {
+    "id": "MBDA",
+    "label": "MBDA",
+    "level": 5
+  },
+  {
+    "id": "TARMACAEROSAVE",
+    "label": "TARMACAEROSAVE",
+    "level": 5
+  },
+  {
+    "id": "Ouvry",
+    "label": "Ouvry",
+    "level": 5
+  },
+  {
+    "id": "AEROSPACEVALLEY",
+    "label": "AEROSPACEVALLEY",
+    "level": 5
+  },
+  {
+    "id": "OUVRY",
+    "label": "OUVRY",
+    "level": 5
+  },
+  {
+    "id": "VERNEYCARON",
+    "label": "VERNEYCARON",
+    "level": 5
+  },
+  {
+    "id": "AIRSEAS",
+    "label": "AIRSEAS",
+    "level": 5
+  },
+  {
+    "id": "APSYS",
+    "label": "APSYS",
+    "level": 5
+  },
+  {
+    "id": "ARQUUS",
+    "label": "ARQUUS",
+    "level": 5
+  },
+  {
+    "id": "CEA",
+    "label": "CEA",
+    "level": 5
+  },
+  {
+    "id": "ClusterECLIDE",
+    "label": "ClusterECLIDE",
+    "level": 5
+  },
+  {
+    "id": "DAHER",
+    "label": "DAHER",
+    "level": 5
+  },
+  {
+    "id": "GICAT",
+    "label": "GICAT",
+    "level": 5
+  },
+  {
+    "id": "HELISIM",
+    "label": "HELISIM",
+    "level": 5
+  },
+  {
+    "id": "CEGELECDEFENSE",
+    "label": "CEGELECDEFENSE",
+    "level": 5
+  },
+  {
+    "id": "PIERREFABRE",
+    "label": "PIERREFABRE",
+    "level": 5
+  },
+  {
+    "id": "BOEING",
+    "label": "BOEING",
+    "level": 5
+  },
+  {
+    "id": "ROLLSROYCE",
+    "label": "ROLLSROYCE",
+    "level": 5
+  },
+  {
+    "id": "SPHEREA",
+    "label": "SPHEREA",
+    "level": 5
+  },
+  {
+    "id": "COLLINSAEROSPACE",
+    "label": "COLLINSAEROSPACE",
+    "level": 5
+  },
+  {
+    "id": "AKKA",
+    "label": "AKKA",
+    "level": 5
+  },
+  {
+    "id": "Rotcshild",
+    "label": "Rotcshild",
+    "level": 5
+  },
+  {
+    "id": "BouyguesConstruction",
+    "label": "BouyguesConstruction",
+    "level": 5
+  },
+  {
+    "id": "CNES",
+    "label": "CNES",
+    "level": 5
+  },
+  {
+    "id": "NLP",
+    "label": "NLP",
+    "level": 5
+  },
+  {
+    "id": "PitchCommercial",
+    "label": "PitchCommercial",
+    "level": 5
+  },
+  {
+    "id": "Dovetail",
+    "label": "Dovetail",
+    "level": 5
+  },
+  {
+    "id": "Sûreténucléaire",
+    "label": "Sûreténucléaire",
+    "level": 5
+  },
+  {
+    "id": "Confidentialité",
+    "label": "Confidentialité",
+    "level": 5
+  },
+  {
+    "id": "Activedirectory",
+    "label": "Activedirectory",
+    "level": 5
+  },
+  {
+    "id": "SIRH",
+    "label": "SIRH",
+    "level": 5
+  },
+  {
+    "id": "DSI",
+    "label": "DSI",
+    "level": 5
+  },
+  {
+    "id": "Répondreauxobjections",
+    "label": "Répondreauxobjections",
+    "level": 5
+  },
+  {
+    "id": "Chartegraphique",
+    "label": "Chartegraphique",
+    "level": 5
+  },
+  {
+    "id": "SMR",
+    "label": "SMR",
+    "level": 5
+  },
+  {
+    "id": "Sécurité",
+    "label": "Sécurité",
+    "level": 5
+  },
+  {
+    "id": "Cybersécurité",
+    "label": "Cybersécurité",
+    "level": 5
+  },
+  {
+    "id": "KnowledgeLifecycle",
+    "label": "KnowledgeLifecycle",
+    "level": 5
+  },
+  {
+    "id": "LogRocket",
+    "label": "LogRocket",
+    "level": 5
+  },
+  {
+    "id": "Model",
+    "label": "Model",
+    "level": 5
+  },
+  {
+    "id": "Upsell",
+    "label": "Upsell",
+    "level": 5
+  },
+  {
+    "id": "Customersuccess",
+    "label": "Customersuccess",
+    "level": 5
+  },
+  {
+    "id": "Sitevitrine",
+    "label": "Sitevitrine",
+    "level": 5
+  },
+  {
+    "id": "Filtre",
+    "label": "Filtre",
+    "level": 5
+  },
+  {
+    "id": "Superadmin",
+    "label": "Superadmin",
+    "level": 5
+  },
+  {
+    "id": "Navigateur",
+    "label": "Navigateur",
+    "level": 5
+  },
+  {
+    "id": "Chrome",
+    "label": "Chrome",
+    "level": 5
+  },
+  {
+    "id": "Firefox",
+    "label": "Firefox",
+    "level": 5
+  },
+  {
+    "id": "Safari",
+    "label": "Safari",
+    "level": 5
+  },
+  {
+    "id": "Fonctionnalité",
+    "label": "Fonctionnalité",
+    "level": 5
+  },
+  {
+    "id": "Questionvidéo",
+    "label": "Questionvidéo",
+    "level": 5
+  },
+  {
+    "id": "Zoulou",
+    "label": "Zoulou",
+    "level": 5
+  },
+  {
+    "id": "Langues",
+    "label": "Langues",
+    "level": 5
+  },
+  {
+    "id": "Roadmap",
+    "label": "Roadmap",
+    "level": 5
+  },
+  {
+    "id": "Experts",
+    "label": "Experts",
+    "level": 5
+  },
+  {
+    "id": "Formation",
+    "label": "Formation",
+    "level": 5
+  },
+  {
+    "id": "Catalyseurs",
+    "label": "Catalyseurs",
+    "level": 5
+  },
+  {
+    "id": "Extra",
+    "label": "Extra",
+    "level": 5
+  },
+  {
+    "id": "Entreprises",
+    "label": "Entreprises",
+    "level": 5
+  },
+  {
+    "id": "GlobalIndustrie",
+    "label": "GlobalIndustrie",
+    "level": 5
+  },
+  {
+    "id": "KnowledgeManagement",
+    "label": "KnowledgeManagement",
+    "level": 5
+  },
+  {
+    "id": "Secteurdel'Energie",
+    "label": "Secteurdel'Energie",
+    "level": 5
+  },
+  {
+    "id": "Geosciences",
+    "label": "Geosciences",
+    "level": 5
+  },
+  {
+    "id": "ContentManagement",
+    "label": "ContentManagement",
+    "level": 5
+  },
+  {
+    "id": "TotalEnergies",
+    "label": "TotalEnergies",
+    "level": 5
+  },
+  {
+    "id": "Societedugrandparis",
+    "label": "Societedugrandparis",
+    "level": 5
+  },
+  {
+    "id": "Storengy",
+    "label": "Storengy",
+    "level": 5
+  },
+  {
+    "id": "Terega",
+    "label": "Terega",
+    "level": 5
+  },
+  {
+    "id": "SLNEramet",
+    "label": "SLNEramet",
+    "level": 5
+  },
+  {
+    "id": "Imerys",
+    "label": "Imerys",
+    "level": 5
+  },
+  {
+    "id": "Orano",
+    "label": "Orano",
+    "level": 5
+  },
+  {
+    "id": "Vermilion",
+    "label": "Vermilion",
+    "level": 5
+  },
+  {
+    "id": "Surf",
+    "label": "Surf",
+    "level": 5
+  },
+  {
+    "id": "Géologie",
+    "label": "Géologie",
+    "level": 5
+  },
+  {
+    "id": "CRM",
+    "label": "CRM",
+    "level": 5
+  },
+  {
+    "id": "EDF",
+    "label": "EDF",
+    "level": 5
+  },
+  {
+    "id": "IntégrationTeams",
+    "label": "IntégrationTeams",
+    "level": 5
+  },
+  {
+    "id": "Teams",
+    "label": "Teams",
+    "level": 5
+  },
+  {
+    "id": "Validation",
+    "label": "Validation",
+    "level": 5
+  },
+  {
+    "id": "Slack",
+    "label": "Slack",
+    "level": 5
+  },
+  {
+    "id": "IntégrationSlack",
+    "label": "IntégrationSlack",
+    "level": 5
+  },
+  {
+    "id": "Russe",
+    "label": "Russe",
+    "level": 5
+  },
+  {
+    "id": "UXdesign",
+    "label": "UXdesign",
+    "level": 5
+  },
+  {
+    "id": "ACOVA",
+    "label": "ACOVA",
+    "level": 5
+  },
+  {
+    "id": "Communicationinterne",
+    "label": "Communicationinterne",
+    "level": 5
+  },
+  {
+    "id": "Jaugedepertinence",
+    "label": "Jaugedepertinence",
+    "level": 5
+  },
+  {
+    "id": "Questionposéeparmail",
+    "label": "Questionposéeparmail",
+    "level": 5
+  },
+  {
+    "id": "Image",
+    "label": "Image",
+    "level": 5
+  },
+  {
+    "id": "MicrosoftStore",
+    "label": "MicrosoftStore",
+    "level": 5
+  },
+  {
+    "id": "MicrosoftPartnerCenter",
+    "label": "MicrosoftPartnerCenter",
+    "level": 5
+  },
+  {
+    "id": "Jeuxderole",
+    "label": "Jeuxderole",
+    "level": 5
+  },
+  {
+    "id": "Zapier",
+    "label": "Zapier",
+    "level": 5
+  },
+  {
+    "id": "WelcometotheJungle",
+    "label": "WelcometotheJungle",
+    "level": 5
+  },
+  {
+    "id": "Golf",
+    "label": "Golf",
+    "level": 5
+  },
+  {
+    "id": "ConceptionPédagogique",
+    "label": "ConceptionPédagogique",
+    "level": 5
+  },
+  {
+    "id": "TikTok",
+    "label": "TikTok",
+    "level": 5
+  },
+  {
+    "id": "Théoriedesorganisations",
+    "label": "Théoriedesorganisations",
+    "level": 5
+  },
+  {
+    "id": "Ingénieurprojet",
+    "label": "Ingénieurprojet",
+    "level": 5
+  },
+  {
+    "id": "Plancheàvoile",
+    "label": "Plancheàvoile",
+    "level": 5
+  },
+  {
+    "id": "Santé",
+    "label": "Santé",
+    "level": 5
+  },
+  {
+    "id": "Guitare",
+    "label": "Guitare",
+    "level": 5
+  },
+  {
+    "id": "Ski",
+    "label": "Ski",
+    "level": 5
+  },
+  {
+    "id": "Horaires",
+    "label": "Horaires",
+    "level": 5
+  },
+  {
+    "id": "Relationclient",
+    "label": "Relationclient",
+    "level": 5
+  },
+  {
+    "id": "MQL",
+    "label": "MQL",
+    "level": 5
+  },
+  {
+    "id": "PrototypesFigma",
+    "label": "PrototypesFigma",
+    "level": 5
+  },
+  {
+    "id": "Interfaces",
+    "label": "Interfaces",
+    "level": 5
+  },
+  {
+    "id": "ÉvolutionsUXDesign",
+    "label": "ÉvolutionsUXDesign",
+    "level": 5
+  },
+  {
+    "id": "Stonly",
+    "label": "Stonly",
+    "level": 5
+  },
+  {
+    "id": "SendinBlue",
+    "label": "SendinBlue",
+    "level": 5
+  },
+  {
+    "id": "POC/V",
+    "label": "POC/V",
+    "level": 5
+  },
+  {
+    "id": "Ecrire",
+    "label": "Ecrire",
+    "level": 5
+  },
+  {
+    "id": "Compliance",
+    "label": "Compliance",
+    "level": 5
+  },
+  {
+    "id": "Entrepriseapprenante",
+    "label": "Entrepriseapprenante",
+    "level": 5
+  },
+  {
+    "id": "Qualité",
+    "label": "Qualité",
+    "level": 5
+  },
+  {
+    "id": "Lancement",
+    "label": "Lancement",
+    "level": 5
+  },
+  {
+    "id": "RIB",
+    "label": "RIB",
+    "level": 5
+  },
+  {
+    "id": "Algorithmes",
+    "label": "Algorithmes",
+    "level": 5
+  },
+  {
+    "id": "CegelecCEM",
+    "label": "CegelecCEM",
+    "level": 5
+  },
+  {
+    "id": "Ordinateur",
+    "label": "Ordinateur",
+    "level": 5
+  },
+  {
+    "id": "Charteéditoriale",
+    "label": "Charteéditoriale",
+    "level": 5
+  },
+  {
+    "id": "Astrologie",
+    "label": "Astrologie",
+    "level": 5
+  },
+  {
+    "id": "Navigation",
+    "label": "Navigation",
+    "level": 5
+  },
+  {
+    "id": "Mail",
+    "label": "Mail",
+    "level": 5
+  },
+  {
+    "id": "Levéedefonds",
+    "label": "Levéedefonds",
+    "level": 5
+  },
+  {
+    "id": "Appelàmanifestationd'intérêt",
+    "label": "Appelàmanifestationd'intérêt",
+    "level": 5
+  },
+  {
+    "id": "ConcoursStart-up",
+    "label": "ConcoursStart-up",
+    "level": 5
+  },
+  {
+    "id": "Couleurs",
+    "label": "Couleurs",
+    "level": 5
+  },
+  {
+    "id": "RechercheUtilisateur",
+    "label": "RechercheUtilisateur",
+    "level": 5
+  },
+  {
+    "id": "CSV",
+    "label": "CSV",
+    "level": 5
+  },
+  {
+    "id": "FAQClients",
+    "label": "FAQClients",
+    "level": 5
+  },
+  {
+    "id": "Reversibilité",
+    "label": "Reversibilité",
+    "level": 5
+  },
+  {
+    "id": "Export",
+    "label": "Export",
+    "level": 5
+  },
+  {
+    "id": "Intégration",
+    "label": "Intégration",
+    "level": 5
+  },
+  {
+    "id": "Onboarding",
+    "label": "Onboarding",
+    "level": 5
+  },
+  {
+    "id": "Networking",
+    "label": "Networking",
+    "level": 5
+  },
+  {
+    "id": "Statistiques",
+    "label": "Statistiques",
+    "level": 5
+  },
+  {
+    "id": "DiscoursdeClément",
+    "label": "DiscoursdeClément",
+    "level": 5
+  },
+  {
+    "id": "MobX",
+    "label": "MobX",
+    "level": 5
+  },
+  {
+    "id": "REX",
+    "label": "REX",
+    "level": 5
+  },
+  {
+    "id": "Beaudrey",
+    "label": "Beaudrey",
+    "level": 5
+  },
+  {
+    "id": "Déplacements",
+    "label": "Déplacements",
+    "level": 5
+  },
+  {
+    "id": "GoogleSlide",
+    "label": "GoogleSlide",
+    "level": 5
+  },
+  {
+    "id": "Offredeprix",
+    "label": "Offredeprix",
+    "level": 5
+  },
+  {
+    "id": "Casd'usage",
+    "label": "Casd'usage",
+    "level": 5
+  },
+  {
+    "id": "Industrialisation",
+    "label": "Industrialisation",
+    "level": 5
+  },
+  {
+    "id": "Suivicommercial",
+    "label": "Suivicommercial",
+    "level": 5
+  },
+  {
+    "id": "Managementdecompte",
+    "label": "Managementdecompte",
+    "level": 5
+  },
+  {
+    "id": "Acquisition",
+    "label": "Acquisition",
+    "level": 5
+  },
+  {
+    "id": "Prospect",
+    "label": "Prospect",
+    "level": 5
+  },
+  {
+    "id": "Opportunity",
+    "label": "Opportunity",
+    "level": 5
+  },
+  {
+    "id": "Closing",
+    "label": "Closing",
+    "level": 5
+  },
+  {
+    "id": "Client",
+    "label": "Client",
+    "level": 5
+  },
+  {
+    "id": "Démo",
+    "label": "Démo",
+    "level": 5
+  },
+  {
+    "id": "LinkedIn",
+    "label": "LinkedIn",
+    "level": 5
+  },
+  {
+    "id": "SalesNavigator",
+    "label": "SalesNavigator",
+    "level": 5
+  },
+  {
+    "id": "Rendez-vous",
+    "label": "Rendez-vous",
+    "level": 5
+  },
+  {
+    "id": "Négociation",
+    "label": "Négociation",
+    "level": 5
+  },
+  {
+    "id": "mongoDB",
+    "label": "mongoDB",
+    "level": 5
+  },
+  {
+    "id": "Tunneldevente",
+    "label": "Tunneldevente",
+    "level": 5
+  },
+  {
+    "id": "RaiseLab",
+    "label": "RaiseLab",
+    "level": 5
+  },
+  {
+    "id": "Pricing",
+    "label": "Pricing",
+    "level": 5
+  },
+  {
+    "id": "CGV",
+    "label": "CGV",
+    "level": 5
+  },
+  {
+    "id": "CarrefoursExcellences",
+    "label": "CarrefoursExcellences",
+    "level": 5
+  },
+  {
+    "id": "Gestiondecrise",
+    "label": "Gestiondecrise",
+    "level": 5
+  },
+  {
+    "id": "Chroniques",
+    "label": "Chroniques",
+    "level": 5
+  },
+  {
+    "id": "Speaker",
+    "label": "Speaker",
+    "level": 5
+  },
+  {
+    "id": "Administratrice",
+    "label": "Administratrice",
+    "level": 5
+  },
+  {
+    "id": "Auteur",
+    "label": "Auteur",
+    "level": 5
+  },
+  {
+    "id": "Peinture",
+    "label": "Peinture",
+    "level": 5
+  },
+  {
+    "id": "Pointscritiques",
+    "label": "Pointscritiques",
+    "level": 5
+  },
+  {
+    "id": "Trésorerie",
+    "label": "Trésorerie",
+    "level": 5
+  },
+  {
+    "id": "OKR",
+    "label": "OKR",
+    "level": 5
+  },
+  {
+    "id": "Utilisateurs",
+    "label": "Utilisateurs",
+    "level": 5
+  },
+  {
+    "id": "Scale",
+    "label": "Scale",
+    "level": 5
+  },
+  {
+    "id": "ROI",
+    "label": "ROI",
+    "level": 5
+  },
+  {
+    "id": "Guides",
+    "label": "Guides",
+    "level": 5
+  },
+  {
+    "id": "Reconnaissance",
+    "label": "Reconnaissance",
+    "level": 5
+  },
+  {
+    "id": "Question",
+    "label": "Question",
+    "level": 5
+  },
+  {
+    "id": "RessourcesHumaines",
+    "label": "RessourcesHumaines",
+    "level": 5
+  },
+  {
+    "id": "Processusd'harmonisation",
+    "label": "Processusd'harmonisation",
+    "level": 5
+  },
+  {
+    "id": "Vision",
+    "label": "Vision",
+    "level": 5
+  },
+  {
+    "id": "Centrederessources",
+    "label": "Centrederessources",
+    "level": 5
+  },
+  {
+    "id": "Gitdesbonnespratiques",
+    "label": "Gitdesbonnespratiques",
+    "level": 5
+  },
+  {
+    "id": "Concurrence",
+    "label": "Concurrence",
+    "level": 5
+  },
+  {
+    "id": "Protectiondesdonnées",
+    "label": "Protectiondesdonnées",
+    "level": 5
+  },
+  {
+    "id": "Unaware",
+    "label": "Unaware",
+    "level": 5
+  },
+  {
+    "id": "ProblemAware",
+    "label": "ProblemAware",
+    "level": 5
+  },
+  {
+    "id": "SolutionAware",
+    "label": "SolutionAware",
+    "level": 5
+  },
+  {
+    "id": "ProductAware",
+    "label": "ProductAware",
+    "level": 5
+  },
+  {
+    "id": "Mappingdecompte",
+    "label": "Mappingdecompte",
+    "level": 5
+  },
+  {
+    "id": "Champion",
+    "label": "Champion",
+    "level": 5
+  },
+  {
+    "id": "Pilote",
+    "label": "Pilote",
+    "level": 5
+  },
+  {
+    "id": "Sponsor",
+    "label": "Sponsor",
+    "level": 5
+  },
+  {
+    "id": "Support",
+    "label": "Support",
+    "level": 5
+  },
+  {
+    "id": "Influenceur",
+    "label": "Influenceur",
+    "level": 5
+  },
+  {
+    "id": "Sceptique",
+    "label": "Sceptique",
+    "level": 5
+  },
+  {
+    "id": "Plateforme",
+    "label": "Plateforme",
+    "level": 5
+  },
+  {
+    "id": "Plateformetechnique",
+    "label": "Plateformetechnique",
+    "level": 5
+  },
+  {
+    "id": "Plateformepolitique",
+    "label": "Plateformepolitique",
+    "level": 5
+  },
+  {
+    "id": "Plateformeméthodologique",
+    "label": "Plateformeméthodologique",
+    "level": 5
+  },
+  {
+    "id": "Plateformecommunautaire",
+    "label": "Plateformecommunautaire",
+    "level": 5
+  },
+  {
+    "id": "Livrables",
+    "label": "Livrables",
+    "level": 5
+  },
+  {
+    "id": "LivrablesOps",
+    "label": "LivrablesOps",
+    "level": 5
+  },
+  {
+    "id": "LivrablesMarketing",
+    "label": "LivrablesMarketing",
+    "level": 5
+  },
+  {
+    "id": "Appadmin",
+    "label": "Appadmin",
+    "level": 5
+  },
+  {
+    "id": "Histoiresutilisateurs",
+    "label": "Histoiresutilisateurs",
+    "level": 5
+  },
+  {
+    "id": "Casmétiers",
+    "label": "Casmétiers",
+    "level": 5
+  },
+  {
+    "id": "One-pager",
+    "label": "One-pager",
+    "level": 5
+  },
+  {
+    "id": "Microprocess",
+    "label": "Microprocess",
+    "level": 5
+  },
+  {
+    "id": "Tags",
+    "label": "Tags",
+    "level": 5
+  },
+  {
+    "id": "LiensdeParenté",
+    "label": "LiensdeParenté",
+    "level": 5
+  },
+  {
+    "id": "Parent",
+    "label": "Parent",
+    "level": 5
+  },
+  {
+    "id": "Enfant",
+    "label": "Enfant",
+    "level": 5
+  },
+  {
+    "id": "DimensionsOntologiques",
+    "label": "DimensionsOntologiques",
+    "level": 5
+  },
+  {
+    "id": "Familles",
+    "label": "Familles",
+    "level": 5
+  },
+  {
+    "id": "FamilleRoyale",
+    "label": "FamilleRoyale",
+    "level": 5
+  },
+  {
+    "id": "ActivitéMétier",
+    "label": "ActivitéMétier",
+    "level": 5
+  },
+  {
+    "id": "Étapesd'onboarding",
+    "label": "Étapesd'onboarding",
+    "level": 5
+  },
+  {
+    "id": "Askfortheuser",
+    "label": "Askfortheuser",
+    "level": 5
+  },
+  {
+    "id": "Askforthemood",
+    "label": "Askforthemood",
+    "level": 5
+  },
+  {
+    "id": "Chemind'engagement",
+    "label": "Chemind'engagement",
+    "level": 5
+  },
+  {
+    "id": "PersonaVente",
+    "label": "PersonaVente",
+    "level": 5
+  },
+  {
+    "id": "PersonaMarketing",
+    "label": "PersonaMarketing",
+    "level": 5
+  },
+  {
+    "id": "PersonaUtilisateur",
+    "label": "PersonaUtilisateur",
+    "level": 5
+  },
+  {
+    "id": "Fichepersona",
+    "label": "Fichepersona",
+    "level": 5
+  },
+  {
+    "id": "Serviceblueprint",
+    "label": "Serviceblueprint",
+    "level": 5
+  },
+  {
+    "id": "Chemind'engagementutilisateur",
+    "label": "Chemind'engagementutilisateur",
+    "level": 5
+  },
+  {
+    "id": "Chemind'engagementcatalyseur",
+    "label": "Chemind'engagementcatalyseur",
+    "level": 5
+  },
+  {
+    "id": "SalesFunnel",
+    "label": "SalesFunnel",
+    "level": 5
+  },
+  {
+    "id": "AwarenessFunnel",
+    "label": "AwarenessFunnel",
+    "level": 5
+  },
+  {
+    "id": "Leadership",
+    "label": "Leadership",
+    "level": 5
+  },
+  {
+    "id": "Engagement",
+    "label": "Engagement",
+    "level": 5
+  },
+  {
+    "id": "Embarquement",
+    "label": "Embarquement",
+    "level": 5
+  },
+  {
+    "id": "Découverte",
+    "label": "Découverte",
+    "level": 5
+  },
+  {
+    "id": "Poweruser",
+    "label": "Poweruser",
+    "level": 5
+  },
+  {
+    "id": "TagOwner",
+    "label": "TagOwner",
+    "level": 5
+  },
+  {
+    "id": "ProductLeadGrowth",
+    "label": "ProductLeadGrowth",
+    "level": 5
+  },
+  {
+    "id": "Salons",
+    "label": "Salons",
+    "level": 5
+  },
+  {
+    "id": "Rituelsetprocessus",
+    "label": "Rituelsetprocessus",
+    "level": 5
+  },
+  {
+    "id": "Designresponsif",
+    "label": "Designresponsif",
+    "level": 5
+  },
+  {
+    "id": "Import/Export",
+    "label": "Import/Export",
+    "level": 5
+  },
+  {
+    "id": "Pitchparty",
+    "label": "Pitchparty",
+    "level": 5
+  },
+  {
+    "id": "Accorddeconfidentialité",
+    "label": "Accorddeconfidentialité",
+    "level": 5
+  },
+  {
+    "id": "Japonnais",
+    "label": "Japonnais",
+    "level": 5
+  },
+  {
+    "id": "Certificat",
+    "label": "Certificat",
+    "level": 5
+  },
+  {
+    "id": "SSL",
+    "label": "SSL",
+    "level": 5
+  },
+  {
+    "id": "SalesQL",
+    "label": "SalesQL",
+    "level": 5
+  },
+  {
+    "id": "Suiteoffice",
+    "label": "Suiteoffice",
+    "level": 5
+  },
+  {
+    "id": "Algorithmedetri",
+    "label": "Algorithmedetri",
+    "level": 5
+  },
+  {
+    "id": "Word",
+    "label": "Word",
+    "level": 5
+  },
+  {
+    "id": "Autocomplete",
+    "label": "Autocomplete",
+    "level": 5
+  },
+  {
+    "id": "DataViz",
+    "label": "DataViz",
+    "level": 5
+  },
+  {
+    "id": "Django",
+    "label": "Django",
+    "level": 5
+  },
+  {
+    "id": "Segmentationd'images",
+    "label": "Segmentationd'images",
+    "level": 5
+  },
+  {
+    "id": "Ecritured'articlescientifique",
+    "label": "Ecritured'articlescientifique",
+    "level": 5
+  },
+  {
+    "id": "AirbusAtlantic",
+    "label": "AirbusAtlantic",
+    "level": 5
+  },
+  {
+    "id": "GSK",
+    "label": "GSK",
+    "level": 5
+  },
+  {
+    "id": "AdobeLightroom",
+    "label": "AdobeLightroom",
+    "level": 5
+  },
+  {
+    "id": "AdobeXD",
+    "label": "AdobeXD",
+    "level": 5
+  },
+  {
+    "id": "VinciEnergies",
+    "label": "VinciEnergies",
+    "level": 5
+  },
+  {
+    "id": "PostgreSQL",
+    "label": "PostgreSQL",
+    "level": 5
+  },
+  {
+    "id": "Neo4j",
+    "label": "Neo4j",
+    "level": 5
+  },
+  {
+    "id": "QuickDBD",
+    "label": "QuickDBD",
+    "level": 5
+  },
+  {
+    "id": "DjangoRestFramework",
+    "label": "DjangoRestFramework",
+    "level": 5
+  },
+  {
+    "id": "jQuery",
+    "label": "jQuery",
+    "level": 5
+  },
+  {
+    "id": "BouyguesByTech",
+    "label": "BouyguesByTech",
+    "level": 5
+  },
+  {
+    "id": "Vélo",
+    "label": "Vélo",
+    "level": 5
+  },
+  {
+    "id": "MAO",
+    "label": "MAO",
+    "level": 5
+  },
+  {
+    "id": "RéseauDEF",
+    "label": "RéseauDEF",
+    "level": 5
+  },
+  {
+    "id": "SpieIndustrie",
+    "label": "SpieIndustrie",
+    "level": 5
+  },
+  {
+    "id": "EiffageEnergieSystèmes",
+    "label": "EiffageEnergieSystèmes",
+    "level": 5
+  },
+  {
+    "id": "ManpowerGroup",
+    "label": "ManpowerGroup",
+    "level": 5
+  },
+  {
+    "id": "CDCHabitats",
+    "label": "CDCHabitats",
+    "level": 5
+  },
+  {
+    "id": "ThalesAviobook",
+    "label": "ThalesAviobook",
+    "level": 5
+  },
+  {
+    "id": "SNCFRéseau",
+    "label": "SNCFRéseau",
+    "level": 5
+  },
+  {
+    "id": "SNCFDGEX",
+    "label": "SNCFDGEX",
+    "level": 5
+  },
+  {
+    "id": "SpieNucléaire",
+    "label": "SpieNucléaire",
+    "level": 5
+  },
+  {
+    "id": "TotalEnergiesOneTech",
+    "label": "TotalEnergiesOneTech",
+    "level": 5
+  },
+  {
+    "id": "SNCFSferis",
+    "label": "SNCFSferis",
+    "level": 5
+  },
+  {
+    "id": "AFNOR",
+    "label": "AFNOR",
+    "level": 5
+  },
+  {
+    "id": "AutomotiveCellsCompany(ACC)",
+    "label": "AutomotiveCellsCompany(ACC)",
+    "level": 5
+  },
+  {
+    "id": "Latécoère",
+    "label": "Latécoère",
+    "level": 5
+  },
+  {
+    "id": "Boccard",
+    "label": "Boccard",
+    "level": 5
+  },
+  {
+    "id": "GeneralElectricAviation",
+    "label": "GeneralElectricAviation",
+    "level": 5
+  },
+  {
+    "id": "Yoga",
+    "label": "Yoga",
+    "level": 5
+  },
+  {
+    "id": "FormuleExcel",
+    "label": "FormuleExcel",
+    "level": 5
+  },
+  {
+    "id": "Alternant",
+    "label": "Alternant",
+    "level": 5
+  },
+  {
+    "id": "MEP",
+    "label": "MEP",
+    "level": 5
+  },
+  {
+    "id": "Management",
+    "label": "Management",
+    "level": 5
+  },
+  {
+    "id": "KatieLeedeInc",
+    "label": "KatieLeedeInc",
+    "level": 5
+  },
+  {
+    "id": "Keen",
+    "label": "Keen",
+    "level": 5
+  },
+  {
+    "id": "Marqueblanche",
+    "label": "Marqueblanche",
+    "level": 5
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "id": "Tech",
+    "label": "Tech",
+    "level": 2
+  },
+  {
+    "id": "WingzyRole",
+    "label": "WingzyRole",
+    "level": 2
+  },
+  {
+    "id": "Hidden",
+    "label": "Hidden",
+    "level": 2
+  },
+  {
+    "id": "FrenchCompanies",
+    "label": "FrenchCompanies",
+    "level": 2
+  },
+  {
+    "id": "Brand-andMarketing",
+    "label": "Brand-andMarketing",
+    "level": 2
+  },
+  {
+    "id": "Sales26688",
+    "label": "Sales26688",
+    "level": 2
+  },
+  {
+    "level": 2
+  },
+  {
+    "id": "Outils",
+    "label": "Outils",
+    "level": 2
+  },
+  {
+    "id": "Ia",
+    "label": "Ia",
+    "level": 2
+  },
+  {
+    "id": "DataAnalysis",
+    "label": "DataAnalysis",
+    "level": 2
+  },
+  {
+    "id": "SoftwareDevelopment",
+    "label": "SoftwareDevelopment",
+    "level": 2
+  },
+  {
+    "id": "IT",
+    "label": "IT",
+    "level": 2
+  },
+  {
+    "id": "Administrative",
+    "label": "Administrative",
+    "level": 2
+  },
+  {
+    "id": "Fonctionnalite",
+    "label": "Fonctionnalite",
+    "level": 2
+  },
+  {
+    "id": "Deploiement",
+    "label": "Deploiement",
+    "level": 2
+  },
+  {
+    "id": "Organization",
+    "label": "Organization",
+    "level": 2
+  },
+  {
+    "id": "Operations86854",
+    "label": "Operations86854",
+    "level": 2
+  },
+  {
+    "id": "Logistic",
+    "label": "Logistic",
+    "level": 2
+  },
+  {
+    "id": "Appadmin",
+    "label": "Appadmin",
+    "level": 2
+  },
+  {
+    "id": "FrenchCompanies",
+    "label": "FrenchCompanies",
+    "level": 2
+  },
+  {
+    "id": "IT",
+    "label": "IT",
+    "level": 2
+  },
+  {
+    "id": "Logistic",
+    "label": "Logistic",
+    "level": 2
+  },
+  {
+    "id": "Hobbies",
+    "label": "Hobbies",
+    "level": 2
+  },
+  {
+    "id": "Langues",
+    "label": "Langues",
+    "level": 2
+  },
+  {
+    "id": "Skills",
+    "label": "Skills",
+    "level": 2
+  },
+  {
+    "id": "TopManagement",
+    "label": "TopManagement",
+    "level": 2
+  },
+  {
+    "id": "Software",
+    "label": "Software",
+    "level": 2
+  },
+  {
+    "id": "Design",
+    "label": "Design",
+    "level": 2
+  },
+  {
+    "id": "Excel",
+    "label": "Excel",
+    "level": 2
+  },
+  {
+    "id": "Communication",
+    "label": "Communication",
+    "level": 2
+  },
+  {
+    "id": "Sales26688",
+    "label": "Sales26688",
+    "level": 2
+  },
+  {
+    "id": "Brand-andMarketing",
+    "label": "Brand-andMarketing",
+    "level": 2
+  },
+  {
+    "id": "ProgrammingLanguages",
+    "label": "ProgrammingLanguages",
+    "level": 2
+  },
+  {
+    "id": "Sport",
+    "label": "Sport",
+    "level": 2
+  },
+  {
+    "id": "Software",
+    "label": "Software",
+    "level": 2
+  },
+  {
+    "id": "BI",
+    "label": "BI",
+    "level": 2
+  },
+  {
+    "id": "Management51831",
+    "label": "Management51831",
+    "level": 2
+  },
+  {
+    "id": "TopManagement",
+    "label": "TopManagement",
+    "level": 2
+  },
+  {
+    "id": "Administrative",
+    "label": "Administrative",
+    "level": 2
+  },
+  {
+    "id": "TechnologicalPlateform",
+    "label": "TechnologicalPlateform",
+    "level": 2
+  },
+  {
+    "id": "Tech",
+    "label": "Tech",
+    "level": 2
+  },
+  {
+    "id": "SupplyChain",
+    "label": "SupplyChain",
+    "level": 2
+  },
+  {
+    "id": "Skills",
+    "label": "Skills",
+    "level": 2
+  },
+  {
+    "id": "BI",
+    "label": "BI",
+    "level": 2
+  },
+  {
+    "id": "RessourcesHumaines",
+    "label": "RessourcesHumaines",
+    "level": 2
+  },
+  {
+    "id": "Operations86854",
+    "label": "Operations86854",
+    "level": 2
+  },
+  {
+    "id": "TransportIndustry",
+    "label": "TransportIndustry",
+    "level": 2
+  },
+  {
+    "id": "PsaPeugeotCitroen",
+    "label": "PsaPeugeotCitroen",
+    "level": 2
+  },
+  {
+    "id": "WebMarketing",
+    "label": "WebMarketing",
+    "level": 2
+  },
+  {
+    "id": "Fonctionnalite",
+    "label": "Fonctionnalite",
+    "level": 2
+  },
+  {
+    "id": "TechnologicalPlateform",
+    "label": "TechnologicalPlateform",
+    "level": 2
+  },
+  {
+    "id": "Vinci",
+    "label": "Vinci",
+    "level": 2
+  },
+  {
+    "id": "BouyguesByTech",
+    "label": "BouyguesByTech",
+    "level": 2
+  },
+  {
+    "id": "Securite",
+    "label": "Securite",
+    "level": 2
+  },
+  {
+    "id": "Integration",
+    "label": "Integration",
+    "level": 2
+  },
+  {
+    "id": "Brand",
+    "label": "Brand",
+    "level": 2
+  },
+  {
+    "id": "Securite",
+    "label": "Securite",
+    "level": 2
+  },
+  {
+    "id": "KnowledgeManagement37459",
+    "label": "KnowledgeManagement37459",
+    "level": 2
+  },
+  {
+    "id": "Brand",
+    "label": "Brand",
+    "level": 2
+  },
+  {
+    "id": "Navigateur",
+    "label": "Navigateur",
+    "level": 2
+  },
+  {
+    "id": "Platform",
+    "label": "Platform",
+    "level": 2
+  },
+  {
+    "id": "Management51831",
+    "label": "Management51831",
+    "level": 2
+  },
+  {
+    "id": "AccountMapping",
+    "label": "AccountMapping",
+    "level": 2
+  },
+  {
+    "id": "Tradeshow",
+    "label": "Tradeshow",
+    "level": 2
+  },
+  {
+    "id": "WingzyRole",
+    "label": "WingzyRole",
+    "level": 2
+  },
+  {
+    "id": "ContentMarketing",
+    "label": "ContentMarketing",
+    "level": 2
+  },
+  {
+    "id": "TotalSa",
+    "label": "TotalSa",
+    "level": 2
+  },
+  {
+    "id": "Sport",
+    "label": "Sport",
+    "level": 2
+  },
+  {
+    "id": "Teams",
+    "label": "Teams",
+    "level": 2
+  },
+  {
+    "id": "Outils",
+    "label": "Outils",
+    "level": 2
+  },
+  {
+    "id": "Slack",
+    "label": "Slack",
+    "level": 2
+  },
+  {
+    "id": "Platform",
+    "label": "Platform",
+    "level": 2
+  },
+  {
+    "id": "Communication",
+    "label": "Communication",
+    "level": 2
+  },
+  {
+    "id": "UxDesign",
+    "label": "UxDesign",
+    "level": 2
+  },
+  {
+    "id": "MicrosoftStore",
+    "label": "MicrosoftStore",
+    "level": 2
+  },
+  {
+    "id": "EmployerBrand",
+    "label": "EmployerBrand",
+    "level": 2
+  },
+  {
+    "id": "TunnelDeVente",
+    "label": "TunnelDeVente",
+    "level": 2
+  },
+  {
+    "id": "Figma",
+    "label": "Figma",
+    "level": 2
+  },
+  {
+    "id": "Hobbies",
+    "label": "Hobbies",
+    "level": 2
+  },
+  {
+    "id": "Cybersecurite",
+    "label": "Cybersecurite",
+    "level": 2
+  },
+  {
+    "id": "Deploiement",
+    "label": "Deploiement",
+    "level": 2
+  },
+  {
+    "id": "Dsi",
+    "label": "Dsi",
+    "level": 2
+  },
+  {
+    "id": "Interfaces",
+    "label": "Interfaces",
+    "level": 2
+  },
+  {
+    "id": "Investisseur",
+    "label": "Investisseur",
+    "level": 2
+  },
+  {
+    "id": "ConcoursStartUp",
+    "label": "ConcoursStartUp",
+    "level": 2
+  },
+  {
+    "id": "CharteGraphique",
+    "label": "CharteGraphique",
+    "level": 2
+  },
+  {
+    "id": "Dovetail",
+    "label": "Dovetail",
+    "level": 2
+  },
+  {
+    "id": "DataAnalysis",
+    "label": "DataAnalysis",
+    "level": 2
+  },
+  {
+    "id": "PreSales",
+    "label": "PreSales",
+    "level": 2
+  },
+  {
+    "id": "ProtectionDesDonnees",
+    "label": "ProtectionDesDonnees",
+    "level": 2
+  },
+  {
+    "id": "AskForTheMoon",
+    "label": "AskForTheMoon",
+    "level": 2
+  },
+  {
+    "id": "ProductDesign",
+    "label": "ProductDesign",
+    "level": 2
+  },
+  {
+    "id": "Casmetiers",
+    "label": "Casmetiers",
+    "level": 2
+  },
+  {
+    "id": "AccountManagement",
+    "label": "AccountManagement",
+    "level": 2
+  },
+  {
+    "id": "SalesNavigator",
+    "label": "SalesNavigator",
+    "level": 2
+  },
+  {
+    "id": "Writing34535",
+    "label": "Writing34535",
+    "level": 2
+  },
+  {
+    "id": "EventManagement",
+    "label": "EventManagement",
+    "level": 2
+  },
+  {
+    "id": "RituelsEtProcessus",
+    "label": "RituelsEtProcessus",
+    "level": 2
+  },
+  {
+    "id": "Accounting",
+    "label": "Accounting",
+    "level": 2
+  },
+  {
+    "id": "UserResearch",
+    "label": "UserResearch",
+    "level": 2
+  },
+  {
+    "id": "ChangeManagement",
+    "label": "ChangeManagement",
+    "level": 2
+  },
+  {
+    "id": "Management",
+    "label": "Management",
+    "level": 2
+  },
+  {
+    "id": "AmeliorationContinue",
+    "label": "AmeliorationContinue",
+    "level": 2
+  },
+  {
+    "id": "SiteVitrine",
+    "label": "SiteVitrine",
+    "level": 2
+  },
+  {
+    "id": "Cybersecurite",
+    "label": "Cybersecurite",
+    "level": 2
+  },
+  {
+    "id": "TunnelDeVente",
+    "label": "TunnelDeVente",
+    "level": 2
+  },
+  {
+    "id": "Mql",
+    "label": "Mql",
+    "level": 2
+  },
+  {
+    "id": "AccountMapping",
+    "label": "AccountMapping",
+    "level": 2
+  },
+  {
+    "id": "MethodologicalPlatform",
+    "label": "MethodologicalPlatform",
+    "level": 2
+  },
+  {
+    "id": "Livrables",
+    "label": "Livrables",
+    "level": 2
+  },
+  {
+    "id": "CentreDeRessources",
+    "label": "CentreDeRessources",
+    "level": 2
+  },
+  {
+    "id": "MethodologicalPlatform",
+    "label": "MethodologicalPlatform",
+    "level": 2
+  },
+  {
+    "id": "LivrablesMarketing",
+    "label": "LivrablesMarketing",
+    "level": 2
+  },
+  {
+    "id": "LivrablesOps",
+    "label": "LivrablesOps",
+    "level": 2
+  },
+  {
+    "id": "Familles",
+    "label": "Familles",
+    "level": 2
+  },
+  {
+    "id": "Ontologie",
+    "label": "Ontologie",
+    "level": 2
+  },
+  {
+    "id": "DimensionsOntologiques",
+    "label": "DimensionsOntologiques",
+    "level": 2
+  },
+  {
+    "id": "RituelsEtProcessus",
+    "label": "RituelsEtProcessus",
+    "level": 2
+  },
+  {
+    "id": "Cheminengagement",
+    "label": "Cheminengagement",
+    "level": 2
+  },
+  {
+    "id": "Cheminengagementutilisateur",
+    "label": "Cheminengagementutilisateur",
+    "level": 2
+  },
+  {
+    "id": "Utilisateurs",
+    "label": "Utilisateurs",
+    "level": 2
+  },
+  {
+    "id": "SalesStrategy",
+    "label": "SalesStrategy",
+    "level": 2
+  },
+  {
+    "id": "UxDesign",
+    "label": "UxDesign",
+    "level": 2
+  },
+  {
+    "id": "Confidentialite",
+    "label": "Confidentialite",
+    "level": 2
+  },
+  {
+    "id": "Certificat",
+    "label": "Certificat",
+    "level": 2
+  },
+  {
+    "id": "ProgrammingLanguages",
+    "label": "ProgrammingLanguages",
+    "level": 2
+  },
+  {
+    "id": "SuiteOffice",
+    "label": "SuiteOffice",
+    "level": 2
+  },
+  {
+    "id": "Airbus61693",
+    "label": "Airbus61693",
+    "level": 2
+  },
+  {
+    "id": "Vinci",
+    "label": "Vinci",
+    "level": 2
+  },
+  {
+    "id": "Django",
+    "label": "Django",
+    "level": 2
+  },
+  {
+    "id": "Bouygues75321",
+    "label": "Bouygues75321",
+    "level": 2
+  },
+  {
+    "id": "Music",
+    "label": "Music",
+    "level": 2
+  },
+  {
+    "id": "Sncf93609",
+    "label": "Sncf93609",
+    "level": 2
+  },
+  {
+    "id": "TotalEnergies",
+    "label": "TotalEnergies",
+    "level": 2
+  },
+  {
+    "id": "Excel",
+    "label": "Excel",
+    "level": 2
+  },
+  {
+    "id": "FullStackDeveloper",
+    "label": "FullStackDeveloper",
+    "level": 2
+  },
+
+
+
+
+
+{
+    "id": "630df45b08e5da0050de5bc1",
+    "label": "630df45b08e5da0050de5bc1",
+    "level": 1
+  },
+  {
+    "id": "630df43608e5da0050de3c94",
+    "label": "630df43608e5da0050de3c94",
+    "level": 1
+  },
+
+  {
+    "id": "630dee2c08e5da0050d8009c",
+    "label": "630dee2c08e5da0050d8009c",
+    "level": 1
+  },
+  
+  {
+    "id": "6331a2f025bd46004a6682c6",
+    "label": "6331a2f025bd46004a6682c6",
+    "level": 1
+  },
+  {
+    "id": "630df63d08e5da0050dfe118",
+    "label": "630df63d08e5da0050dfe118",
+    "level": 1
+  },
+
+
+
+
+
+
+
+
+]
+
+var baseLinks = 
+[
+  {
+    "target": "Tech",
+    "source": "Applicationwebprogressive",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "Boardmember",
+    "strength": 0.7
+  },
+  {
+    "target": "Hidden",
+    "source": "Rôles",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Amazon",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Sogeti",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "Full-time",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "Cofondateur",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "MatchCom",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "Stagiaire",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "GroupeADP",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "Fulldev",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "Gamification",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Ubisoft",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "AsoboStudio",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "Actionnaire",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "Prestataire",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "Apporteurd'affaires",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "Investisseur",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "Cannauxdeventes",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Aveva",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "Avocat",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "CEO",
+    "strength": 0.7
+  },
+  {
+    "target": "Hidden",
+    "source": "Équipe",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Rotarex",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Vestas",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "AirProducts",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Arquus",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Soframe",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Askforthemoon",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "MicrosoftAzure",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "LeroyMerlin",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Adéo",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "Alumni",
+    "strength": 0.7
+  },
+  {
+    "target": "Ia",
+    "source": "Filtragecollaboratif",
+    "strength": 0.7
+  },
+  {
+    "target": "DataAnalysis",
+    "source": "DataSet",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "PsaPeugeotCitroen",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Stellantis",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "CGI",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "Figma",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "DAF",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "Mentor",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "IBM",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Equinix",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "DigitalReality",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Vertiv",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Rittal",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Daher",
+    "strength": 0.7
+  },
+  {
+    "target": "SoftwareDevelopment",
+    "source": "VisualStudioCode",
+    "strength": 0.7
+  },
+  {
+    "target": "IT",
+    "source": "Windows",
+    "strength": 0.7
+  },
+  {
+    "target": "Administrative",
+    "source": "Comptabilité",
+    "strength": 0.7
+  },
+  {
+    "target": "Administrative",
+    "source": "Facturation",
+    "strength": 0.7
+  },
+  {
+    "target": "Fonctionnalite",
+    "source": "Notification",
+    "strength": 0.7
+  },
+  {
+    "target": "Deploiement",
+    "source": "Ontologie",
+    "strength": 0.7
+  },
+  {
+    "target": "Organization",
+    "source": "Agenda",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "CTO",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "MarketingManager",
+    "strength": 0.7
+  },
+  {
+    "target": "Hidden",
+    "source": "Outils",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "Notion",
+    "strength": 0.7
+  },
+  {
+    "target": "Operations86854",
+    "source": "Déploiement",
+    "strength": 0.7
+  },
+  {
+    "target": "Logistic",
+    "source": "Supplychain",
+    "strength": 0.7
+  },
+  {
+    "target": "Appadmin",
+    "source": "Dashboard",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Framatome",
+    "strength": 0.7
+  },
+  {
+    "target": "IT",
+    "source": "IA",
+    "strength": 0.7
+  },
+  {
+    "target": "Logistic",
+    "source": "Administratif",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "Piano",
+    "strength": 0.7
+  },
+  {
+    "target": "Langues",
+    "source": "Arabe",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "Autonomie",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "Dessiner",
+    "strength": 0.7
+  },
+  {
+    "target": "TopManagement",
+    "source": "IntelligenceCollective",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "Rédaction",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "Tennis",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "Bière",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "Écoute",
+    "strength": 0.7
+  },
+  {
+    "target": "Langues",
+    "source": "Allemand",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "Football",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "Cuisine",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "Voyages",
+    "strength": 0.7
+  },
+  {
+    "target": "Langues",
+    "source": "Espagnol",
+    "strength": 0.7
+  },
+  {
+    "target": "Langues",
+    "source": "Anglais",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "Parlerenpublic",
+    "strength": 0.7
+  },
+  {
+    "target": "Software",
+    "source": "Photoshop",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "Prospectioncommerciale",
+    "strength": 0.7
+  },
+  {
+    "target": "Design",
+    "source": "Design",
+    "strength": 0.7
+  },
+  {
+    "target": "Excel",
+    "source": "Excel",
+    "strength": 0.7
+  },
+  {
+    "target": "TopManagement",
+    "source": "Gestiond'équipe",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "BusinessDevelopment",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "Curiosité",
+    "strength": 0.7
+  },
+  {
+    "target": "Communication",
+    "source": "Communication",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "Cinéma",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "Événementiel",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "MontageVidéo",
+    "strength": 0.7
+  },
+  {
+    "target": "Logistic",
+    "source": "Budgets",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "Sport",
+    "strength": 0.7
+  },
+  {
+    "target": "Administrative",
+    "source": "Organisation",
+    "strength": 0.7
+  },
+  {
+    "target": "Langues",
+    "source": "Portugais",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "JeuxVidéo",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages",
+    "source": "HTMLCSS",
+    "strength": 0.7
+  },
+  {
+    "target": "Sport",
+    "source": "Badminton",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "Ingéniosité",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "Volleyball",
+    "strength": 0.7
+  },
+  {
+    "target": "TopManagement",
+    "source": "Mentorat",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "Adaptabilité",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "JeuxDeStratégie",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages",
+    "source": "Javascript",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "RelationsPresse",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "Sociologie",
+    "strength": 0.7
+  },
+  {
+    "target": "Design",
+    "source": "WebDesign",
+    "strength": 0.7
+  },
+  {
+    "target": "Langues",
+    "source": "Français",
+    "strength": 0.7
+  },
+  {
+    "target": "Software",
+    "source": "PowerPoint",
+    "strength": 0.7
+  },
+  {
+    "target": "Software",
+    "source": "GoogleDocs",
+    "strength": 0.7
+  },
+  {
+    "target": "BI",
+    "source": "AnalyseDeData",
+    "strength": 0.7
+  },
+  {
+    "target": "Management51831",
+    "source": "MéthodesAgiles",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "WebMarketing",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "ContentMarketing",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "EmailMarketing",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "Rugby",
+    "strength": 0.7
+  },
+  {
+    "target": "TopManagement",
+    "source": "Stratégie",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages",
+    "source": "Python",
+    "strength": 0.7
+  },
+  {
+    "target": "Design",
+    "source": "DesignProduit",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages",
+    "source": "Java",
+    "strength": 0.7
+  },
+  {
+    "target": "Hidden",
+    "source": "Compétences",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "CinémaEngagé",
+    "strength": 0.7
+  },
+  {
+    "target": "Sport",
+    "source": "CourseÀPied",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "Marketingderéseau",
+    "strength": 0.7
+  },
+  {
+    "target": "Management51831",
+    "source": "EntrepriseLibérée",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "Musique",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "Astronomie",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "Freelance",
+    "strength": 0.7
+  },
+  {
+    "target": "Administrative",
+    "source": "Gestiondescontrats",
+    "strength": 0.7
+  },
+  {
+    "target": "Management51831",
+    "source": "OrganisationAgile",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "Psychologie",
+    "strength": 0.7
+  },
+  {
+    "target": "TechnologicalPlateform",
+    "source": "OAuth",
+    "strength": 0.7
+  },
+  {
+    "target": "TopManagement",
+    "source": "RéinventerLesOrganisations",
+    "strength": 0.7
+  },
+  {
+    "target": "IT",
+    "source": "DataCentres",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages",
+    "source": "NodeJs",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "Espritd'équipe",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "TransformationNumérique",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "Stratégiescommerciales",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages",
+    "source": "ReactJs",
+    "strength": 0.7
+  },
+  {
+    "target": "TopManagement",
+    "source": "ManagementduChangement",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "MarketingDigital",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "DesignThinking",
+    "strength": 0.7
+  },
+  {
+    "target": "Tech",
+    "source": "SupportTechnique",
+    "strength": 0.7
+  },
+  {
+    "target": "Hidden",
+    "source": "Loisirs",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "Logiciels",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "LangagesInformatique",
+    "strength": 0.7
+  },
+  {
+    "target": "Tech",
+    "source": "IT",
+    "strength": 0.7
+  },
+  {
+    "target": "SupplyChain",
+    "source": "Achats",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "BusinessIntelligence",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "TopManagement",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages",
+    "source": "SQL",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "Marqueemployeur",
+    "strength": 0.7
+  },
+  {
+    "target": "IT",
+    "source": "Développementlogiciels",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "Publicité",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "Gourmand·e",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "Observationcritique",
+    "strength": 0.7
+  },
+  {
+    "target": "BI",
+    "source": "Etudesdemarché",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "AutomationMarketing",
+    "strength": 0.7
+  },
+  {
+    "target": "Hidden",
+    "source": "Caché",
+    "strength": 0.7
+  },
+  {
+    "target": "RessourcesHumaines",
+    "source": "DirectionRH",
+    "strength": 0.7
+  },
+  {
+    "target": "Organization",
+    "source": "Transport",
+    "strength": 0.7
+  },
+  {
+    "target": "Design",
+    "source": "DesigndeService",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "Avant-Vente",
+    "strength": 0.7
+  },
+  {
+    "target": "IT",
+    "source": "Run(IT)",
+    "strength": 0.7
+  },
+  {
+    "target": "IT",
+    "source": "Livraison(IT)",
+    "strength": 0.7
+  },
+  {
+    "target": "Operations86854",
+    "source": "Conceptiondesprocess",
+    "strength": 0.7
+  },
+  {
+    "target": "IT",
+    "source": "Build(IT)",
+    "strength": 0.7
+  },
+  {
+    "target": "IT",
+    "source": "Devops",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "DivertissementandMédias",
+    "strength": 0.7
+  },
+  {
+    "target": "TransportIndustry",
+    "source": "Transportferroviaire",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "OrangeS.A.",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "SociétéGénérale",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "LaPoste",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "ÉlectricitédeFrance",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Renault",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "GroupeBPCE",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Auchan",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Danone",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "AXA",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "CréditAgricole",
+    "strength": 0.7
+  },
+  {
+    "target": "PsaPeugeotCitroen",
+    "source": "Peugeot",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Veolia",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "ChristianDior",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "SchneiderElectric",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "BNPParibas",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Engie",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "AirLiquide",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "GlobalSwitch",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "Plongée",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "Marque",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "Coach",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "GoogleSheet",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "Mode",
+    "strength": 0.7
+  },
+  {
+    "target": "Operations86854",
+    "source": "Utilisation",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Vinci",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Alstom",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Keolis",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "CEC",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "RATP",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "TotalS.A.",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "SNCF",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "LaPoste",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Michelin",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Carrefour",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Sanofi",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "L'Oréal",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "CreditAgricole",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "AirFrance",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "SaintGobain",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Bouygues",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Ericsson",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Eiffage",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Benetton",
+    "strength": 0.7
+  },
+  {
+    "target": "WebMarketing",
+    "source": "Hubspot",
+    "strength": 0.7
+  },
+  {
+    "target": "Operations86854",
+    "source": "Améliorationcontinue",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "I-Expo",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "Github",
+    "strength": 0.7
+  },
+  {
+    "target": "SoftwareDevelopment",
+    "source": "PullRequest",
+    "strength": 0.7
+  },
+  {
+    "target": "Tech",
+    "source": "Revuedecode",
+    "strength": 0.7
+  },
+  {
+    "target": "Fonctionnalite",
+    "source": "Intégrationmail",
+    "strength": 0.7
+  },
+  {
+    "target": "TechnologicalPlateform",
+    "source": "Droitsd'accès",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Airbus",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Thales",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Safran",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Nexter",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Ministèredesarmées",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Ministèredel’intérieur",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Navalgroup",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Quarkslab",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Airbushelicopters",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "AirbusDefence",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "ThalesAvionics",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "LIEBHERR",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Renaudtrucksdefense",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "LVMH",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Accenture",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Capgemini",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Dassault",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Essilor",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "STmicroelectronics",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "SOGECLAIR",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "ArianeGroup",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "PROMETHEE",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "ThalesAleniaSpace",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "MBDA",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "TARMACAEROSAVE",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Ouvry",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "AEROSPACEVALLEY",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "OUVRY",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "VERNEYCARON",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "AIRSEAS",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "APSYS",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "ARQUUS",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "CEA",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "ClusterECLIDE",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "DAHER",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "GICAT",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "HELISIM",
+    "strength": 0.7
+  },
+  {
+    "target": "Vinci",
+    "source": "CEGELECDEFENSE",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "PIERREFABRE",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "BOEING",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "ROLLSROYCE",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "SPHEREA",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "COLLINSAEROSPACE",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "AKKA",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Rotcshild",
+    "strength": 0.7
+  },
+  {
+    "target": "BouyguesByTech",
+    "source": "BouyguesConstruction",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "CNES",
+    "strength": 0.7
+  },
+  {
+    "target": "Ia",
+    "source": "NLP",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "PitchCommercial",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "Dovetail",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "Sûreténucléaire",
+    "strength": 0.7
+  },
+  {
+    "target": "Securite",
+    "source": "Confidentialité",
+    "strength": 0.7
+  },
+  {
+    "target": "Integration",
+    "source": "Activedirectory",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "SIRH",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "DSI",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "Répondreauxobjections",
+    "strength": 0.7
+  },
+  {
+    "target": "Communication",
+    "source": "Chartegraphique",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand",
+    "source": "SMR",
+    "strength": 0.7
+  },
+  {
+    "target": "TechnologicalPlateform",
+    "source": "Sécurité",
+    "strength": 0.7
+  },
+  {
+    "target": "Securite",
+    "source": "Cybersécurité",
+    "strength": 0.7
+  },
+  {
+    "target": "KnowledgeManagement37459",
+    "source": "KnowledgeLifecycle",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "LogRocket",
+    "strength": 0.7
+  },
+  {
+    "target": "Ia",
+    "source": "Model",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "Upsell",
+    "strength": 0.7
+  },
+  {
+    "target": "Operations86854",
+    "source": "Customersuccess",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand",
+    "source": "Sitevitrine",
+    "strength": 0.7
+  },
+  {
+    "target": "Fonctionnalite",
+    "source": "Filtre",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "Superadmin",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "Navigateur",
+    "strength": 0.7
+  },
+  {
+    "target": "Navigateur",
+    "source": "Chrome",
+    "strength": 0.7
+  },
+  {
+    "target": "Navigateur",
+    "source": "Firefox",
+    "strength": 0.7
+  },
+  {
+    "target": "Navigateur",
+    "source": "Safari",
+    "strength": 0.7
+  },
+  {
+    "target": "Platform",
+    "source": "Fonctionnalité",
+    "strength": 0.7
+  },
+  {
+    "target": "Fonctionnalite",
+    "source": "Questionvidéo",
+    "strength": 0.7
+  },
+  {
+    "target": "Langues",
+    "source": "Zoulou",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "Langues",
+    "strength": 0.7
+  },
+  {
+    "target": "Tech",
+    "source": "Roadmap",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "Experts",
+    "strength": 0.7
+  },
+  {
+    "target": "Management51831",
+    "source": "Formation",
+    "strength": 0.7
+  },
+  {
+    "target": "AccountMapping",
+    "source": "Catalyseurs",
+    "strength": 0.7
+  },
+  {
+    "target": "Hidden",
+    "source": "Extra",
+    "strength": 0.7
+  },
+  {
+    "target": "Hidden",
+    "source": "Entreprises",
+    "strength": 0.7
+  },
+  {
+    "target": "Tradeshow",
+    "source": "GlobalIndustrie",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "KnowledgeManagement",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Secteurdel'Energie",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "Geosciences",
+    "strength": 0.7
+  },
+  {
+    "target": "ContentMarketing",
+    "source": "ContentManagement",
+    "strength": 0.7
+  },
+  {
+    "target": "TotalSa",
+    "source": "TotalEnergies",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Societedugrandparis",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Storengy",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Terega",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "SLNEramet",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Imerys",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Orano",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Vermilion",
+    "strength": 0.7
+  },
+  {
+    "target": "Sport",
+    "source": "Surf",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "Géologie",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "CRM",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "EDF",
+    "strength": 0.7
+  },
+  {
+    "target": "Teams",
+    "source": "IntégrationTeams",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "Teams",
+    "strength": 0.7
+  },
+  {
+    "target": "Fonctionnalite",
+    "source": "Validation",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "Slack",
+    "strength": 0.7
+  },
+  {
+    "target": "Slack",
+    "source": "IntégrationSlack",
+    "strength": 0.7
+  },
+  {
+    "target": "Langues",
+    "source": "Russe",
+    "strength": 0.7
+  },
+  {
+    "target": "Platform",
+    "source": "UXdesign",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "ACOVA",
+    "strength": 0.7
+  },
+  {
+    "target": "Communication",
+    "source": "Communicationinterne",
+    "strength": 0.7
+  },
+  {
+    "target": "Fonctionnalite",
+    "source": "Jaugedepertinence",
+    "strength": 0.7
+  },
+  {
+    "target": "Hidden",
+    "source": "Questionposéeparmail",
+    "strength": 0.7
+  },
+  {
+    "target": "UxDesign",
+    "source": "Image",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "MicrosoftStore",
+    "strength": 0.7
+  },
+  {
+    "target": "MicrosoftStore",
+    "source": "MicrosoftPartnerCenter",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "Jeuxderole",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "Zapier",
+    "strength": 0.7
+  },
+  {
+    "target": "EmployerBrand",
+    "source": "WelcometotheJungle",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "Golf",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "ConceptionPédagogique",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "TikTok",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "Théoriedesorganisations",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "Ingénieurprojet",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "Plancheàvoile",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "Guitare",
+    "strength": 0.7
+  },
+  {
+    "target": "Sport",
+    "source": "Ski",
+    "strength": 0.7
+  },
+  {
+    "target": "Organization",
+    "source": "Horaires",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "Relationclient",
+    "strength": 0.7
+  },
+  {
+    "target": "TunnelDeVente",
+    "source": "MQL",
+    "strength": 0.7
+  },
+  {
+    "target": "Figma",
+    "source": "PrototypesFigma",
+    "strength": 0.7
+  },
+  {
+    "target": "UxDesign",
+    "source": "Interfaces",
+    "strength": 0.7
+  },
+  {
+    "target": "UxDesign",
+    "source": "ÉvolutionsUXDesign",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "Stonly",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "SendinBlue",
+    "strength": 0.7
+  },
+  {
+    "target": "Deploiement",
+    "source": "POC/V",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "Ecrire",
+    "strength": 0.7
+  },
+  {
+    "target": "Cybersecurite",
+    "source": "Compliance",
+    "strength": 0.7
+  },
+  {
+    "target": "Management51831",
+    "source": "Entrepriseapprenante",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "Qualité",
+    "strength": 0.7
+  },
+  {
+    "target": "Deploiement",
+    "source": "Lancement",
+    "strength": 0.7
+  },
+  {
+    "target": "Administrative",
+    "source": "RIB",
+    "strength": 0.7
+  },
+  {
+    "target": "TechnologicalPlateform",
+    "source": "Algorithmes",
+    "strength": 0.7
+  },
+  {
+    "target": "Vinci",
+    "source": "CegelecCEM",
+    "strength": 0.7
+  },
+  {
+    "target": "Dsi",
+    "source": "Ordinateur",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand",
+    "source": "Charteéditoriale",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "Astrologie",
+    "strength": 0.7
+  },
+  {
+    "target": "Interfaces",
+    "source": "Navigation",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "Mail",
+    "strength": 0.7
+  },
+  {
+    "target": "Investisseur",
+    "source": "Levéedefonds",
+    "strength": 0.7
+  },
+  {
+    "target": "ConcoursStartUp",
+    "source": "Appelàmanifestationd'intérêt",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "ConcoursStart-up",
+    "strength": 0.7
+  },
+  {
+    "target": "CharteGraphique",
+    "source": "Couleurs",
+    "strength": 0.7
+  },
+  {
+    "target": "Dovetail",
+    "source": "RechercheUtilisateur",
+    "strength": 0.7
+  },
+  {
+    "target": "DataAnalysis",
+    "source": "CSV",
+    "strength": 0.7
+  },
+  {
+    "target": "PreSales",
+    "source": "FAQClients",
+    "strength": 0.7
+  },
+  {
+    "target": "ProtectionDesDonnees",
+    "source": "Reversibilité",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "Export",
+    "strength": 0.7
+  },
+  {
+    "target": "TechnologicalPlateform",
+    "source": "Intégration",
+    "strength": 0.7
+  },
+  {
+    "target": "TechnologicalPlateform",
+    "source": "Onboarding",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "Networking",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "Statistiques",
+    "strength": 0.7
+  },
+  {
+    "target": "AskForTheMoon",
+    "source": "DiscoursdeClément",
+    "strength": 0.7
+  },
+  {
+    "target": "ProductDesign",
+    "source": "MobX",
+    "strength": 0.7
+  },
+  {
+    "target": "Operations86854",
+    "source": "REX",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Beaudrey",
+    "strength": 0.7
+  },
+  {
+    "target": "Organization",
+    "source": "Déplacements",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "GoogleSlide",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "Offredeprix",
+    "strength": 0.7
+  },
+  {
+    "target": "Casmetiers",
+    "source": "Casd'usage",
+    "strength": 0.7
+  },
+  {
+    "target": "Operations86854",
+    "source": "Industrialisation",
+    "strength": 0.7
+  },
+  {
+    "target": "AccountManagement",
+    "source": "Suivicommercial",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "Managementdecompte",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "Acquisition",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "Prospect",
+    "strength": 0.7
+  },
+  {
+    "target": "TunnelDeVente",
+    "source": "Opportunity",
+    "strength": 0.7
+  },
+  {
+    "target": "TunnelDeVente",
+    "source": "Closing",
+    "strength": 0.7
+  },
+  {
+    "target": "TunnelDeVente",
+    "source": "Client",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "Démo",
+    "strength": 0.7
+  },
+  {
+    "target": "SalesNavigator",
+    "source": "LinkedIn",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "SalesNavigator",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "Rendez-vous",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "Négociation",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "mongoDB",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "Tunneldevente",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "RaiseLab",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "Pricing",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "CGV",
+    "strength": 0.7
+  },
+  {
+    "target": "Tradeshow",
+    "source": "CarrefoursExcellences",
+    "strength": 0.7
+  },
+  {
+    "target": "TopManagement",
+    "source": "Gestiondecrise",
+    "strength": 0.7
+  },
+  {
+    "target": "Writing34535",
+    "source": "Chroniques",
+    "strength": 0.7
+  },
+  {
+    "target": "EventManagement",
+    "source": "Speaker",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "Administratrice",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "Auteur",
+    "strength": 0.7
+  },
+  {
+    "target": "Hobbies",
+    "source": "Peinture",
+    "strength": 0.7
+  },
+  {
+    "target": "RituelsEtProcessus",
+    "source": "Pointscritiques",
+    "strength": 0.7
+  },
+  {
+    "target": "Accounting",
+    "source": "Trésorerie",
+    "strength": 0.7
+  },
+  {
+    "target": "RituelsEtProcessus",
+    "source": "OKR",
+    "strength": 0.7
+  },
+  {
+    "target": "UserResearch",
+    "source": "Utilisateurs",
+    "strength": 0.7
+  },
+  {
+    "target": "ChangeManagement",
+    "source": "Scale",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "ROI",
+    "strength": 0.7
+  },
+  {
+    "target": "Operations86854",
+    "source": "Guides",
+    "strength": 0.7
+  },
+  {
+    "target": "Management",
+    "source": "Reconnaissance",
+    "strength": 0.7
+  },
+  {
+    "target": "Fonctionnalite",
+    "source": "Question",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "RessourcesHumaines",
+    "strength": 0.7
+  },
+  {
+    "target": "AmeliorationContinue",
+    "source": "Processusd'harmonisation",
+    "strength": 0.7
+  },
+  {
+    "target": "AskForTheMoon",
+    "source": "Vision",
+    "strength": 0.7
+  },
+  {
+    "target": "SiteVitrine",
+    "source": "Centrederessources",
+    "strength": 0.7
+  },
+  {
+    "target": "SoftwareDevelopment",
+    "source": "Gitdesbonnespratiques",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "Concurrence",
+    "strength": 0.7
+  },
+  {
+    "target": "Cybersecurite",
+    "source": "Protectiondesdonnées",
+    "strength": 0.7
+  },
+  {
+    "target": "TunnelDeVente",
+    "source": "SQL",
+    "strength": 0.7
+  },
+  {
+    "target": "Mql",
+    "source": "Unaware",
+    "strength": 0.7
+  },
+  {
+    "target": "Mql",
+    "source": "ProblemAware",
+    "strength": 0.7
+  },
+  {
+    "target": "Mql",
+    "source": "SolutionAware",
+    "strength": 0.7
+  },
+  {
+    "target": "Mql",
+    "source": "ProductAware",
+    "strength": 0.7
+  },
+  {
+    "target": "AccountManagement",
+    "source": "Mappingdecompte",
+    "strength": 0.7
+  },
+  {
+    "target": "AccountMapping",
+    "source": "Champion",
+    "strength": 0.7
+  },
+  {
+    "target": "AccountMapping",
+    "source": "Pilote",
+    "strength": 0.7
+  },
+  {
+    "target": "AccountMapping",
+    "source": "Sponsor",
+    "strength": 0.7
+  },
+  {
+    "target": "AccountMapping",
+    "source": "Support",
+    "strength": 0.7
+  },
+  {
+    "target": "AccountMapping",
+    "source": "Influenceur",
+    "strength": 0.7
+  },
+  {
+    "target": "AccountMapping",
+    "source": "Sceptique",
+    "strength": 0.7
+  },
+  {
+    "target": "Platform",
+    "source": "Plateforme",
+    "strength": 0.7
+  },
+  {
+    "target": "Platform",
+    "source": "Plateformetechnique",
+    "strength": 0.7
+  },
+  {
+    "target": "Platform",
+    "source": "Plateformepolitique",
+    "strength": 0.7
+  },
+  {
+    "target": "Platform",
+    "source": "Plateformeméthodologique",
+    "strength": 0.7
+  },
+  {
+    "target": "Platform",
+    "source": "Plateformecommunautaire",
+    "strength": 0.7
+  },
+  {
+    "target": "MethodologicalPlatform",
+    "source": "Livrables",
+    "strength": 0.7
+  },
+  {
+    "target": "Livrables",
+    "source": "LivrablesOps",
+    "strength": 0.7
+  },
+  {
+    "target": "Livrables",
+    "source": "LivrablesMarketing",
+    "strength": 0.7
+  },
+  {
+    "target": "TechnologicalPlateform",
+    "source": "Appadmin",
+    "strength": 0.7
+  },
+  {
+    "target": "CentreDeRessources",
+    "source": "Histoiresutilisateurs",
+    "strength": 0.7
+  },
+  {
+    "target": "MethodologicalPlatform",
+    "source": "Casmétiers",
+    "strength": 0.7
+  },
+  {
+    "target": "LivrablesMarketing",
+    "source": "One-pager",
+    "strength": 0.7
+  },
+  {
+    "target": "LivrablesOps",
+    "source": "Microprocess",
+    "strength": 0.7
+  },
+  {
+    "target": "TechnologicalPlateform",
+    "source": "Tags",
+    "strength": 0.7
+  },
+  {
+    "target": "Familles",
+    "source": "LiensdeParenté",
+    "strength": 0.7
+  },
+  {
+    "target": "Ontologie",
+    "source": "Parent",
+    "strength": 0.7
+  },
+  {
+    "target": "Ontologie",
+    "source": "Enfant",
+    "strength": 0.7
+  },
+  {
+    "target": "Ontologie",
+    "source": "DimensionsOntologiques",
+    "strength": 0.7
+  },
+  {
+    "target": "Ontologie",
+    "source": "Familles",
+    "strength": 0.7
+  },
+  {
+    "target": "DimensionsOntologiques",
+    "source": "FamilleRoyale",
+    "strength": 0.7
+  },
+  {
+    "target": "DimensionsOntologiques",
+    "source": "ActivitéMétier",
+    "strength": 0.7
+  },
+  {
+    "target": "Ontologie",
+    "source": "Étapesd'onboarding",
+    "strength": 0.7
+  },
+  {
+    "target": "RituelsEtProcessus",
+    "source": "Askfortheuser",
+    "strength": 0.7
+  },
+  {
+    "target": "RituelsEtProcessus",
+    "source": "Askforthemood",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "Chemind'engagement",
+    "strength": 0.7
+  },
+  {
+    "target": "Sales26688",
+    "source": "PersonaVente",
+    "strength": 0.7
+  },
+  {
+    "target": "Brand-andMarketing",
+    "source": "PersonaMarketing",
+    "strength": 0.7
+  },
+  {
+    "target": "UserResearch",
+    "source": "PersonaUtilisateur",
+    "strength": 0.7
+  },
+  {
+    "target": "UxDesign",
+    "source": "Fichepersona",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "Serviceblueprint",
+    "strength": 0.7
+  },
+  {
+    "target": "Cheminengagement",
+    "source": "Chemind'engagementutilisateur",
+    "strength": 0.7
+  },
+  {
+    "target": "Cheminengagement",
+    "source": "Chemind'engagementcatalyseur",
+    "strength": 0.7
+  },
+  {
+    "target": "TunnelDeVente",
+    "source": "SalesFunnel",
+    "strength": 0.7
+  },
+  {
+    "target": "TunnelDeVente",
+    "source": "AwarenessFunnel",
+    "strength": 0.7
+  },
+  {
+    "target": "Cheminengagementutilisateur",
+    "source": "Leadership",
+    "strength": 0.7
+  },
+  {
+    "target": "Cheminengagementutilisateur",
+    "source": "Engagement",
+    "strength": 0.7
+  },
+  {
+    "target": "Cheminengagementutilisateur",
+    "source": "Embarquement",
+    "strength": 0.7
+  },
+  {
+    "target": "Cheminengagementutilisateur",
+    "source": "Découverte",
+    "strength": 0.7
+  },
+  {
+    "target": "Utilisateurs",
+    "source": "Poweruser",
+    "strength": 0.7
+  },
+  {
+    "target": "Fonctionnalite",
+    "source": "TagOwner",
+    "strength": 0.7
+  },
+  {
+    "target": "SalesStrategy",
+    "source": "ProductLeadGrowth",
+    "strength": 0.7
+  },
+  {
+    "target": "EventManagement",
+    "source": "Salons",
+    "strength": 0.7
+  },
+  {
+    "target": "AmeliorationContinue",
+    "source": "Rituelsetprocessus",
+    "strength": 0.7
+  },
+  {
+    "target": "UxDesign",
+    "source": "Designresponsif",
+    "strength": 0.7
+  },
+  {
+    "target": "Fonctionnalite",
+    "source": "Import/Export",
+    "strength": 0.7
+  },
+  {
+    "target": "RituelsEtProcessus",
+    "source": "Pitchparty",
+    "strength": 0.7
+  },
+  {
+    "target": "Confidentialite",
+    "source": "Accorddeconfidentialité",
+    "strength": 0.7
+  },
+  {
+    "target": "Langues",
+    "source": "Japonnais",
+    "strength": 0.7
+  },
+  {
+    "target": "IT",
+    "source": "Certificat",
+    "strength": 0.7
+  },
+  {
+    "target": "Certificat",
+    "source": "SSL",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages",
+    "source": "SalesQL",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "Suiteoffice",
+    "strength": 0.7
+  },
+  {
+    "target": "Ia",
+    "source": "Algorithmedetri",
+    "strength": 0.7
+  },
+  {
+    "target": "SuiteOffice",
+    "source": "Word",
+    "strength": 0.7
+  },
+  {
+    "target": "Fonctionnalite",
+    "source": "Autocomplete",
+    "strength": 0.7
+  },
+  {
+    "target": "DataAnalysis",
+    "source": "DataViz",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages",
+    "source": "Django",
+    "strength": 0.7
+  },
+  {
+    "target": "Ia",
+    "source": "Segmentationd'images",
+    "strength": 0.7
+  },
+  {
+    "target": "Writing34535",
+    "source": "Ecritured'articlescientifique",
+    "strength": 0.7
+  },
+  {
+    "target": "Airbus61693",
+    "source": "AirbusAtlantic",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "GSK",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "AdobeLightroom",
+    "strength": 0.7
+  },
+  {
+    "target": "Outils",
+    "source": "AdobeXD",
+    "strength": 0.7
+  },
+  {
+    "target": "Vinci",
+    "source": "VinciEnergies",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages",
+    "source": "PostgreSQL",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages",
+    "source": "Neo4j",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages",
+    "source": "QuickDBD",
+    "strength": 0.7
+  },
+  {
+    "target": "Django",
+    "source": "DjangoRestFramework",
+    "strength": 0.7
+  },
+  {
+    "target": "ProgrammingLanguages",
+    "source": "jQuery",
+    "strength": 0.7
+  },
+  {
+    "target": "Bouygues75321",
+    "source": "BouyguesByTech",
+    "strength": 0.7
+  },
+  {
+    "target": "Sport",
+    "source": "Vélo",
+    "strength": 0.7
+  },
+  {
+    "target": "Music",
+    "source": "MAO",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "RéseauDEF",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "SpieIndustrie",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "EiffageEnergieSystèmes",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "ManpowerGroup",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "CDCHabitats",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "ThalesAviobook",
+    "strength": 0.7
+  },
+  {
+    "target": "Sncf93609",
+    "source": "SNCFRéseau",
+    "strength": 0.7
+  },
+  {
+    "target": "Sncf93609",
+    "source": "SNCFDGEX",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "SpieNucléaire",
+    "strength": 0.7
+  },
+  {
+    "target": "TotalEnergies",
+    "source": "TotalEnergiesOneTech",
+    "strength": 0.7
+  },
+  {
+    "target": "Sncf93609",
+    "source": "SNCFSferis",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "AFNOR",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "AutomotiveCellsCompany(ACC)",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Latécoère",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "Boccard",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "GeneralElectricAviation",
+    "strength": 0.7
+  },
+  {
+    "target": "Sport",
+    "source": "Yoga",
+    "strength": 0.7
+  },
+  {
+    "target": "Excel",
+    "source": "FormuleExcel",
+    "strength": 0.7
+  },
+  {
+    "target": "WingzyRole",
+    "source": "Alternant",
+    "strength": 0.7
+  },
+  {
+    "target": "FullStackDeveloper",
+    "source": "MEP",
+    "strength": 0.7
+  },
+  {
+    "target": "Skills",
+    "source": "Management",
+    "strength": 0.7
+  },
+  {
+    "target": "FrenchCompanies",
+    "source": "KatieLeedeInc",
+    "strength": 0.7
+  },
+  {
+    "target": "DataAnalysis",
+    "source": "Keen",
+    "strength": 0.7
+  },
+  {
+    "target": "TechnologicalPlateform",
+    "source": "Marqueblanche",
+    "strength": 0.7
+  },
+
+
+
+
+
+
+
+
+
+
+
+  
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Applicationwebprogressive",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "Boardmember",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "Rôles",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Amazon",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Sogeti",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "Full-time",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "Cofondateur",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "MatchCom",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "Stagiaire",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "GroupeADP",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "Fulldev",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Gamification",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Ubisoft",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "AsoboStudio",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "Actionnaire",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "Prestataire",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "Apporteurd'affaires",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "Investisseur",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Cannauxdeventes",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Aveva",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "Avocat",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "CEO",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "Brand&Marketing",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Rotarex",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Vestas",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "AirProducts",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Arquus",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Soframe",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "Tech",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Askforthemoon",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "MicrosoftAzure",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "LeroyMerlin",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Adéo",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "Alumni",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Filtragecollaboratif",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "DataSet",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "PsaPeugeotCitroen",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Stellantis",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "CGI",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Figma",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "DAF",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "Mentor",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "IBM",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Equinix",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "DigitalReality",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Vertiv",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Rittal",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Daher",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "VisualStudioCode",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Windows",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Comptabilité",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Facturation",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Notification",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "CTO",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "MarketingManager",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Outils",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Notion",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Déploiement",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Supplychain",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "Opérations",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Dashboard",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Framatome",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "IA",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Administratif",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Piano",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Arabe",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Autonomie",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Dessiner",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "IntelligenceCollective",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Rédaction",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Tennis",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Bière",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Écoute",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Allemand",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Football",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Cuisine",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Voyages",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Espagnol",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Anglais",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Parlerenpublic",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Photoshop",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Prospectioncommerciale",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Design",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Excel",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Gestiond'équipe",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "BusinessDevelopment",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Curiosité",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Communication",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Cinéma",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Événementiel",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "MontageVidéo",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Budgets",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Sport",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Organisation",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Portugais",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "JeuxVidéo",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "HTMLCSS",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Badminton",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Ingéniosité",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Volleyball",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Mentorat",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Adaptabilité",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "JeuxDeStratégie",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Javascript",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "RelationsPresse",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Sociologie",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "WebDesign",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Français",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "PowerPoint",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "GoogleDocs",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Gestiondeprojet",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "AnalyseDeData",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "MéthodesAgiles",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "WebMarketing",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "ContentMarketing",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "EmailMarketing",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Rugby",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Stratégie",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Python",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "DesignProduit",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Java",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "CinémaEngagé",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "CourseÀPied",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Marketingderéseau",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "EntrepriseLibérée",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Musique",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Astronomie",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "Freelance",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Gestiondescontrats",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "OrganisationAgile",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Psychologie",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "OAuth",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "RéinventerLesOrganisations",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "DataCentres",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "NodeJs",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Espritd'équipe",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "TransformationNumérique",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Stratégiescommerciales",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "ReactJs",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "ManagementduChangement",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "MarketingDigital",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "DesignThinking",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Logistique",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "SupportTechnique",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Loisirs",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Logiciels",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Pays",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "LangagesInformatique",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "IT",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Achats",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "BusinessIntelligence",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "Vente",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "TopManagement",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "SQL",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Marqueemployeur",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Développementlogiciels",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Publicité",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Gourmand·e",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Observationcritique",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Etudesdemarché",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "AutomationMarketing",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "DirectionRH",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "DesigndeService",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Avant-Vente",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Run(IT)",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Livraison(IT)",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Consommationgrandpublic",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Conceptiondesprocess",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Build(IT)",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Devops",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "DivertissementandMédias",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Transportferroviaire",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "OrangeS.A.",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "SociétéGénérale",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "LaPoste",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "ÉlectricitédeFrance",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Renault",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "GroupeBPCE",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Auchan",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Danone",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "AXA",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "CréditAgricole",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Peugeot",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Veolia",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "ChristianDior",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "SchneiderElectric",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "BNPParibas",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Engie",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "AirLiquide",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "GlobalSwitch",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Plongée",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Marque",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Coach",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "GoogleSheet",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Mode",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Institutions",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Utilisation",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Vinci",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Alstom",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Keolis",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "CEC",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "RATP",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "TotalS.A.",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "SNCF",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "LaPoste",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Michelin",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Carrefour",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Sanofi",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "L'Oréal",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "CreditAgricole",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "AirFrance",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "SaintGobain",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Bouygues",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Ericsson",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Eiffage",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Benetton",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Hubspot",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Améliorationcontinue",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "I-Expo",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Github",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "PullRequest",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Revuedecode",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Intégrationmail",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Droitsd'accès",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Airbus",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Thales",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Safran",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Nexter",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Ministèredesarmées",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Ministèredel’intérieur",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Navalgroup",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Quarkslab",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Airbushelicopters",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "AirbusDefence",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "ThalesAvionics",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "LIEBHERR",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Renaudtrucksdefense",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "LVMH",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Accenture",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Capgemini",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Dassault",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Essilor",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "STmicroelectronics",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "SOGECLAIR",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "ArianeGroup",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "PROMETHEE",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "ThalesAleniaSpace",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "MBDA",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "TARMACAEROSAVE",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Ouvry",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "AEROSPACEVALLEY",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "OUVRY",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "VERNEYCARON",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "AIRSEAS",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "APSYS",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "ARQUUS",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "CEA",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "ClusterECLIDE",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "DAHER",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "GICAT",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "HELISIM",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "CEGELECDEFENSE",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "PIERREFABRE",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "BOEING",
+    "strength": 0.7
+  },
+ 
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "SPHEREA",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "COLLINSAEROSPACE",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "AKKA",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Rotcshild",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "BouyguesConstruction",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "CNES",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "NLP",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Dovetail",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Sûreténucléaire",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Activedirectory",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "SIRH",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "DSI",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Répondreauxobjections",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Chartegraphique",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "SMR",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Sécurité",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Cybersécurité",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "KnowledgeLifecycle",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "LogRocket",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Model",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Upsell",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Customersuccess",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Sitevitrine",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Filtre",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "Superadmin",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Navigateur",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Chrome",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Firefox",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Safari",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Fonctionnalité",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Zoulou",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Langues",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Roadmap",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "Experts",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Formation",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Catalyseurs",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Entreprises",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "GlobalIndustrie",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "KnowledgeManagement",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Secteurdel'Energie",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Geosciences",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "ContentManagement",
+    "strength": 0.7
+  },
+
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "SLNEramet",
+    "strength": 0.7
+  },
+ 
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Surf",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Géologie",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "CRM",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "EDF",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "IntégrationTeams",
+    "strength": 0.7
+  },
+  
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Validation",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Slack",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "IntégrationSlack",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Russe",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "UXdesign",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "ACOVA",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Communicationinterne",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Questionposéeparmail",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Image",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "MicrosoftStore",
+    "strength": 0.7
+  },
+
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Jeuxderole",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Zapier",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "WelcometotheJungle",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Golf",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "ConceptionPédagogique",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "TikTok",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Théoriedesorganisations",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "Ingénieurprojet",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Plancheàvoile",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Santé",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Guitare",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Ski",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Horaires",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Relationclient",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "MQL",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "PrototypesFigma",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Interfaces",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "ÉvolutionsUXDesign",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Stonly",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "SendinBlue",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "POC/V",
+    "strength": 0.7
+  },
+
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Compliance",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Entrepriseapprenante",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Qualité",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Lancement",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Algorithmes",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "CegelecCEM",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Ordinateur",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Charteéditoriale",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Astrologie",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Navigation",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Mail",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Levéedefonds",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Appelàmanifestationd'intérêt",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "ConcoursStart-up",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "RechercheUtilisateur",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Export",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Intégration",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Onboarding",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Networking",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Statistiques",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "DiscoursdeClément",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "MobX",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "REX",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Beaudrey",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Déplacements",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "GoogleSlide",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Offredeprix",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Casd'usage",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Industrialisation",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Suivicommercial",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Managementdecompte",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Acquisition",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Prospect",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Opportunity",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Closing",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Client",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Démo",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "LinkedIn",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "SalesNavigator",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Rendez-vous",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Négociation",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "mongoDB",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Tunneldevente",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "RaiseLab",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Pricing",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "CGV",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "CarrefoursExcellences",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Gestiondecrise",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Chroniques",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Speaker",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "Administratrice",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Auteur",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Peinture",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Pointscritiques",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Trésorerie",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "OKR",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "ROI",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Guides",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Question",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "RessourcesHumaines",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Processusd'harmonisation",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Vision",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Centrederessources",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Gitdesbonnespratiques",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Concurrence",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Protectiondesdonnées",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "SQL",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Unaware",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "ProblemAware",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "SolutionAware",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "ProductAware",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Mappingdecompte",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Champion",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Pilote",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Sponsor",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Support",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Influenceur",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Sceptique",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Plateforme",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Plateformetechnique",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Plateformepolitique",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Plateformeméthodologique",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Plateformecommunautaire",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Livrables",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "LivrablesOps",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "LivrablesMarketing",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Appadmin",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Histoiresutilisateurs",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Casmétiers",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "One-pager",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Microprocess",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Tags",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "LiensdeParenté",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "DimensionsOntologiques",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Familles",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "ActivitéMétier",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Étapesd'onboarding",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Chemind'engagement",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "PersonaMarketing",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Fichepersona",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Serviceblueprint",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Chemind'engagementutilisateur",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Chemind'engagementcatalyseur",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "AwarenessFunnel",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "ProductLeadGrowth",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Salons",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Rituelsetprocessus",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Designresponsif",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Import/Export",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Pitchparty",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Accorddeconfidentialité",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Japonnais",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Certificat",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "SSL",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "SalesQL",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Suiteoffice",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Algorithmedetri",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Word",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Autocomplete",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "DataViz",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Django",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Segmentationd'images",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Ecritured'articlescientifique",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "AirbusAtlantic",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "GSK",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "AdobeLightroom",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "AdobeXD",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "VinciEnergies",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "PostgreSQL",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "Neo4j",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "QuickDBD",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "DjangoRestFramework",
+    "strength": 0.7
+  },
+  {
+    "target": "6331a2f025bd46004a6682c6",
+    "source": "jQuery",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "BouyguesByTech",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Vélo",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "MAO",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "RéseauDEF",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "SpieIndustrie",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "EiffageEnergieSystèmes",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "ManpowerGroup",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "CDCHabitats",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "ThalesAviobook",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "SNCFRéseau",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "SNCFDGEX",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "SpieNucléaire",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "TotalEnergiesOneTech",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "SNCFSferis",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "AFNOR",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "AutomotiveCellsCompany(ACC)",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Latécoère",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "Boccard",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "GeneralElectricAviation",
+    "strength": 0.7
+  },
+  {
+    "target": "630df63d08e5da0050dfe118",
+    "source": "Yoga",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "FormuleExcel",
+    "strength": 0.7
+  },
+  {
+    "target": "630dee2c08e5da0050d8009c",
+    "source": "Alternant",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "MEP",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Management",
+    "strength": 0.7
+  },
+  {
+    "target": "630df45b08e5da0050de5bc1",
+    "source": "KatieLeedeInc",
+    "strength": 0.7
+  },
+  {
+    "target": "630df43608e5da0050de3c94",
+    "source": "Marqueblanche",
+    "strength": 0.7
+  }
+]
+
+
+
+
+
+
+
+ 
+
+var nodes = [...baseNodes]
+var links = [...baseLinks]
+
+function getNeighbors(node) {
+  return baseLinks.reduce(function (neighbors, link) {
+      if (link.target.id === node.id) {
+        neighbors.push(link.source.id)
+      } else if (link.source.id === node.id) {
+        neighbors.push(link.target.id)
+      }
+      return neighbors
+    },
+    [node.id]
+  )
+}
+
+function isNeighborLink(node, link) {
+  return link.target.id === node.id || link.source.id === node.id
+}
+
+
+function getNodeColor(node, neighbors) {
+  if (Array.isArray(neighbors) && neighbors.indexOf(node.id) > -1) {
+   return node.level === 1 ? 'purple' : node.level === 2 ? 'pink'
+    : node.level === 3 ? 'pink' : node.level === 4 ? 'yellow' : node.level === 5 ? 'orange' 
+    : node.level === 7 ? 'brown': 'gray' }
+  
+
+  return node.level === 1 ? 'purple' : node.level === 2 ? 'pink'
+    : node.level === 3 ? 'pink' : node.level === 4 ? 'yellow' : node.level === 5 ? 'orange' 
+    : node.level === 7 ? 'brown': 'gray' }
+
+
+function getLinkColor(node, link) {
+  return isNeighborLink(node, link) ? 'grey' : '#E5E5E5'
+}
+
+function getTextColor(node, neighbors) {
+  return Array.isArray(neighbors) && neighbors.indexOf(node.id) > -1 ? 'black' : 'black'
+}
+
+var width = window.innerWidth
+var height = window.innerHeight
+
+var svg = d3.select('svg')
+svg.attr('width', width).attr('height', height)
+
+var linkElements,
+  nodeElements,
+  textElements
+
+// we use svg groups to logically group the elements together
+var linkGroup = svg.append('g').attr('class', 'links')
+var nodeGroup = svg.append('g').attr('class', 'nodes')
+var textGroup = svg.append('g').attr('class', 'texts')
+
+// we use this reference to select/deselect
+// after clicking the same element twice
+var selectedId
+
+// simulation setup with all forces
+var linkForce = d3
+  .forceLink()
+  .id(function (link) { return link.id })
+  .strength(function (link) { return link.strength })
+  
+
+var simulation = d3
+  .forceSimulation()
+  .force('link', linkForce)
+  .force('charge', d3.forceManyBody().strength(-12))
+  .force('center', d3.forceCenter(width / 2, height / 2))
+
+  var dragDrop = d3.drag().on('start', function (node) {
+  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+  node.fx = node.x;
+  node.fy = node.y;
+}).on('drag', function (node) {
+  node.fx = d3.event.x;
+  node.fy = d3.event.y;
+}).on('end', function (node) {
+  if (!d3.event.active) simulation.alphaTarget(0);
+  node.fx = null;
+  node.fy = null;
+});
+
+// select node is called on every click
+// we either update the data according to the selection
+// or reset the data if the same node is clicked twice
+function selectNode(selectedNode) {
+  if (selectedId === selectedNode.id) {
+    selectedId = undefined
+    resetData()
+    updateSimulation()
+  } else {
+    selectedId = selectedNode.id
+    updateData(selectedNode)
+    updateSimulation()
+  }
+
+  var neighbors = getNeighbors(selectedNode)
+
+  // we modify the styles to highlight selected nodes
+  nodeElements.attr('fill', function (node) { return getNodeColor(node, neighbors) })
+  textElements.attr('fill', function (node) { return getTextColor(node, neighbors) })
+  linkElements.attr('stroke', function (link) { return getLinkColor(selectedNode, link) })
+}
+
+// this helper simple adds all nodes and links
+// that are missing, to recreate the initial state
+function resetData() {
+  var nodeIds = nodes.map(function (node) { return node.id })
+
+  baseNodes.forEach(function (node) {
+    if (nodeIds.indexOf(node.id) === -1) {
+      nodes.push(node)
+    }
+  })
+
+  links = baseLinks
+}
+
+// diffing and mutating the data
+function updateData(selectedNode) {
+  var neighbors = getNeighbors(selectedNode)
+  var newNodes = baseNodes.filter(function (node) {
+    return neighbors.indexOf(node.id) > -1 || node.level === 1
+  })
+
+  var diff = {
+    removed: nodes.filter(function (node) { return newNodes.indexOf(node) === -1 }),
+    added: newNodes.filter(function (node) { return nodes.indexOf(node) === -1 })
+  }
+
+  diff.removed.forEach(function (node) { nodes.splice(nodes.indexOf(node), 1) })
+  diff.added.forEach(function (node) { nodes.push(node) })
+
+  links = baseLinks.filter(function (link) {
+    return link.target.id === selectedNode.id || link.source.id === selectedNode.id
+  })
+}
+
+function updateGraph() {
+  // links
+  linkElements = linkGroup.selectAll('line')
+    .data(links, function (link) {
+      return link.target.id + link.source.id
+    })
+
+  linkElements.exit().remove()
+
+  var linkEnter = linkElements
+    .enter().append('line')
+    .attr('stroke-width', 1)
+    .attr('stroke', 'rgba(50, 50, 50, 0.2)')
+
+  linkElements = linkEnter.merge(linkElements)
+
+  // nodes
+  nodeElements = nodeGroup.selectAll('circle')
+    .data(nodes, function (node) { return node.id })
+
+  nodeElements.exit().remove()
+
+  var nodeEnter = nodeElements
+    .enter()
+    .append('circle')
+    .attr('r', 10)
+    .attr('fill', function (node) { return node.level === 1 ? 'purple' : node.level === 2 ? 'pink'
+    : node.level === 3 ? 'pink' : node.level === 4 ? 'yellow' : node.level === 5 ? 'orange' 
+    : node.level === 7 ? 'brown': 'gray' })
+    .call(dragDrop)
+    // we link the selectNode method here
+    // to update the graph on every click
+    .on('click', selectNode)
+
+  nodeElements = nodeEnter.merge(nodeElements)
+
+  // texts
+  textElements = textGroup.selectAll('text')
+    .data(nodes, function (node) { return node.id })
+
+  textElements.exit().remove()
+
+  var textEnter = textElements
+    .enter()
+    .append('text')
+    .text(function (node) { return node.label })
+    .attr('font-size', 15)
+    .attr('dx', 15)
+    .attr('dy', 4)
+
+  textElements = textEnter.merge(textElements)
+}
+
+function updateSimulation() {
+  updateGraph()
+
+  simulation.nodes(nodes).on('tick', () => {
+    nodeElements
+      .attr('cx', function (node) { return node.x })
+      .attr('cy', function (node) { return node.y })
+    textElements
+      .attr('x', function (node) { return node.x })
+      .attr('y', function (node) { return node.y })
+    linkElements
+      .attr('x1', function (link) { return link.source.x })
+      .attr('y1', function (link) { return link.source.y })
+      .attr('x2', function (link) { return link.target.x })
+      .attr('y2', function (link) { return link.target.y })
+  })
+
+  simulation.force('link').links(links)
+  simulation.alphaTarget(0.7).restart()
+}
+
+// last but not least, we call updateSimulation
+// to trigger the initial render
+updateSimulation()
+
+
+
+// Sélectionne tous les nœuds de la page
+var nodes = document.querySelectorAll('circle');
+
+// Parcoure tous les nœuds et ajoute un gestionnaire d'événements "click" à chaque nœud
+for (var i = 0; i < nodes.length; i++) {
+  nodes[i].addEventListener('click', function(e) {
+    // Récupérez le nom du noeud
+    var nodeName = e.target.nodeName;
+    
+    // Crée une nouvelle div pour la fenêtre pop-up
+    var popup = document.createElement('div');
+    popup.classList.add('popup');
+    
+    // Ajoute le nom du noeud dans la pop-up
+    var popupContent = document.createElement('p');
+    popupContent.textContent = "Node: " + nodeName;
+    popup.appendChild(popupContent);
+    
+// Ajoute un bouton pour fermer la pop-up
+var closeBtn = document.createElement('img');
+closeBtn.classList.add('close-btn');
+closeBtn.setAttribute('src', 'croix_fermer_popup.png');
+closeBtn.addEventListener('click', function() {
+  if (activePopup) {
+        activePopup.remove();
+      }
+});
+
+// Ajoute des styles CSS pour le bouton de fermeture
+closeBtn.style.position = 'absolute';
+closeBtn.style.top = '2px';
+closeBtn.style.right = '2px';
+closeBtn.style.cursor = 'pointer';
+closeBtn.style.width = '20%';
+    // Stocke la référence de la pop-up active
+    activePopup = popup;
+popup.appendChild(closeBtn);
+    
+    // Ajoute la div à la page
+    document.body.appendChild(popup);
+    
+    // Positionne la pop-up à l'endroit du curseur
+    popup.style.left = (e.pageX + 10) + 'px';
+    popup.style.top = (e.pageY + 10) + 'px';
+    
+    // Affiche la pop-up
+    popup.style.display = 'block';
+    
+  });
+
+}
+
+</script>
+
+
+
+</body>
